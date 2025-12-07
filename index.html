@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakula Fast - 15 Minutes au Free! | Home-Cooked Food in Dar es salaam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Chakula Haraka - Nyama Choma in 30 Minutes! | Dar es Salaam Fast Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -13,10 +13,20 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --tanzania-green: #1EB53A;
+            --tanzania-blue: #00A3DD;
+            --tanzania-black: #000000;
+            --tanzania-yellow: #FCD116;
+            --spice-red: #E63946;
+            --white: #FFFFFF;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e6f7ff 100%);
         }
 
         .container {
@@ -25,20 +35,30 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Tanzanian Flag Header */
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(90deg, 
+                var(--tanzania-green) 0%, 
+                var(--tanzania-green) 25%, 
+                var(--tanzania-blue) 25%, 
+                var(--tanzania-blue) 50%, 
+                var(--tanzania-black) 50%, 
+                var(--tanzania-black) 75%, 
+                var(--tanzania-yellow) 75%, 
+                var(--tanzania-yellow) 100%);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 5px 20px;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,342 +67,469 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
         }
 
-        .logo-img {
+        .logo-flag {
+            width: 40px;
             height: 40px;
-            width: auto;
+            background: linear-gradient(45deg, 
+                var(--tanzania-green) 0%, 
+                var(--tanzania-blue) 33%, 
+                var(--tanzania-black) 66%, 
+                var(--tanzania-yellow) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .logo-text {
-            font-size: 1.5rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #e63946;
+            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-menu a {
             text-decoration: none;
-            color: #333;
+            color: var(--tanzania-black);
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 5px 15px;
+            border-radius: 25px;
         }
 
         .nav-menu a:hover {
-            color: #e63946;
+            background: var(--tanzania-green);
+            color: var(--white);
+            transform: translateY(-2px);
         }
 
         .language-switch {
             display: flex;
             gap: 5px;
-            margin-left: 1rem;
+            margin-left: 2rem;
+            border-left: 2px solid #ddd;
+            padding-left: 1rem;
         }
 
         .lang-btn {
-            padding: 5px 15px;
-            border: 2px solid #e63946;
+            padding: 8px 20px;
+            border: 2px solid var(--tanzania-green);
             background: none;
             cursor: pointer;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 25px;
             transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
         .lang-btn.active {
-            background: #e63946;
+            background: var(--tanzania-green);
             color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(30, 181, 58, 0.1);
         }
 
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
+            gap: 4px;
         }
 
         .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
+            width: 30px;
+            height: 4px;
+            background: var(--tanzania-green);
+            border-radius: 2px;
             transition: 0.3s;
         }
 
-        /* Hero Section */
+        /* Hero Section with Bongo Flava */
         .hero {
-            padding: 8rem 20px 4rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            min-height: 100vh;
+            padding: 10rem 20px 5rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1543353074-8c5e06d16f7c?w=1600&auto=format&fit=crop') center/cover;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🇹🇿";
+            font-size: 10rem;
+            position: absolute;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         .hero-content {
-            flex: 1;
-            max-width: 600px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            color: #2a2a2a;
-            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .highlight {
+            color: var(--tanzania-yellow);
+            text-shadow: 0 0 10px rgba(252, 209, 22, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #555;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
-        .hero-image {
-            flex: 1;
-            max-width: 500px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Button Styles */
+        /* Button Styles - Bongo Style */
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: #e63946;
+            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
             color: white;
+            box-shadow: 0 5px 15px rgba(30, 181, 58, 0.4);
         }
 
         .btn-primary:hover {
-            background: #d32f2f;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(30, 181, 58, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #e63946;
-            border: 2px solid #e63946;
+            color: var(--tanzania-yellow);
+            border: 2px solid var(--tanzania-yellow);
         }
 
         .btn-secondary:hover {
-            background: #e63946;
-            color: white;
+            background: var(--tanzania-yellow);
+            color: var(--tanzania-black);
+            transform: translateY(-3px);
         }
 
         .btn-small {
-            padding: 8px 20px;
+            padding: 10px 25px;
             font-size: 0.9rem;
         }
 
-        /* About Section */
-        .about {
+        /* Specialties Section - Tanzanian Food */
+        .specialties {
             padding: 5rem 20px;
             background: white;
         }
 
-        .about h2 {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2a2a2a;
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            color: var(--tanzania-black);
+            position: relative;
         }
 
-        .about > .container > p {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #666;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
+            border-radius: 2px;
         }
 
-        .about-grid {
+        .food-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
-        .about-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: transform 0.3s;
-        }
-
-        .about-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .about-item i {
-            font-size: 3rem;
-            color: #e63946;
-            margin-bottom: 1rem;
-        }
-
-        .about-item h3 {
-            margin-bottom: 1rem;
-            color: #2a2a2a;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 20px;
-            background: #f8f9fa;
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2a2a2a;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
+        .food-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
         }
 
-        .service-card:hover {
+        .food-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(30, 181, 58, 0.2);
         }
 
-        .service-card img {
+        .food-card img {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: cover;
         }
 
-        .service-card h3 {
-            padding: 1rem 1rem 0.5rem;
-            color: #2a2a2a;
+        .food-card h3 {
+            padding: 1.5rem 1.5rem 0.5rem;
+            color: var(--tanzania-black);
+            font-size: 1.4rem;
         }
 
-        .service-card p {
-            padding: 0 1rem;
+        .food-card p {
+            padding: 0 1.5rem;
             color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
         .price {
             display: block;
-            padding: 0 1rem;
-            font-size: 1.5rem;
+            padding: 0 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #e63946;
-            margin: 0.5rem 0;
+            color: var(--spice-red);
+            margin: 0.5rem 0 1.5rem;
         }
 
-        .service-card .btn {
-            margin: 1rem;
-            display: block;
+        .food-card .btn {
+            margin: 0 1.5rem 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--tanzania-yellow);
+            color: var(--tanzania-black);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        /* How It Works - Dar Style */
+        .how-it-works {
+            padding: 5rem 20px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
             text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: relative;
         }
 
-        /* Contact Section */
-        .contact {
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .step i {
+            font-size: 3rem;
+            color: var(--tanzania-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .step h3 {
+            margin-bottom: 1rem;
+            color: var(--tanzania-black);
+        }
+
+        /* Coverage Areas - Dar es Salaam */
+        .coverage {
             padding: 5rem 20px;
             background: white;
         }
 
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2a2a2a;
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .contact > .container > p {
+        .area {
+            background: var(--tanzania-green);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
             text-align: center;
-            margin-bottom: 3rem;
-            color: #666;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .area:hover {
+            background: var(--tanzania-blue);
+            transform: scale(1.05);
+        }
+
+        .area i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section - Bongo Style */
+        .contact {
+            padding: 5rem 20px;
+            background: linear-gradient(135deg, var(--tanzania-green) 0%, var(--tanzania-blue) 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-title::after {
+            background: var(--tanzania-yellow);
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            margin-top: 3rem;
         }
 
         .contact-info {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-info h3 {
             margin-bottom: 1.5rem;
-            color: #2a2a2a;
+            font-size: 1.5rem;
         }
 
         .contact-info p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.1rem;
         }
 
         .contact-info i {
-            color: #e63946;
-            width: 20px;
+            color: var(--tanzania-yellow);
+            width: 25px;
+            font-size: 1.2rem;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
         }
 
-        .contact-form button {
-            align-self: flex-start;
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Footer */
+        .contact-form button {
+            width: 100%;
+            background: var(--tanzania-yellow);
+            color: var(--tanzania-black);
+            font-weight: 600;
+        }
+
+        /* Footer - Tanzanian Pride */
         .footer {
-            background: #2a2a2a;
+            background: var(--tanzania-black);
             color: white;
             padding: 3rem 20px;
             text-align: center;
@@ -392,38 +539,72 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-yellow), var(--tanzania-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .social-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            font-size: 1.3rem;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            color: #e63946;
+            background: var(--tanzania-green);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+            text-decoration: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 6rem;
-            }
-            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
-            .hero-buttons {
-                justify-content: center;
+            .section-title {
+                font-size: 2.3rem;
             }
         }
 
@@ -434,70 +615,79 @@
             
             .nav-menu {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: -100%;
                 flex-direction: column;
                 background: white;
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 27px rgba(0,0,0,0.1);
                 padding: 2rem 0;
                 gap: 1.5rem;
+                z-index: 999;
             }
             
             .nav-menu.active {
                 left: 0;
             }
             
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
+            .language-switch {
+                border: none;
+                padding: 0;
+                margin: 1rem 0 0;
             }
             
-            .hamburger.active span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+            .hero {
+                padding: 8rem 20px 3rem;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            .about h2,
-            .services h2,
-            .contact h2 {
-                font-size: 2rem;
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header with Tanzanian Colors -->
     <header class="header">
         <nav class="navbar">
-            <div class="nav-container">
-                <div class="logo">
-                    <!-- Add your logo image in assets folder or use this placeholder -->
-                    <div class="logo-img" style="width: 40px; height: 40px; background: #e63946; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">CF</div>
-                    <span class="logo-text">Chakula Fast</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Menu</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="language-switch">
-                        <button id="swahiliBtn" class="lang-btn">SW</button>
-                        <button id="englishBtn" class="lang-btn active">EN</button>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+            <div class="container">
+                <div class="nav-container">
+                    <div class="logo">
+                        <div class="logo-flag">🇹🇿</div>
+                        <span class="logo-text">CHAKULA HARAKA</span>
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Nyumbani</a></li>
+                        <li><a href="#specialties">Vyakula</a></li>
+                        <li><a href="#how">Jinsi Inavyofanya Kazi</a></li>
+                        <li><a href="#coverage">Maeneo</a></li>
+                        <li><a href="#contact">Mawasiliano</a></li>
+                        <li class="language-switch">
+                            <button id="swahiliBtn" class="lang-btn active">KISWAHILI</button>
+                            <button id="englishBtn" class="lang-btn">ENGLISH</button>
+                        </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -506,84 +696,206 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="lang-en">Chakula Fast: Food in 15 Minutes or Free!</h1>
-            <h1 class="lang-sw" style="display: none;">Chakula Fast: Chakula kwa Dakika 15 au Bure!</h1>
-            <p class="lang-en">Order home-cooked meals from local Mama Lishe in Dar es salaam. Fresh ugali, kuku kienyeji, chips mwitu – delivered by boda in under 15 min or it's FREE!</p>
-            <p class="lang-sw" style="display: none;">Pikia vyakula vya nyumbani kutoka kwa Mama Lishe wa mitaani. Ugali safi, kuku kienyeji, chips mwitu – kwasafirishwa na bodaboda ndani ya dakika 15 au ni BURE!</p>
+            <h1>
+                <span class="lang-en">NYAMA CHOMA in <span class="highlight">30 MINUTES</span><br>or it's <span class="highlight">FREE</span>!</span>
+                <span class="lang-sw" style="display: none;">NYAMA CHOMA ndani ya <span class="highlight">DAKIKA 30</span><br>au ni <span class="highlight">BURE</span>!</span>
+            </h1>
+            <p class="lang-en">
+                Taste the authentic flavors of Tanzania! From sizzling nyama choma at Posta to fresh seafood from Kivukoni, 
+        we deliver Bongo's best street food to your doorstep. Powered by bajajis for that true Dar experience!
+            </p>
+            <p class="lang-sw" style="display: none;">
+                Onja ladha halisi ya Tanzania! Kutoka nyama choma inayokoroga Posta hadi seafood safi kutoka Kivukoni, 
+                tunawasilisha vyakula bora vya mitaani vya Bongo mlangoni mwako. Inaendeshwa na bajaji kwa uzoefu wa kweli wa Dar!
+            </p>
             <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary lang-en">Order Now</a>
-                <a href="#services" class="btn btn-primary lang-sw" style="display: none;">Pikia Sasa</a>
-                <a href="#contact" class="btn btn-secondary lang-en">WhatsApp Us</a>
-                <a href="#contact" class="btn btn-secondary lang-sw" style="display: none;">WhatsApp</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop" alt="Delicious Kenyan Food">
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="lang-en">About Chakula Fast</h2>
-            <h2 class="lang-sw" style="display: none;">Kuhusu Chakula Fast</h2>
-            <p class="lang-en">We're connecting Nairobi's best Mama Lishe with hungry customers. No more slow deliveries – just fast, affordable, home-cooked chakula. Starting in Kilimani, Ngong Road, and Westlands.</p>
-            <p class="lang-sw" style="display: none;">Tunaunganisha Mama Lishe bora za Nairobi na wateja wenye njaa. Hakuna usafirishaji wa polepole tena – ni chakula cha haraka, cha bei nafuu, cha nyumbani. Tumeanzia Kilimani, Ngong Road, na Westlands.</p>
-            <div class="about-grid">
-                <div class="about-item">
-                    <i class="fas fa-clock"></i>
-                    <h3 class="lang-en">15-Min Guarantee</h3>
-                    <h3 class="lang-sw" style="display: none;">Hakikishi ya Dakika 15</h3>
-                    <p class="lang-en">Or your order is free. Boda-powered for zero traffic excuses.</p>
-                    <p class="lang-sw" style="display: none;">Au oda yako ni bure. Inatumia bodaboda kupunguza msongamano wa magari.</p>
-                </div>
-                <div class="about-item">
-                    <i class="fas fa-home"></i>
-                    <h3 class="lang-en">Mama Lishe Focus</h3>
-                    <h3 class="lang-sw" style="display: none;">Kuzingatia Mama Lishe</h3>
-                    <p class="lang-en">Real home cooks, vibanda favorites: mutura, sukuma, pilau.</p>
-                    <p class="lang-sw" style="display: none;">Wapishi wa nyumbani wa kweli, vyakula vya vibanda: mutura, sukuma, pilau.</p>
-                </div>
-                <div class="about-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3 class="lang-en">M-Pesa Only</h3>
-                    <h3 class="lang-sw" style="display: none;">M-Pesa Pekee</h3>
-                    <p class="lang-en">Easy payments for every Kenyan. No cards needed.</p>
-                    <p class="lang-sw" style="display: none;">Malipo rahisi kwa kila Mkenya. Hakuna kadi zinahitajika.</p>
-                </div>
+                <a href="#specialties" class="btn btn-primary">
+                    <i class="fas fa-fire"></i>
+                    <span class="lang-en">ORDER NOW</span>
+                    <span class="lang-sw" style="display: none;">PEEKIA SASA</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="lang-en">WHATSAPP TU</span>
+                    <span class="lang-sw" style="display: none;">TUWHATSUP</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Services/Menu Section -->
-    <section id="services" class="services">
+    <!-- Tanzanian Specialties Section -->
+    <section id="specialties" class="specialties">
         <div class="container">
-            <h2 class="lang-en">Today's Menu from Mama Lishe</h2>
-            <h2 class="lang-sw" style="display: none;">Menu ya Leo kutoka kwa Mama Lishe</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1593253784678-9ed4f5f07f22?w=400&auto=format&fit=crop" alt="Ugali + Kuku">
-                    <h3>Mama Fatuma - Kilimani</h3>
-                    <p>Ugali + Kuku Kienyeji + Sukuma</p>
+            <h2 class="section-title">
+                <span class="lang-en">DAR'S FAVORITES</span>
+                <span class="lang-sw" style="display: none;">VIPENDAVYO VYA DAR</span>
+            </h2>
+            <p class="lang-en" style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                Straight from the streets of Dar es Salaam to your plate
+            </p>
+            <p class="lang-sw" style="display: none; text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                Moja kwa moja kutoka mitaani ya Dar es Salaam hadi sahani yako
+            </p>
+            
+            <div class="food-grid">
+                <!-- Nyama Choma Special -->
+                <div class="food-card">
+                    <div class="popular-tag">MOST POPULAR</div>
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" alt="Nyama Choma">
+                    <h3>Baba Lameck's Nyama Choma</h3>
+                    <p class="lang-en">½ kg BBQ beef, kachumbari, ugali, and mshikaki sticks</p>
+                    <p class="lang-sw" style="display: none;">½ kg nyama ya ng'ombe ya kuchoma, kachumbari, ugali, na mshikaki</p>
+                    <span class="price">TSh 15,000</span>
+                    <a href="https://wa.me/255747193972?text=Nataka%20Nyama%20Choma%20ya%20Baba%20Lameck" class="btn btn-small btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-en">ORDER</span>
+                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+                    </a>
+                </div>
+
+                <!-- Zanzibar Mix -->
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1563379926898-64b5c5c05c5a?w=400&auto=format&fit=crop" alt="Zanzibar Pizza">
+                    <h3>Zanzibar Mix Plate</h3>
+                    <p class="lang-en">Chicken biryani, mahamri, samosa, mkate wa kumimina</p>
+                    <p class="lang-sw" style="display: none;">Biryani ya kuku, mahamri, samosa, mkate wa kumimina</p>
+                    <span class="price">TSh 12,500</span>
+                    <a href="https://wa.me/255747193972?text=Nataka%20Zanzibar%20Mix%20Plate" class="btn btn-small btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-en">ORDER</span>
+                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+                    </a>
+                </div>
+
+                <!-- Coastal Seafood -->
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Seafood">
+                    <h3>Kivukoni Seafood Feast</h3>
+                    <p class="lang-en">Fresh prawns, calamari, fish fry with coconut rice</p>
+                    <p class="lang-sw" style="display: none;">Kamba safi, ngisi, samaki wa kukaanga na wali wa nazi</p>
+                    <span class="price">TSh 18,000</span>
+                    <a href="https://wa.me/255747193972?text=Nataka%20Kivukoni%20Seafood%20Feast" class="btn btn-small btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-en">ORDER</span>
+                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+                    </a>
+                </div>
+
+                <!-- Street Food Combo -->
+                <div class="food-card">
+                    <div class="popular-tag">STREET SPECIAL</div>
+                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" alt="Street Food">
+                    <h3>Bongo Street Combo</h3>
+                    <p class="lang-en">Chips mayai, mishikaki 2, maandazi 3 & tangawizi juice</p>
+                    <p class="lang-sw" style="display: none;">Chips mayai, mishikaki 2, maandazi 3 & juisi ya tangawizi</p>
                     <span class="price">TSh 8,500</span>
-                    <a href="https://wa.me/255747193972?text=I want Ugali + Kuku from Mama Fatuma" class="btn btn-small lang-en">Order via WhatsApp</a>
-                    <a href="https://wa.me/255747193972?text=Nataka Ugali + Kuku kutoka kwa Mama Fatuma" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
+                    <a href="https://wa.me/255747193972?text=Nataka%20Bongo%20Street%20Combo" class="btn btn-small btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-en">ORDER</span>
+                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+                    </a>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Chips Mwitu">
-                    <h3>Mama Njeri - Ngong Road</h3>
-                    <p>Chips Mwitu + Kachumbari + Smokie</p>
-                    <span class="price">TSh 3,500</span>
-                    <a href="https://wa.me/255747193972?text=I want Chips from Mama Njeri" class="btn btn-small lang-en">Order via WhatsApp</a>
-                    <a href="https://wa.me/255747193972?text=Nataka Chips kutoka kwa Mama Njeri" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Dar es Salaam Style -->
+    <section id="how" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">HOW IT WORKS IN DAR</span>
+                <span class="lang-sw" style="display: none;">JINSI INAVYOFANYA KAZI DAR</span>
+            </h2>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3 class="lang-en">WhatsApp Order</h3>
+                    <h3 class="lang-sw" style="display: none;">Peekia kupitia WhatsApp</h3>
+                    <p class="lang-en">Send "NAKUPENDA CHAKULA" to +255 747 193 972</p>
+                    <p class="lang-sw" style="display: none;">Tuma "NAKUPENDA CHAKULA" kwa +255 747 193 972</p>
                 </div>
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1563379926899-1d7a7d6df6e6?w=400&auto=format&fit=crop" alt="Pilau">
-                    <h3>Mama Amina - Westlands</h3>
-                    <p>Pilau + Nyama Choma</p>
-                    <span class="price">TSh 10,500</span>
-                    <a href="https://wa.me/255747193972?text=I want Pilau from Mama Amina" class="btn btn-small lang-en">Order via WhatsApp</a>
-                    <a href="https://wa.me/255747193972?text=Nataka Pilau kutoka kwa Mama Amina" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-bolt"></i>
+                    <h3 class="lang-en">Bajaji Pickup</h3>
+                    <h3 class="lang-sw" style="display: none;">Bajaji Inachukua</h3>
+                    <p class="lang-en">Our Bajaji warriors collect from street vendors</p>
+                    <p class="lang-sw" style="display: none;">Wapiganaji wetu wa bajaji wanachukua kutoka kwa wauzaji wa mitaani</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3 class="lang-en">30-Min Delivery</h3>
+                    <h3 class="lang-sw" style="display: none">Wasilishaji wa Dakika 30</h3>
+                    <p class="lang-en">Guaranteed delivery or your meal is FREE</p>
+                    <p class="lang-sw" style="display: none">Hakikishi ya wasilishaji au chakula chako ni BURE</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3 class="lang-en">M-Pesa Payment</h3>
+                    <h3 class="lang-sw" style="display: none">Malipo ya M-Pesa</h3>
+                    <p class="lang-en">Pay after delivery - Cash or M-Pesa accepted</p>
+                    <p class="lang-sw" style="display: none">Lipa baada ya kufika - Fedha taslimu au M-Pesa zinakubaliwa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Areas in Dar es Salaam -->
+    <section id="coverage" class="coverage">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="lang-en">WE COVER DAR</span>
+                <span class="lang-sw" style="display: none">TUNAFIKIA DAR</span>
+            </h2>
+            
+            <div class="areas-grid">
+                <div class="area">
+                    <i class="fas fa-city"></i>
+                    <h4>Kariakoo</h4>
+                    <p class="lang-en">Street food capital</p>
+                    <p class="lang-sw" style="display: none">Mji mkuu wa vyakula vya mitaani</p>
+                </div>
+                
+                <div class="area">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <h4>Masaki</h4>
+                    <p class="lang-en">Upscale deliveries</p>
+                    <p class="lang-sw" style="display: none">Wasilishaji wa hali ya juu</p>
+                </div>
+                
+                <div class="area">
+                    <i class="fas fa-university"></i>
+                    <h4>Posta</h4>
+                    <p class="lang-en">Business district</p>
+                    <p class="lang-sw" style="display: none">Eneo la biashara</p>
+                </div>
+                
+                <div class="area">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Ubungo</h4>
+                    <p class="lang-en">Student zone</p>
+                    <p class="lang-sw" style="display: none">Eneo la wanafunzi</p>
+                </div>
+                
+                <div class="area">
+                    <i class="fas fa-ship"></i>
+                    <h4>Kivukoni</h4>
+                    <p class="lang-en">Seafood special</p>
+                    <p class="lang-sw" style="display: none">Maalum ya seafood</p>
+                </div>
+                
+                <div class="area">
+                    <i class="fas fa-home"></i>
+                    <h4>Mbezi Beach</h4>
+                    <p class="lang-en">Residential areas</p>
+                    <p class="lang-sw" style="display: none">Maeneo ya makazi</p>
                 </div>
             </div>
         </div>
@@ -592,28 +904,58 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="lang-en">Get in Touch</h2>
-            <h2 class="lang-sw" style="display: none;">Wasiliana Nasi</h2>
-            <p class="lang-en">Ready to order or join as a Mama Lishe? Message us!</p>
-            <p class="lang-sw" style="display: none;">Tayari kupikia au kujiunga kama Mama Lishe? Tupigie ujumbe!</p>
+            <h2 class="section-title">
+                <span class="lang-en">CONTACT US</span>
+                <span class="lang-sw" style="display: none">WASILIANA NASI</span>
+            </h2>
+            
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3 class="lang-en">Contact Info</h3>
-                    <h3 class="lang-sw" style="display: none;">Taarifa ya Mawasiliano</h3>
-                    <p><i class="fas fa-phone"></i> +255 747 193 972</p>
+                    <h3>
+                        <span class="lang-en">BONGO CONNECT</span>
+                        <span class="lang-sw" style="display: none">TUUNGANE BONGO</span>
+                    </h3>
+                    <p><i class="fas fa-phone-alt"></i> +255 747 193 972</p>
                     <p><i class="fas fa-envelope"></i> mpembenzelu@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp Orders: +255 747 193 972</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +255 747 193 972</p>
+                    <p><i class="fas fa-clock"></i>
+                        <span class="lang-en">Open: 24/7 Street Food Service</span>
+                        <span class="lang-sw" style="display: none">Wazi: Huduma ya vyakula vya mitaani 24/7</span>
+                    </p>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required class="lang-en" id="name">
-                    <input type="text" placeholder="Jina Lako" required class="lang-sw" style="display: none;" id="name-sw">
-                    <input type="tel" placeholder="Your Phone (M-Pesa)" required class="lang-en" id="phone">
-                    <input type="tel" placeholder="Simu Yako (M-Pesa)" required class="lang-sw" style="display: none;" id="phone-sw">
-                    <textarea placeholder="Your Message" rows="5" required class="lang-en" 
-                        <textarea placeholder="Ujumbe Wako" rows="5" required class="lang-sw" style="display: none;" id="message-sw"></textarea>
-                    <button type="submit" class="btn btn-primary lang-en">Send Message</button>
-                    <button type="submit" class="btn btn-primary lang-sw" style="display: none;">Tuma Ujumbe</button>
+                
+                <form class="contact-form" id="orderForm">
+                    <select id="orderType" class="lang-en">
+                        <option value="">I want to order...</option>
+                        <option value="nyama_choma">Nyama Choma Special</option>
+                        <option value="zanzibar_mix">Zanzibar Mix</option>
+                        <option value="seafood">Kivukoni Seafood</option>
+                        <option value="street_combo">Bongo Street Combo</option>
+                    </select>
+                    
+                    <select id="orderTypeSw" class="lang-sw" style="display: none;">
+                        <option value="">Nataka kuipeekia...</option>
+                        <option value="nyama_choma">Nyama Choma Maalum</option>
+                        <option value="zanzibar_mix">Zanzibar Mix</option>
+                        <option value="seafood">Seafood ya Kivukoni</option>
+                        <option value="street_combo">Bongo Street Combo</option>
+                    </select>
+                    
+                    <input type="text" placeholder="Your Name" id="name" class="lang-en" required>
+                    <input type="text" placeholder="Jina Lako" id="nameSw" class="lang-sw" style="display: none;" required>
+                    
+                    <input type="tel" placeholder="Your Phone (M-Pesa)" id="phone" class="lang-en" required>
+                    <input type="tel" placeholder="Simu Yako (M-Pesa)" id="phoneSw" class="lang-sw" style="display: none;" required>
+                    
+                    <textarea placeholder="Special Instructions / Delivery Address" rows="3" id="instructions" class="lang-en"></textarea>
+                    <textarea placeholder="Maagizo Maalum / Anwani ya Wasilishaji" rows="3" id="instructionsSw" class="lang-sw" style="display: none;"></textarea>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-en">SEND VIA WHATSAPP</span>
+                        <span class="lang-sw" style="display: none;">TUMA KUPITIA WHATSAPP</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -622,13 +964,26 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="lang-en">&copy; 2025 Chakula Fast. Dar es Salaam, Tanzania. Eat Fast, Eat Fresh!</p>
-            <p class="lang-sw" style="display: none;">&copy; 2025 Chakula Fast. Dar es Salaam, Tanzania. Kula Haraka, Kula Safi!</p>
+            <div class="footer-logo">CHAKULA HARAKA</div>
+            <p class="lang-en">
+                Taste the streets of Dar es Salaam! 🇹🇿<br>
+                Nyama Choma • Seafood • Street Food • 30-Minute Guarantee
+            </p>
+            <p class="lang-sw" style="display: none;">
+                Onja mitaani ya Dar es Salaam! 🇹🇿<br>
+                Nyama Choma • Seafood • Vyakula vya Mitaani • Hakikishi ya Dakika 30
+            </p>
+            
             <div class="social-links">
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
                 <a href="https://wa.me/255747193972" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
+            
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                © 2025 Chakula Haraka | Dar es Salaam, Tanzania | Bongo Flava Food Delivery
+            </p>
         </div>
     </footer>
 
@@ -661,93 +1016,93 @@
                 englishElements.forEach(el => el.style.display = 'none');
                 swahiliBtn.classList.add('active');
                 englishBtn.classList.remove('active');
-                // Update form placeholders
-                document.getElementById('name').value = '';
-                document.getElementById('phone').value = '';
-                document.getElementById('message').value = '';
+                document.title = "Chakula Haraka - Nyama Choma kwa Dakika 30! | Dar es Salaam";
             } else {
                 swahiliElements.forEach(el => el.style.display = 'none');
                 englishElements.forEach(el => el.style.display = 'block' || 'inline-block');
                 englishBtn.classList.add('active');
                 swahiliBtn.classList.remove('active');
-                // Update form placeholders
-                document.getElementById('name-sw').value = '';
-                document.getElementById('phone-sw').value = '';
-                document.getElementById('message-sw').value = '';
+                document.title = "Chakula Haraka - Nyama Choma in 30 Minutes! | Dar es Salaam Fast Food Delivery";
             }
         }
 
         swahiliBtn.addEventListener('click', () => switchLanguage('sw'));
         englishBtn.addEventListener('click', () => switchLanguage('en'));
 
-        // Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function(e) {
+        // WhatsApp Order Form
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data based on current language
-            const currentLang = englishBtn.classList.contains('active') ? 'en' : 'sw';
-            let name, phone, message;
+            const isSwahili = swahiliBtn.classList.contains('active');
+            let name, phone, foodType, instructions;
             
-            if (currentLang === 'en') {
+            if (isSwahili) {
+                name = document.getElementById('nameSw').value;
+                phone = document.getElementById('phoneSw').value;
+                foodType = document.getElementById('orderTypeSw').value;
+                instructions = document.getElementById('instructionsSw').value;
+            } else {
                 name = document.getElementById('name').value;
                 phone = document.getElementById('phone').value;
-                message = document.getElementById('message').value;
-            } else {
-                name = document.getElementById('name-sw').value;
-                phone = document.getElementById('phone-sw').value;
-                message = document.getElementById('message-sw').value;
+                foodType = document.getElementById('orderType').value;
+                instructions = document.getElementById('instructions').value;
             }
             
-            // Prepare WhatsApp message
-            const whatsappMessage = `Hello Chakula Fast!%0A%0AName: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
-            const whatsappUrl = `https://wa.me/255747193972?text=${whatsappMessage}`;
+            if (!foodType) {
+                alert(isSwahili ? 'Tafadhali chagua chakula!' : 'Please select a food item!');
+                return;
+            }
             
-            // Open WhatsApp with the message
+            // Food names mapping
+            const foodNames = {
+                'nyama_choma': isSwahili ? 'Nyama Choma Maalum' : 'Nyama Choma Special',
+                'zanzibar_mix': isSwahili ? 'Zanzibar Mix' : 'Zanzibar Mix',
+                'seafood': isSwahili ? 'Seafood ya Kivukoni' : 'Kivukoni Seafood',
+                'street_combo': isSwahili ? 'Bongo Street Combo' : 'Bongo Street Combo'
+            };
+            
+            const message = `JAMBO CHAKULA HARAKA! 🇹🇿%0A%0A` +
+                           `${isSwahili ? 'Nataka kupeekia:' : 'I want to order:'} ${foodNames[foodType]}%0A%0A` +
+                           `${isSwahili ? 'Jina:' : 'Name:'} ${name}%0A` +
+                           `${isSwahili ? 'Simu:' : 'Phone:'} ${phone}%0A` +
+                           `${isSwahili ? 'Maagizo:' : 'Instructions:'} ${instructions || 'Hakuna'}`;
+            
+            const whatsappUrl = `https://wa.me/255747193972?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
-            
-            // Show success message
-            if (currentLang === 'en') {
-                alert('Thank you! Opening WhatsApp to send your message...');
-            } else {
-                alert('Asante! Inafungua WhatsApp kutumia ujumbe wako...');
-            }
             
             // Reset form
             this.reset();
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
-                
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    e.preventDefault();
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Initialize with English language
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('en');
+            switchLanguage('sw'); // Start with Swahili for Tanzanian authenticity
             
-            // Add image loading error handling
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    this.style.display = 'none';
-                });
-            });
+            // Add floating WhatsApp message
+            setTimeout(() => {
+                if (confirm("Karibu Chakula Haraka! Unataka kupeekia chakula?")) {
+                    document.querySelector('.whatsapp-float').click();
+                }
+            }, 3000);
         });
     </script>
 </body>
 </html>
-    
