@@ -4,9 +4,475 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chakula Fast - 15 Minutes au Free! | Home-Cooked Food in Nairobi</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #e63946;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 5px;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 5px 15px;
+            border: 2px solid #e63946;
+            background: none;
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: #e63946;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 20px 4rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #2a2a2a;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #e63946;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d32f2f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e63946;
+            border: 2px solid #e63946;
+        }
+
+        .btn-secondary:hover {
+            background: #e63946;
+            color: white;
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 20px;
+            background: white;
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2a2a2a;
+        }
+
+        .about > .container > p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s;
+        }
+
+        .about-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-item i {
+            font-size: 3rem;
+            color: #e63946;
+            margin-bottom: 1rem;
+        }
+
+        .about-item h3 {
+            margin-bottom: 1rem;
+            color: #2a2a2a;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 20px;
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2a2a2a;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            padding: 1rem 1rem 0.5rem;
+            color: #2a2a2a;
+        }
+
+        .service-card p {
+            padding: 0 1rem;
+            color: #666;
+        }
+
+        .price {
+            display: block;
+            padding: 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e63946;
+            margin: 0.5rem 0;
+        }
+
+        .service-card .btn {
+            margin: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 20px;
+            background: white;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2a2a2a;
+        }
+
+        .contact > .container > p {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #666;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: #2a2a2a;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: #e63946;
+            width: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            align-self: flex-start;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2a2a2a;
+            color: white;
+            padding: 3rem 20px;
+            text-align: center;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #e63946;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about h2,
+            .services h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -14,7 +480,8 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <img src="assets/logo.png" alt="Chakula Fast Logo" class="logo-img">
+                    <!-- Add your logo image in assets folder or use this placeholder -->
+                    <div class="logo-img" style="width: 40px; height: 40px; background: #e63946; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">CF</div>
                     <span class="logo-text">Chakula Fast</span>
                 </div>
                 <ul class="nav-menu">
@@ -22,6 +489,10 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Menu</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li class="language-switch">
+                        <button id="swahiliBtn" class="lang-btn">SW</button>
+                        <button id="englishBtn" class="lang-btn active">EN</button>
+                    </li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -35,38 +506,50 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Chakula Fast: Food in 15 Minutes au Free!</h1>
-            <p>Order home-cooked meals from local Mama Lishe in Nairobi. Fresh ugali, kuku kienyeji, chips mwitu – delivered by boda in under 15 min or it's FREE!</p>
+            <h1 class="lang-en">Chakula Fast: Food in 15 Minutes or Free!</h1>
+            <h1 class="lang-sw" style="display: none;">Chakula Fast: Chakula kwa Dakika 15 au Bure!</h1>
+            <p class="lang-en">Order home-cooked meals from local Mama Lishe in Nairobi. Fresh ugali, kuku kienyeji, chips mwitu – delivered by boda in under 15 min or it's FREE!</p>
+            <p class="lang-sw" style="display: none;">Pikia vyakula vya nyumbani kutoka kwa Mama Lishe wa mitaani. Ugali safi, kuku kienyeji, chips mwitu – kwasafirishwa na bodaboda ndani ya dakika 15 au ni BURE!</p>
             <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Order Now</a>
-                <a href="#contact" class="btn btn-secondary">WhatsApp Us</a>
+                <a href="#services" class="btn btn-primary lang-en">Order Now</a>
+                <a href="#services" class="btn btn-primary lang-sw" style="display: none;">Pikia Sasa</a>
+                <a href="#contact" class="btn btn-secondary lang-en">WhatsApp Us</a>
+                <a href="#contact" class="btn btn-secondary lang-sw" style="display: none;">WhatsApp</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800" alt="Delicious Kenyan Food">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop" alt="Delicious Kenyan Food">
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Chakula Fast</h2>
-            <p>We're connecting Nairobi's best Mama Lishe with hungry customers. No more slow deliveries – just fast, affordable, home-cooked chakula. Starting in Kilimani, Ngong Road, and Westlands.</p>
+            <h2 class="lang-en">About Chakula Fast</h2>
+            <h2 class="lang-sw" style="display: none;">Kuhusu Chakula Fast</h2>
+            <p class="lang-en">We're connecting Nairobi's best Mama Lishe with hungry customers. No more slow deliveries – just fast, affordable, home-cooked chakula. Starting in Kilimani, Ngong Road, and Westlands.</p>
+            <p class="lang-sw" style="display: none;">Tunaunganisha Mama Lishe bora za Nairobi na wateja wenye njaa. Hakuna usafirishaji wa polepole tena – ni chakula cha haraka, cha bei nafuu, cha nyumbani. Tumeanzia Kilimani, Ngong Road, na Westlands.</p>
             <div class="about-grid">
                 <div class="about-item">
                     <i class="fas fa-clock"></i>
-                    <h3>15-Min Guarantee</h3>
-                    <p>Or your order is free. Boda-powered for zero traffic excuses.</p>
+                    <h3 class="lang-en">15-Min Guarantee</h3>
+                    <h3 class="lang-sw" style="display: none;">Hakikishi ya Dakika 15</h3>
+                    <p class="lang-en">Or your order is free. Boda-powered for zero traffic excuses.</p>
+                    <p class="lang-sw" style="display: none;">Au oda yako ni bure. Inatumia bodaboda kupunguza msongamano wa magari.</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-home"></i>
-                    <h3>Mama Lishe Focus</h3>
-                    <p>Real home cooks, vibanda favorites: mutura, sukuma, pilau.</p>
+                    <h3 class="lang-en">Mama Lishe Focus</h3>
+                    <h3 class="lang-sw" style="display: none;">Kuzingatia Mama Lishe</h3>
+                    <p class="lang-en">Real home cooks, vibanda favorites: mutura, sukuma, pilau.</p>
+                    <p class="lang-sw" style="display: none;">Wapishi wa nyumbani wa kweli, vyakula vya vibanda: mutura, sukuma, pilau.</p>
                 </div>
                 <div class="about-item">
                     <i class="fas fa-mobile-alt"></i>
-                    <h3>M-Pesa Only</h3>
-                    <p>Easy payments for every Kenyan. No cards needed.</p>
+                    <h3 class="lang-en">M-Pesa Only</h3>
+                    <h3 class="lang-sw" style="display: none;">M-Pesa Pekee</h3>
+                    <p class="lang-en">Easy payments for every Kenyan. No cards needed.</p>
+                    <p class="lang-sw" style="display: none;">Malipo rahisi kwa kila Mkenya. Hakuna kadi zinahitajika.</p>
                 </div>
             </div>
         </div>
@@ -75,28 +558,32 @@
     <!-- Services/Menu Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2>Today's Menu from Mama Lishe</h2>
+            <h2 class="lang-en">Today's Menu from Mama Lishe</h2>
+            <h2 class="lang-sw" style="display: none;">Menu ya Leo kutoka kwa Mama Lishe</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1593253784678-9ed4f5f07f22?w=400" alt="Ugali + Kuku">
+                    <img src="https://images.unsplash.com/photo-1593253784678-9ed4f5f07f22?w=400&auto=format&fit=crop" alt="Ugali + Kuku">
                     <h3>Mama Fatuma - Kilimani</h3>
                     <p>Ugali + Kuku Kienyeji + Sukuma</p>
-                    <span class="price">KSh 350</span>
-                    <a href="https://wa.me/2547XXXXXXXX?text=I want Ugali + Kuku from Mama Fatuma" class="btn btn-small">Order via WhatsApp</a>
+                    <span class="price">TSh 8,500</span>
+                    <a href="https://wa.me/255747193972?text=I want Ugali + Kuku from Mama Fatuma" class="btn btn-small lang-en">Order via WhatsApp</a>
+                    <a href="https://wa.me/255747193972?text=Nataka Ugali + Kuku kutoka kwa Mama Fatuma" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400" alt="Chips Mwitu">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Chips Mwitu">
                     <h3>Mama Njeri - Ngong Road</h3>
                     <p>Chips Mwitu + Kachumbari + Smokie</p>
-                    <span class="price">KSh 150</span>
-                    <a href="https://wa.me/2547XXXXXXXX?text=I want Chips from Mama Njeri" class="btn btn-small">Order via WhatsApp</a>
+                    <span class="price">TSh 3,500</span>
+                    <a href="https://wa.me/255747193972?text=I want Chips from Mama Njeri" class="btn btn-small lang-en">Order via WhatsApp</a>
+                    <a href="https://wa.me/255747193972?text=Nataka Chips kutoka kwa Mama Njeri" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1563379926899-1d7a7d6df6e6?w=400" alt="Pilau">
+                    <img src="https://images.unsplash.com/photo-1563379926899-1d7a7d6df6e6?w=400&auto=format&fit=crop" alt="Pilau">
                     <h3>Mama Amina - Westlands</h3>
                     <p>Pilau + Nyama Choma</p>
-                    <span class="price">KSh 450</span>
-                    <a href="https://wa.me/2547XXXXXXXX?text=I want Pilau from Mama Amina" class="btn btn-small">Order via WhatsApp</a>
+                    <span class="price">TSh 10,500</span>
+                    <a href="https://wa.me/255747193972?text=I want Pilau from Mama Amina" class="btn btn-small lang-en">Order via WhatsApp</a>
+                    <a href="https://wa.me/255747193972?text=Nataka Pilau kutoka kwa Mama Amina" class="btn btn-small lang-sw" style="display: none;">Pikia kupitia WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -105,37 +592,23 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Ready to order or join as a Mama Lishe? Message us!</p>
+            <h2 class="lang-en">Get in Touch</h2>
+            <h2 class="lang-sw" style="display: none;">Wasiliana Nasi</h2>
+            <p class="lang-en">Ready to order or join as a Mama Lishe? Message us!</p>
+            <p class="lang-sw" style="display: none;">Tayari kupikia au kujiunga kama Mama Lishe? Tupigie ujumbe!</p>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
-                    <p><i class="fas fa-envelope"></i> hello@chakula-fast.co.ke</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp Orders: 0700 123 456</p>
+                    <h3 class="lang-en">Contact Info</h3>
+                    <h3 class="lang-sw" style="display: none;">Taarifa ya Mawasiliano</h3>
+                    <p><i class="fas fa-phone"></i> +255 747 193 972</p>
+                    <p><i class="fas fa-envelope"></i> mpembenzelu@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp Orders: +255 747 193 972</p>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="tel" placeholder="Your Phone (M-Pesa)" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Chakula Fast. Nairobi, Kenya. Kula Haraka, Kula Fresh!</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required class="lang-en" id="name">
+                    <input type="text" placeholder="Jina Lako" required class="lang-sw" style="display: none;" id="name-sw">
+                    <input type="tel" placeholder="Your Phone (M-Pesa)" required class="lang-en" id="phone">
+                    <input type="tel" placeholder="Simu Yako (M-Pesa)" required class="lang-sw" style="display: none;" id="phone-sw">
+                    <textarea placeholder="Your Message" rows="5" required class="lang-en" 
+    
