@@ -35,7 +35,70 @@
             padding: 0 20px;
         }
 
-        /* Tanzanian Flag Header */
+        /* Language Tabs - Fixed Top */
+        .language-tabs {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab-container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .lang-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: #f5f5f5;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .lang-tab:hover {
+            background: #e9e9e9;
+        }
+
+        .lang-tab.active {
+            background: white;
+            color: var(--tanzania-green);
+            border-bottom: 3px solid var(--tanzania-green);
+        }
+
+        .lang-tab i {
+            margin-right: 8px;
+        }
+
+        /* Content Sections - Only show active language */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Header with Tanzanian Colors */
         .header {
             background: linear-gradient(90deg, 
                 var(--tanzania-green) 0%, 
@@ -48,7 +111,7 @@
                 var(--tanzania-yellow) 100%);
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 55px; /* Below language tabs */
             z-index: 1000;
             box-shadow: 0 2px 20px rgba(0,0,0,0.2);
         }
@@ -119,34 +182,6 @@
             transform: translateY(-2px);
         }
 
-        .language-switch {
-            display: flex;
-            gap: 5px;
-            margin-left: 2rem;
-            border-left: 2px solid #ddd;
-            padding-left: 1rem;
-        }
-
-        .lang-btn {
-            padding: 8px 20px;
-            border: 2px solid var(--tanzania-green);
-            background: none;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 25px;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .lang-btn.active {
-            background: var(--tanzania-green);
-            color: white;
-        }
-
-        .lang-btn:hover:not(.active) {
-            background: rgba(30, 181, 58, 0.1);
-        }
-
         .hamburger {
             display: none;
             flex-direction: column;
@@ -162,9 +197,9 @@
             transition: 0.3s;
         }
 
-        /* Hero Section with Bongo Flava */
+        /* Hero Section */
         .hero {
-            padding: 10rem 20px 5rem;
+            padding: 12rem 20px 5rem; /* Adjusted for tabs */
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                         url('https://images.unsplash.com/photo-1543353074-8c5e06d16f7c?w=1600&auto=format&fit=crop') center/cover;
             color: white;
@@ -222,7 +257,7 @@
             flex-wrap: wrap;
         }
 
-        /* Button Styles - Bongo Style */
+        /* Button Styles */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -267,7 +302,7 @@
             font-size: 0.9rem;
         }
 
-        /* Specialties Section - Tanzanian Food */
+        /* Specialties Section */
         .specialties {
             padding: 5rem 20px;
             background: white;
@@ -361,7 +396,7 @@
             font-size: 0.8rem;
         }
 
-        /* How It Works - Dar Style */
+        /* How It Works */
         .how-it-works {
             padding: 5rem 20px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
@@ -411,7 +446,7 @@
             color: var(--tanzania-black);
         }
 
-        /* Coverage Areas - Dar es Salaam */
+        /* Coverage Areas */
         .coverage {
             padding: 5rem 20px;
             background: white;
@@ -444,7 +479,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Section - Bongo Style */
+        /* Contact Section */
         .contact {
             padding: 5rem 20px;
             background: linear-gradient(135deg, var(--tanzania-green) 0%, var(--tanzania-blue) 100%);
@@ -527,7 +562,7 @@
             font-weight: 600;
         }
 
-        /* Footer - Tanzanian Pride */
+        /* Footer */
         .footer {
             background: var(--tanzania-black);
             color: white;
@@ -606,16 +641,42 @@
             .section-title {
                 font-size: 2.3rem;
             }
+            
+            .lang-tab {
+                font-size: 1rem;
+                padding: 12px;
+            }
         }
 
         @media (max-width: 768px) {
+            .language-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-container {
+                flex-direction: column;
+            }
+            
+            .lang-tab {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .header {
+                top: 110px; /* Adjusted for stacked tabs */
+            }
+            
+            .hero {
+                padding: 15rem 20px 3rem; /* Adjusted for stacked tabs */
+            }
+            
             .hamburger {
                 display: flex;
             }
             
             .nav-menu {
                 position: fixed;
-                top: 80px;
+                top: 165px; /* Below tabs and header */
                 left: -100%;
                 flex-direction: column;
                 background: white;
@@ -630,16 +691,6 @@
             
             .nav-menu.active {
                 left: 0;
-            }
-            
-            .language-switch {
-                border: none;
-                padding: 0;
-                margin: 1rem 0 0;
-            }
-            
-            .hero {
-                padding: 8rem 20px 3rem;
             }
             
             .hero h1 {
@@ -658,6 +709,18 @@
     </style>
 </head>
 <body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="tab-container">
+            <button class="lang-tab active" id="swahiliTab">
+                <i class="fas fa-flag"></i> KISWAHILI
+            </button>
+            <button class="lang-tab" id="englishTab">
+                <i class="fas fa-globe"></i> ENGLISH
+            </button>
+        </div>
+    </div>
+
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/255747193972" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -678,10 +741,6 @@
                         <li><a href="#how">Jinsi Inavyofanya Kazi</a></li>
                         <li><a href="#coverage">Maeneo</a></li>
                         <li><a href="#contact">Mawasiliano</a></li>
-                        <li class="language-switch">
-                            <button id="swahiliBtn" class="lang-btn active">KISWAHILI</button>
-                            <button id="englishBtn" class="lang-btn">ENGLISH</button>
-                        </li>
                     </ul>
                     <div class="hamburger">
                         <span></span>
@@ -693,301 +752,490 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>
-                <span class="lang-en">NYAMA CHOMA in <span class="highlight">30 MINUTES</span><br>or it's <span class="highlight">FREE</span>!</span>
-                <span class="lang-sw" style="display: none;">NYAMA CHOMA ndani ya <span class="highlight">DAKIKA 30</span><br>au ni <span class="highlight">BURE</span>!</span>
-            </h1>
-            <p class="lang-en">
-                Taste the authentic flavors of Tanzania! From sizzling nyama choma at Posta to fresh seafood from Kivukoni, 
-        we deliver Bongo's best street food to your doorstep. Powered by bajajis for that true Dar experience!
-            </p>
-            <p class="lang-sw" style="display: none;">
-                Onja ladha halisi ya Tanzania! Kutoka nyama choma inayokoroga Posta hadi seafood safi kutoka Kivukoni, 
-                tunawasilisha vyakula bora vya mitaani vya Bongo mlangoni mwako. Inaendeshwa na bajaji kwa uzoefu wa kweli wa Dar!
-            </p>
-            <div class="hero-buttons">
-                <a href="#specialties" class="btn btn-primary">
-                    <i class="fas fa-fire"></i>
-                    <span class="lang-en">ORDER NOW</span>
-                    <span class="lang-sw" style="display: none;">PEEKIA SASA</span>
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fab fa-whatsapp"></i>
-                    <span class="lang-en">WHATSAPP TU</span>
-                    <span class="lang-sw" style="display: none;">TUWHATSUP</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tanzanian Specialties Section -->
-    <section id="specialties" class="specialties">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">DAR'S FAVORITES</span>
-                <span class="lang-sw" style="display: none;">VIPENDAVYO VYA DAR</span>
-            </h2>
-            <p class="lang-en" style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
-                Straight from the streets of Dar es Salaam to your plate
-            </p>
-            <p class="lang-sw" style="display: none; text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
-                Moja kwa moja kutoka mitaani ya Dar es Salaam hadi sahani yako
-            </p>
-            
-            <div class="food-grid">
-                <!-- Nyama Choma Special -->
-                <div class="food-card">
-                    <div class="popular-tag">MOST POPULAR</div>
-                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" alt="Nyama Choma">
-                    <h3>Baba Lameck's Nyama Choma</h3>
-                    <p class="lang-en">½ kg BBQ beef, kachumbari, ugali, and mshikaki sticks</p>
-                    <p class="lang-sw" style="display: none;">½ kg nyama ya ng'ombe ya kuchoma, kachumbari, ugali, na mshikaki</p>
-                    <span class="price">TSh 15,000</span>
-                    <a href="https://wa.me/255747193972?text=Nataka%20Nyama%20Choma%20ya%20Baba%20Lameck" class="btn btn-small btn-primary">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="lang-en">ORDER</span>
-                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+    <!-- SWAHILI CONTENT -->
+    <div id="swahiliContent" class="content-section active">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>
+                    NYAMA CHOMA ndani ya <span class="highlight">DAKIKA 30</span><br>au ni <span class="highlight">BURE</span>!
+                </h1>
+                <p>
+                    Onja ladha halisi ya Dar es Salaam! Kutoka nyama choma inayokoroga Posta hadi seafood safi kutoka Kivukoni, 
+                    tunawasilisha vyakula bora vya mitaani vya Bongo mlangoni mwako. Inaendeshwa na bajaji kwa uzoefu wa kweli wa Dar!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#specialties" class="btn btn-primary">
+                        <i class="fas fa-fire"></i>
+                        PEEKIA SASA
                     </a>
-                </div>
-
-                <!-- Zanzibar Mix -->
-                <div class="food-card">
-                    <img src="https://images.unsplash.com/photo-1563379926898-64b5c5c05c5a?w=400&auto=format&fit=crop" alt="Zanzibar Pizza">
-                    <h3>Zanzibar Mix Plate</h3>
-                    <p class="lang-en">Chicken biryani, mahamri, samosa, mkate wa kumimina</p>
-                    <p class="lang-sw" style="display: none;">Biryani ya kuku, mahamri, samosa, mkate wa kumimina</p>
-                    <span class="price">TSh 12,500</span>
-                    <a href="https://wa.me/255747193972?text=Nataka%20Zanzibar%20Mix%20Plate" class="btn btn-small btn-primary">
+                    <a href="#contact" class="btn btn-secondary">
                         <i class="fab fa-whatsapp"></i>
-                        <span class="lang-en">ORDER</span>
-                        <span class="lang-sw" style="display: none;">PEEKIA</span>
-                    </a>
-                </div>
-
-                <!-- Coastal Seafood -->
-                <div class="food-card">
-                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Seafood">
-                    <h3>Kivukoni Seafood Feast</h3>
-                    <p class="lang-en">Fresh prawns, calamari, fish fry with coconut rice</p>
-                    <p class="lang-sw" style="display: none;">Kamba safi, ngisi, samaki wa kukaanga na wali wa nazi</p>
-                    <span class="price">TSh 18,000</span>
-                    <a href="https://wa.me/255747193972?text=Nataka%20Kivukoni%20Seafood%20Feast" class="btn btn-small btn-primary">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="lang-en">ORDER</span>
-                        <span class="lang-sw" style="display: none;">PEEKIA</span>
-                    </a>
-                </div>
-
-                <!-- Street Food Combo -->
-                <div class="food-card">
-                    <div class="popular-tag">STREET SPECIAL</div>
-                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" alt="Street Food">
-                    <h3>Bongo Street Combo</h3>
-                    <p class="lang-en">Chips mayai, mishikaki 2, maandazi 3 & tangawizi juice</p>
-                    <p class="lang-sw" style="display: none;">Chips mayai, mishikaki 2, maandazi 3 & juisi ya tangawizi</p>
-                    <span class="price">TSh 8,500</span>
-                    <a href="https://wa.me/255747193972?text=Nataka%20Bongo%20Street%20Combo" class="btn btn-small btn-primary">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="lang-en">ORDER</span>
-                        <span class="lang-sw" style="display: none;">PEEKIA</span>
+                        TUWHATSUP
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How It Works - Dar es Salaam Style -->
-    <section id="how" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">HOW IT WORKS IN DAR</span>
-                <span class="lang-sw" style="display: none;">JINSI INAVYOFANYA KAZI DAR</span>
-            </h2>
-            
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3 class="lang-en">WhatsApp Order</h3>
-                    <h3 class="lang-sw" style="display: none;">Peekia kupitia WhatsApp</h3>
-                    <p class="lang-en">Send "NAKUPENDA CHAKULA" to +255 747 193 972</p>
-                    <p class="lang-sw" style="display: none;">Tuma "NAKUPENDA CHAKULA" kwa +255 747 193 972</p>
-                </div>
+        <!-- Specialties Section -->
+        <section id="specialties" class="specialties">
+            <div class="container">
+                <h2 class="section-title">VIPENDAVYO VYA DAR</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                    Moja kwa moja kutoka mitaani ya Dar es Salaam hadi sahani yako
+                </p>
                 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <i class="fas fa-bolt"></i>
-                    <h3 class="lang-en">Bajaji Pickup</h3>
-                    <h3 class="lang-sw" style="display: none;">Bajaji Inachukua</h3>
-                    <p class="lang-en">Our Bajaji warriors collect from street vendors</p>
-                    <p class="lang-sw" style="display: none;">Wapiganaji wetu wa bajaji wanachukua kutoka kwa wauzaji wa mitaani</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3 class="lang-en">30-Min Delivery</h3>
-                    <h3 class="lang-sw" style="display: none">Wasilishaji wa Dakika 30</h3>
-                    <p class="lang-en">Guaranteed delivery or your meal is FREE</p>
-                    <p class="lang-sw" style="display: none">Hakikishi ya wasilishaji au chakula chako ni BURE</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3 class="lang-en">M-Pesa Payment</h3>
-                    <h3 class="lang-sw" style="display: none">Malipo ya M-Pesa</h3>
-                    <p class="lang-en">Pay after delivery - Cash or M-Pesa accepted</p>
-                    <p class="lang-sw" style="display: none">Lipa baada ya kufika - Fedha taslimu au M-Pesa zinakubaliwa</p>
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="popular-tag">INAYOPENDEZWA ZAIDI</div>
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" alt="Nyama Choma">
+                        <h3>Nyama Choma ya Baba Lameck</h3>
+                        <p>½ kg nyama ya ng'ombe ya kuchoma, kachumbari, ugali, na mshikaki 3</p>
+                        <span class="price">TSh 15,000</span>
+                        <a href="https://wa.me/255747193972?text=Nataka%20Nyama%20Choma%20ya%20Baba%20Lameck" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            PEEKIA
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1563379926898-64b5c5c05c5a?w=400&auto=format&fit=crop" alt="Zanzibar Pizza">
+                        <h3>Zanzibar Mix Plate</h3>
+                        <p>Biryani ya kuku, mahamri 4, samosa 2, mkate wa kumimina</p>
+                        <span class="price">TSh 12,500</span>
+                        <a href="https://wa.me/255747193972?text=Nataka%20Zanzibar%20Mix%20Plate" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            PEEKIA
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Seafood">
+                        <h3>Seafood ya Kivukoni</h3>
+                        <p>Kamba safi, ngisi, samaki wa kukaanga na wali wa nazi</p>
+                        <span class="price">TSh 18,000</span>
+                        <a href="https://wa.me/255747193972?text=Nataka%20Seafood%20ya%20Kivukoni" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            PEEKIA
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="popular-tag">CHA MITAANI</div>
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" alt="Street Food">
+                        <h3>Bongo Street Combo</h3>
+                        <p>Chips mayai, mishikaki 2, maandazi 3 & juisi ya tangawizi</p>
+                        <span class="price">TSh 8,500</span>
+                        <a href="https://wa.me/255747193972?text=Nataka%20Bongo%20Street%20Combo" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            PEEKIA
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Coverage Areas in Dar es Salaam -->
-    <section id="coverage" class="coverage">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">WE COVER DAR</span>
-                <span class="lang-sw" style="display: none">TUNAFIKIA DAR</span>
-            </h2>
-            
-            <div class="areas-grid">
-                <div class="area">
-                    <i class="fas fa-city"></i>
-                    <h4>Kariakoo</h4>
-                    <p class="lang-en">Street food capital</p>
-                    <p class="lang-sw" style="display: none">Mji mkuu wa vyakula vya mitaani</p>
-                </div>
+        <!-- How It Works -->
+        <section id="how" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">JINSI INAVYOFANYA KAZI</h2>
                 
-                <div class="area">
-                    <i class="fas fa-umbrella-beach"></i>
-                    <h4>Masaki</h4>
-                    <p class="lang-en">Upscale deliveries</p>
-                    <p class="lang-sw" style="display: none">Wasilishaji wa hali ya juu</p>
-                </div>
-                
-                <div class="area">
-                    <i class="fas fa-university"></i>
-                    <h4>Posta</h4>
-                    <p class="lang-en">Business district</p>
-                    <p class="lang-sw" style="display: none">Eneo la biashara</p>
-                </div>
-                
-                <div class="area">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h4>Ubungo</h4>
-                    <p class="lang-en">Student zone</p>
-                    <p class="lang-sw" style="display: none">Eneo la wanafunzi</p>
-                </div>
-                
-                <div class="area">
-                    <i class="fas fa-ship"></i>
-                    <h4>Kivukoni</h4>
-                    <p class="lang-en">Seafood special</p>
-                    <p class="lang-sw" style="display: none">Maalum ya seafood</p>
-                </div>
-                
-                <div class="area">
-                    <i class="fas fa-home"></i>
-                    <h4>Mbezi Beach</h4>
-                    <p class="lang-en">Residential areas</p>
-                    <p class="lang-sw" style="display: none">Maeneo ya makazi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="lang-en">CONTACT US</span>
-                <span class="lang-sw" style="display: none">WASILIANA NASI</span>
-            </h2>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>
-                        <span class="lang-en">BONGO CONNECT</span>
-                        <span class="lang-sw" style="display: none">TUUNGANE BONGO</span>
-                    </h3>
-                    <p><i class="fas fa-phone-alt"></i> +255 747 193 972</p>
-                    <p><i class="fas fa-envelope"></i> mpembenzelu@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +255 747 193 972</p>
-                    <p><i class="fas fa-clock"></i>
-                        <span class="lang-en">Open: 24/7 Street Food Service</span>
-                        <span class="lang-sw" style="display: none">Wazi: Huduma ya vyakula vya mitaani 24/7</span>
-                    </p>
-                </div>
-                
-                <form class="contact-form" id="orderForm">
-                    <select id="orderType" class="lang-en">
-                        <option value="">I want to order...</option>
-                        <option value="nyama_choma">Nyama Choma Special</option>
-                        <option value="zanzibar_mix">Zanzibar Mix</option>
-                        <option value="seafood">Kivukoni Seafood</option>
-                        <option value="street_combo">Bongo Street Combo</option>
-                    </select>
-                    
-                    <select id="orderTypeSw" class="lang-sw" style="display: none;">
-                        <option value="">Nataka kuipeekia...</option>
-                        <option value="nyama_choma">Nyama Choma Maalum</option>
-                        <option value="zanzibar_mix">Zanzibar Mix</option>
-                        <option value="seafood">Seafood ya Kivukoni</option>
-                        <option value="street_combo">Bongo Street Combo</option>
-                    </select>
-                    
-                    <input type="text" placeholder="Your Name" id="name" class="lang-en" required>
-                    <input type="text" placeholder="Jina Lako" id="nameSw" class="lang-sw" style="display: none;" required>
-                    
-                    <input type="tel" placeholder="Your Phone (M-Pesa)" id="phone" class="lang-en" required>
-                    <input type="tel" placeholder="Simu Yako (M-Pesa)" id="phoneSw" class="lang-sw" style="display: none;" required>
-                    
-                    <textarea placeholder="Special Instructions / Delivery Address" rows="3" id="instructions" class="lang-en"></textarea>
-                    <textarea placeholder="Maagizo Maalum / Anwani ya Wasilishaji" rows="3" id="instructionsSw" class="lang-sw" style="display: none;"></textarea>
-                    
-                    <button type="submit" class="btn btn-primary">
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
                         <i class="fab fa-whatsapp"></i>
-                        <span class="lang-en">SEND VIA WHATSAPP</span>
-                        <span class="lang-sw" style="display: none;">TUMA KUPITIA WHATSAPP</span>
-                    </button>
-                </form>
+                        <h3>Peekia kupitia WhatsApp</h3>
+                        <p>Tuma "NAKUPENDA CHAKULA" kwa +255 747 193 972</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-truck-pickup"></i>
+                        <h3>Bajaji Inachukua</h3>
+                        <p>Wapiganaji wetu wa bajaji wanachukua kutoka kwa wauzaji wa mitaani</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Wasilishaji wa Dakika 30</h3>
+                        <p>Hakikishi ya wasilishaji au chakula chako ni BURE</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>Malipo ya M-Pesa</h3>
+                        <p>Lipa baada ya kufika - Fedha taslimu au M-Pesa zinakubaliwa</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-logo">CHAKULA HARAKA</div>
-            <p class="lang-en">
-                Taste the streets of Dar es Salaam! 🇹🇿<br>
-                Nyama Choma • Seafood • Street Food • 30-Minute Guarantee
-            </p>
-            <p class="lang-sw" style="display: none;">
-                Onja mitaani ya Dar es Salaam! 🇹🇿<br>
-                Nyama Choma • Seafood • Vyakula vya Mitaani • Hakikishi ya Dakika 30
-            </p>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://wa.me/255747193972" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <!-- Coverage Areas -->
+        <section id="coverage" class="coverage">
+            <div class="container">
+                <h2 class="section-title">TUNAFIKIA DAR</h2>
+                
+                <div class="areas-grid">
+                    <div class="area">
+                        <i class="fas fa-store"></i>
+                        <h4>Kariakoo</h4>
+                        <p>Mji mkuu wa vyakula vya mitaani</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h4>Masaki</h4>
+                        <p>Wasilishaji wa hali ya juu</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-building"></i>
+                        <h4>Posta</h4>
+                        <p>Eneo la biashara</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Ubungo</h4>
+                        <p>Eneo la wanafunzi</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-ship"></i>
+                        <h4>Kivukoni</h4>
+                        <p>Maalum ya seafood</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-home"></i>
+                        <h4>Mbezi Beach</h4>
+                        <p>Maeneo ya makazi</p>
+                    </div>
+                </div>
             </div>
-            
-            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
-                © 2025 Chakula Haraka | Dar es Salaam, Tanzania | Bongo Flava Food Delivery
-            </p>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">WASILIANA NASI</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>TUUNGANE BONGO</h3>
+                        <p><i class="fas fa-phone-alt"></i> +255 747 193 972</p>
+                        <p><i class="fas fa-envelope"></i> mpembenzelu@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +255 747 193 972</p>
+                        <p><i class="fas fa-clock"></i> Wazi: Huduma ya vyakula vya mitaani 24/7</p>
+                    </div>
+                    
+                    <form class="contact-form" id="orderFormSw">
+                        <select id="orderTypeSw" required>
+                            <option value="">Chagua chakula unachotaka...</option>
+                            <option value="nyama_choma">Nyama Choma ya Baba Lameck - TSh 15,000</option>
+                            <option value="zanzibar_mix">Zanzibar Mix Plate - TSh 12,500</option>
+                            <option value="seafood">Seafood ya Kivukoni - TSh 18,000</option>
+                            <option value="street_combo">Bongo Street Combo - TSh 8,500</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Jina Lako" id="nameSw" required>
+                        
+                        <input type="tel" placeholder="Namba ya Simu (M-Pesa)" id="phoneSw" required>
+                        
+                        <textarea placeholder="Anwani ya Wasilishaji / Maagizo Maalum" rows="3" id="instructionsSw"></textarea>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            TUMA KUPITIA WHATSAPP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">CHAKULA HARAKA</div>
+                <p>
+                    Onja mitaani ya Dar es Salaam! 🇹🇿<br>
+                    Nyama Choma • Seafood • Vyakula vya Mitaani • Hakikishi ya Dakika 30
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/255747193972" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                    © 2025 Chakula Haraka | Dar es Salaam, Tanzania | Bongo Flava Food Delivery
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div id="englishContent" class="content-section">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>
+                    NYAMA CHOMA in <span class="highlight">30 MINUTES</span><br>or it's <span class="highlight">FREE</span>!
+                </h1>
+                <p>
+                    Taste the authentic flavors of Dar es Salaam! From sizzling nyama choma at Posta to fresh seafood from Kivukoni, 
+                    we deliver Bongo's best street food to your doorstep. Powered by bajajis for that true Dar experience!
+                </p>
+                <div class="hero-buttons">
+                    <a href="#specialties" class="btn btn-primary">
+                        <i class="fas fa-fire"></i>
+                        ORDER NOW
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        WHATSAPP US
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialties Section -->
+        <section id="specialties" class="specialties">
+            <div class="container">
+                <h2 class="section-title">DAR'S FAVORITES</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                    Straight from the streets of Dar es Salaam to your plate
+                </p>
+                
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="popular-tag">MOST POPULAR</div>
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" alt="Nyama Choma">
+                        <h3>Baba Lameck's Nyama Choma</h3>
+                        <p>½ kg BBQ beef, kachumbari, ugali, and 3 mshikaki sticks</p>
+                        <span class="price">TSh 15,000</span>
+                        <a href="https://wa.me/255747193972?text=I want Baba Lameck's Nyama Choma" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            ORDER
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1563379926898-64b5c5c05c5a?w=400&auto=format&fit=crop" alt="Zanzibar Pizza">
+                        <h3>Zanzibar Mix Plate</h3>
+                        <p>Chicken biryani, 4 mahamri, 2 samosas, mkate wa kumimina</p>
+                        <span class="price">TSh 12,500</span>
+                        <a href="https://wa.me/255747193972?text=I want Zanzibar Mix Plate" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            ORDER
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Seafood">
+                        <h3>Kivukoni Seafood Feast</h3>
+                        <p>Fresh prawns, calamari, fried fish with coconut rice</p>
+                        <span class="price">TSh 18,000</span>
+                        <a href="https://wa.me/255747193972?text=I want Kivukoni Seafood Feast" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            ORDER
+                        </a>
+                    </div>
+
+                    <div class="food-card">
+                        <div class="popular-tag">STREET SPECIAL</div>
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" alt="Street Food">
+                        <h3>Bongo Street Combo</h3>
+                        <p>Chips mayai, 2 mishikaki, 3 maandazi & ginger juice</p>
+                        <span class="price">TSh 8,500</span>
+                        <a href="https://wa.me/255747193972?text=I want Bongo Street Combo" class="btn btn-small btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            ORDER
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">HOW IT WORKS</h2>
+                
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp Order</h3>
+                        <p>Send "I LOVE FOOD" to +255 747 193 972</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-truck-pickup"></i>
+                        <h3>Bajaji Pickup</h3>
+                        <p>Our Bajaji warriors collect from street vendors</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>30-Min Delivery</h3>
+                        <p>Guaranteed delivery or your meal is FREE</p>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <h3>M-Pesa Payment</h3>
+                        <p>Pay after delivery - Cash or M-Pesa accepted</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coverage Areas -->
+        <section id="coverage" class="coverage">
+            <div class="container">
+                <h2 class="section-title">WE COVER DAR</h2>
+                
+                <div class="areas-grid">
+                    <div class="area">
+                        <i class="fas fa-store"></i>
+                        <h4>Kariakoo</h4>
+                        <p>Street food capital</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h4>Masaki</h4>
+                        <p>Upscale deliveries</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-building"></i>
+                        <h4>Posta</h4>
+                        <p>Business district</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Ubungo</h4>
+                        <p>Student zone</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-ship"></i>
+                        <h4>Kivukoni</h4>
+                        <p>Seafood special</p>
+                    </div>
+                    
+                    <div class="area">
+                        <i class="fas fa-home"></i>
+                        <h4>Mbezi Beach</h4>
+                        <p>Residential areas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">CONTACT US</h2>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>BONGO CONNECT</h3>
+                        <p><i class="fas fa-phone-alt"></i> +255 747 193 972</p>
+                        <p><i class="fas fa-envelope"></i> mpembenzelu@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp: +255 747 193 972</p>
+                        <p><i class="fas fa-clock"></i> Open: 24/7 Street Food Service</p>
+                    </div>
+                    
+                    <form class="contact-form" id="orderFormEn">
+                        <select id="orderTypeEn" required>
+                            <option value="">Select what you want to order...</option>
+                            <option value="nyama_choma">Baba Lameck's Nyama Choma - TSh 15,000</option>
+                            <option value="zanzibar_mix">Zanzibar Mix Plate - TSh 12,500</option>
+                            <option value="seafood">Kivukoni Seafood Feast - TSh 18,000</option>
+                            <option value="street_combo">Bongo Street Combo - TSh 8,500</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Your Name" id="nameEn" required>
+                        
+                        <input type="tel" placeholder="Your Phone (M-Pesa)" id="phoneEn" required>
+                        
+                        <textarea placeholder="Delivery Address / Special Instructions" rows="3" id="instructionsEn"></textarea>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            SEND VIA WHATSAPP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-logo">CHAKULA HARAKA</div>
+                <p>
+                    Taste the streets of Dar es Salaam! 🇹🇿<br>
+                    Nyama Choma • Seafood • Street Food • 30-Minute Guarantee
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/255747193972" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                    © 2025 Chakula Haraka | Dar es Salaam, Tanzania | Bongo Flava Food Delivery
+                </p>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Language Tab System
+        const swahiliTab = document.getElementById('swahiliTab');
+        const englishTab = document.getElementById('englishTab');
+        const swahiliContent = document.getElementById('swahiliContent');
+        const englishContent = document.getElementById('englishContent');
+
+        function switchLanguage(lang) {
+            // Update tabs
+            if (lang === 'sw') {
+                swahiliTab.classList.add('active');
+                englishTab.classList.remove('active');
+                swahiliContent.classList.add('active');
+                englishContent.classList.remove('active');
+                document.title = "Chakula Haraka - Nyama Choma kwa Dakika 30! | Dar es Salaam";
+            } else {
+                englishTab.classList.add('active');
+                swahiliTab.classList.remove('active');
+                englishContent.classList.add('active');
+                swahiliContent.classList.remove('active');
+                document.title = "Chakula Haraka - Nyama Choma in 30 Minutes! | Dar es Salaam";
+            }
+            
+            // Reset scroll position
+            window.scrollTo(0, 0);
+        }
+
+        swahiliTab.addEventListener('click', () => switchLanguage('sw'));
+        englishTab.addEventListener('click', () => switchLanguage('en'));
+
         // Mobile Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -1003,70 +1251,26 @@
             navMenu.classList.remove('active');
         }));
 
-        // Language Switcher
-        const swahiliBtn = document.getElementById('swahiliBtn');
-        const englishBtn = document.getElementById('englishBtn');
-
-        function switchLanguage(lang) {
-            const swahiliElements = document.querySelectorAll('.lang-sw');
-            const englishElements = document.querySelectorAll('.lang-en');
-            
-            if (lang === 'sw') {
-                swahiliElements.forEach(el => el.style.display = 'block' || 'inline-block');
-                englishElements.forEach(el => el.style.display = 'none');
-                swahiliBtn.classList.add('active');
-                englishBtn.classList.remove('active');
-                document.title = "Chakula Haraka - Nyama Choma kwa Dakika 30! | Dar es Salaam";
-            } else {
-                swahiliElements.forEach(el => el.style.display = 'none');
-                englishElements.forEach(el => el.style.display = 'block' || 'inline-block');
-                englishBtn.classList.add('active');
-                swahiliBtn.classList.remove('active');
-                document.title = "Chakula Haraka - Nyama Choma in 30 Minutes! | Dar es Salaam Fast Food Delivery";
-            }
-        }
-
-        swahiliBtn.addEventListener('click', () => switchLanguage('sw'));
-        englishBtn.addEventListener('click', () => switchLanguage('en'));
-
-        // WhatsApp Order Form
-        const orderForm = document.getElementById('orderForm');
-        orderForm.addEventListener('submit', function(e) {
+        // Form Submission - Swahili
+        const orderFormSw = document.getElementById('orderFormSw');
+        orderFormSw.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const isSwahili = swahiliBtn.classList.contains('active');
-            let name, phone, foodType, instructions;
-            
-            if (isSwahili) {
-                name = document.getElementById('nameSw').value;
-                phone = document.getElementById('phoneSw').value;
-                foodType = document.getElementById('orderTypeSw').value;
-                instructions = document.getElementById('instructionsSw').value;
-            } else {
-                name = document.getElementById('name').value;
-                phone = document.getElementById('phone').value;
-                foodType = document.getElementById('orderType').value;
-                instructions = document.getElementById('instructions').value;
-            }
+            const foodType = document.getElementById('orderTypeSw').value;
+            const name = document.getElementById('nameSw').value;
+            const phone = document.getElementById('phoneSw').value;
+            const instructions = document.getElementById('instructionsSw').value;
             
             if (!foodType) {
-                alert(isSwahili ? 'Tafadhali chagua chakula!' : 'Please select a food item!');
+                alert('Tafadhali chagua chakula!');
                 return;
             }
             
-            // Food names mapping
-            const foodNames = {
-                'nyama_choma': isSwahili ? 'Nyama Choma Maalum' : 'Nyama Choma Special',
-                'zanzibar_mix': isSwahili ? 'Zanzibar Mix' : 'Zanzibar Mix',
-                'seafood': isSwahili ? 'Seafood ya Kivukoni' : 'Kivukoni Seafood',
-                'street_combo': isSwahili ? 'Bongo Street Combo' : 'Bongo Street Combo'
-            };
-            
             const message = `JAMBO CHAKULA HARAKA! 🇹🇿%0A%0A` +
-                           `${isSwahili ? 'Nataka kupeekia:' : 'I want to order:'} ${foodNames[foodType]}%0A%0A` +
-                           `${isSwahili ? 'Jina:' : 'Name:'} ${name}%0A` +
-                           `${isSwahili ? 'Simu:' : 'Phone:'} ${phone}%0A` +
-                           `${isSwahili ? 'Maagizo:' : 'Instructions:'} ${instructions || 'Hakuna'}`;
+                           `Nataka kupeekia: ${foodType}%0A%0A` +
+                           `Jina: ${name}%0A` +
+                           `Simu: ${phone}%0A` +
+                           `Maagizo: ${instructions || 'Hakuna'}`;
             
             const whatsappUrl = `https://wa.me/255747193972?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -1075,33 +1279,68 @@
             this.reset();
         });
 
-        // Smooth scrolling
+        // Form Submission - English
+        const orderFormEn = document.getElementById('orderFormEn');
+        orderFormEn.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const foodType = document.getElementById('orderTypeEn').value;
+            const name = document.getElementById('nameEn').value;
+            const phone = document.getElementById('phoneEn').value;
+            const instructions = document.getElementById('instructionsEn').value;
+            
+            if (!foodType) {
+                alert('Please select a food item!');
+                return;
+            }
+            
+            const message = `HELLO CHAKULA HARAKA! 🇹🇿%0A%0A` +
+                           `I want to order: ${foodType}%0A%0A` +
+                           `Name: ${name}%0A` +
+                           `Phone: ${phone}%0A` +
+                           `Instructions: ${instructions || 'None'}`;
+            
+            const whatsappUrl = `https://wa.me/255747193972?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
+                // Get active content section
+                const activeContent = document.querySelector('.content-section.active');
+                const targetElement = activeContent.querySelector(targetId);
+                
                 if (targetElement) {
+                    const offset = 130; // Account for tabs and header
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Initialize
+        // Initialize - Start with Swahili
         document.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('sw'); // Start with Swahili for Tanzanian authenticity
+            switchLanguage('sw');
             
-            // Add floating WhatsApp message
+            // Add welcome message
             setTimeout(() => {
-                if (confirm("Karibu Chakula Haraka! Unataka kupeekia chakula?")) {
+                if (confirm("Karibu Chakula Haraka! 🍖 Unataka kupeekia chakula?")) {
                     document.querySelector('.whatsapp-float').click();
                 }
-            }, 3000);
+            }, 2000);
         });
     </script>
 </body>
