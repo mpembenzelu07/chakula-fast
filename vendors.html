@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vendors | Chakula Haraka - Trusted Food Vendors</title>
+    <meta name="description" content="Meet our trusted food vendors in Dar es Salaam. All vendors are verified for quality and hygiene standards.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Vendors Specific Styles */
+        .vendors-hero {
+            background: linear-gradient(rgba(0, 78, 137, 0.9), rgba(0, 168, 150, 0.9)),
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .vendor-filters {
+            background: var(--light);
+            padding: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .filter-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-select {
+            padding: 12px 25px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            background: white;
+            min-width: 200px;
+        }
+        
+        .vendors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .vendor-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .vendor-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vendor-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .vendor-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .vendor-badges {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .vendor-badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .vendor-badge.verified {
+            background: var(--success);
+        }
+        
+        .vendor-badge.featured {
+            background: var(--accent);
+        }
+        
+        .vendor-info {
+            padding: 25px;
+        }
+        
+        .vendor-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .vendor-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 193, 7, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: var(--warning);
+            font-weight: 600;
+        }
+        
+        .vendor-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .vendor-specialties {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .specialty {
+            background: var(--light-gray);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .vendor-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        /* Become a Vendor CTA */
+        .become-vendor {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 80px 0;
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .become-vendor h2 {
+            margin-bottom: 20px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .benefit {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="sw">
+                    <i class="fas fa-flag"></i> Kiswahili
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Chakula Haraka</span>
+                        <span class="tagline">Premium Delivery</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="vendors.html" class="active">Vendors</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="tel:+255747193972" class="phone-link">
+                            <i class="fas fa-phone"></i> +255 747 193 972
+                        </a>
+                        <a href="https://wa.me/255747193972" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Vendors Hero -->
+    <section class="vendors-hero">
+        <div class="container">
+            <h1 class="display-2 lang-sw">Wauzaji Wetu Waaminifu</h1>
+            <h1 class="display-2 lang-en" style="display: none;">Our Trusted Vendors</h1>
+            <p class="lead lang-sw">Wauzaji 150+ waliothibitishwa kwa ubora na usafi wa juu</p>
+            <p class="lead lang-en" style="display: none;">150+ verified vendors with premium quality & hygiene</p>
+        </div>
+    </section>
+
+    <!-- Vendor Filters -->
+    <section class="vendor-filters">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label class="lang-sw">Eneo:</label>
+                    <label class="lang-en" style="display: none;">Area:</label>
+                    <select class="filter-select" id="areaFilter">
+                        <option value="all">
+                            <span class="lang-sw">Maeneo Yote</span>
+                            <span class="lang-en" style="display: none;">All Areas</span>
+                        </option>
+                        <option value="kariakoo">Kariakoo</option>
+                        <option value="masaki">Masaki</option>
+                        <option value="posta">Posta</option>
+                        <option value="ubungo">Ubungo</option>
+                        <option value="kivukoni">Kivukoni</option>
+                        <option value="mbezi">Mbezi</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="lang-sw">Aina ya Chakula:</label>
+                    <label class="lang-en" style="display: none;">Food Type:</label>
+                    <select class="filter-select" id="foodTypeFilter">
+                        <option value="all">
+                            <span class="lang-sw">Aina Zote</span>
+                            <span class="lang-en" style="display: none;">All Types</span>
+                        </option>
+                        <option value="nyama-choma">Nyama Choma</option>
+                        <option value="seafood">Seafood</option>
+                        <option value="street-food">Street Food</option>
+                        <option value="pilau">Pilau & Rice</option>
+                        <option value="snacks">Snacks</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="lang-sw">Ratings:</label>
+                    <label class="lang-en" style="display: none;">Ratings:</label>
+                    <select class="filter-select" id="ratingFilter">
+                        <option value="all">
+                            <span class="lang-sw">Ukadiriaji Wote</span>
+                            <span class="lang-en" style="display: none;">All Ratings</span>
+                        </option>
+                        <option value="4.5">4.5★ & Above</option>
+                        <option value="4.0">4.0★ & Above</option>
+                        <option value="3.5">3.5★ & Above</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vendors Grid -->
+    <section class="vendors-section">
+        <div class="container">
+            <div class="vendors-grid">
+                <!-- Vendor 1 -->
+                <div class="vendor-card">
+                    <div class="vendor-header">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop" 
+                             alt="Baba Lameck Nyama Choma">
+                        <div class="vendor-badges">
+                            <span class="vendor-badge verified">✓ Verified</span>
+                            <span class="vendor-badge featured">Featured</span>
+                        </div>
+                    </div>
+                    <div class="vendor-info">
+                        <div class="vendor-meta">
+                            <h3>Baba Lameck Nyama Choma</h3>
+                            <div class="vendor-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vendor-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kariakoo, Dar es Salaam</span>
+                        </div>
+                        
+                        <p class="lang-sw">Nyama choma bora ya Dar es Salaam tangu 2010. Ubora wa juu na usafi wa kiwango.</p>
+                        <p class="lang-en" style="display: none;">Best nyama choma in Dar es Salaam since 2010. Premium quality & hygiene.</p>
+                        
+                        <div class="vendor-specialties">
+                            <span class="specialty">Nyama Choma</span>
+                            <span class="specialty">Mishikaki</span>
+                            <span class="specialty">Ugali</span>
+                            <span class="specialty">Kachumbari</span>
+                        </div>
+                        
+                        <div class="vendor-stats">
+                            <div class="stat">
+                                <span class="stat-value">5+</span>
+                                <span class="stat-label lang-sw">Miaka</span>
+                                <span class="stat-label lang-en" style="display: none;">Years</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">1.2K+</span>
+                                <span class="stat-label lang-sw">Maagizo</span>
+                                <span class="stat-label lang-en" style="display: none;">Orders</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">20min</span>
+                                <span class="stat-label lang-sw">Wastani</span>
+                                <span class="stat-label lang-en" style="display: none;">Average</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Baba%20Lameck" 
+                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="lang-sw">Peekia Sasa</span>
+                            <span class="lang-en" style="display: none;">Order Now</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Vendor 2 -->
+                <div class="vendor-card">
+                    <div class="vendor-header">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" 
+                             alt="Mama Zainab Seafood">
+                        <div class="vendor-badges">
+                            <span class="vendor-badge verified">✓ Verified</span>
+                        </div>
+                    </div>
+                    <div class="vendor-info">
+                        <div class="vendor-meta">
+                            <h3>Mama Zainab Seafood</h3>
+                            <div class="vendor-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vendor-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kivukoni, Dar es Salaam</span>
+                        </div>
+                        
+                        <p class="lang-sw">Seafood safi kutoka bandari, kutayarishwa kwa usafi wa juu.</p>
+                        <p class="lang-en" style="display: none;">Fresh seafood from the port, prepared with premium hygiene.</p>
+                        
+                        <div class="vendor-specialties">
+                            <span class="specialty">Prawns</span>
+                            <span class="specialty">Calamari</span>
+                            <span class="specialty">Fish</span>
+                            <span class="specialty">Coconut Rice</span>
+                        </div>
+                        
+                        <div class="vendor-stats">
+                            <div class="stat">
+                                <span class="stat-value">3+</span>
+                                <span class="stat-label lang-sw">Miaka</span>
+                                <span class="stat-label lang-en" style="display: none;">Years</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">890+</span>
+                                <span class="stat-label lang-sw">Maagizo</span>
+                                <span class="stat-label lang-en" style="display: none;">Orders</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">25min</span>
+                                <span class="stat-label lang-sw">Wastani</span>
+                                <span class="stat-label lang-en" style="display: none;">Average</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Mama%20Zainab" 
+                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="lang-sw">Peekia Sasa</span>
+                            <span class="lang-en" style="display: none;">Order Now</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Vendor 3 -->
+                <div class="vendor-card">
+                    <div class="vendor-header">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" 
+                             alt="Street Bites Dar">
+                        <div class="vendor-badges">
+                            <span class="vendor-badge verified">✓ Verified</span>
+                            <span class="vendor-badge featured">Featured</span>
+                        </div>
+                    </div>
+                    <div class="vendor-info">
+                        <div class="vendor-meta">
+                            <h3>Street Bites Dar</h3>
+                            <div class="vendor-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vendor-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ubungo, Dar es Salaam</span>
+                        </div>
+                        
+                        <p class="lang-sw">Vyakula vya mitaani kwa ladha ya asili na bei nafuu.</p>
+                        <p class="lang-en" style="display: none;">Authentic street food flavors at affordable prices.</p>
+                        
+                        <div class="vendor-specialties">
+                            <span class="specialty">Chips Mayai</span>
+                            <span class="specialty">Mishikaki</span>
+                            <span class="specialty">Maandazi</span>
+                            <span class="specialty">Vitafunio</span>
+                        </div>
+                        
+                        <div class="vendor-stats">
+                            <div class="stat">
+                                <span class="stat-value">2+</span>
+                                <span class="stat-label lang-sw">Miaka</span>
+                                <span class="stat-label lang-en" style="display: none;">Years</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">1.5K+</span>
+                                <span class="stat-label lang-sw">Maagizo</span>
+                                <span class="stat-label lang-en" style="display: none;">Orders</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">15min</span>
+                                <span class="stat-label lang-sw">Wastani</span>
+                                <span class="stat-label lang-en" style="display: none;">Average</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Street%20Bites" 
+                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="lang-sw">Peekia Sasa</span>
+                            <span class="lang-en" style="display: none;">Order Now</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Add more vendor cards here -->
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline btn-lg">
+                    <span class="lang-sw">Angalia Wauzaji Wote</span>
+                    <span class="lang-en" style="display: none;">View All Vendors</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Vendor Section -->
+    <section class="become-vendor">
+        <div class="container">
+            <h2 class="display-2 lang-sw">Jiunge kama Mwuzaji</h2>
+            <h2 class="display-2 lang-en" style="display: none;">Become a Vendor</h2>
+            <p class="lead lang-sw">Ungana na wauzaji 150+ ambao tayari wanafaidika na wateja elfu</p>
+            <p class="lang-en lead" style="display: none;">Join 150+ vendors already benefiting from thousands of customers</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="lang-sw">Wateja Wengi</h3>
+                    <h3 class="lang-en" style="display: none;">More Customers</h3>
+                    <p class="lang-sw">Fikia wateja elfu kwa Dar es Salaam</p>
+                    <p class="lang-en" style="display: none;">Reach thousands of customers across Dar es Salaam</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="lang-sw">Ukuaji wa Mapato</h3>
+                    <h3 class="lang-en" style="display: none;">Revenue Growth</h3>
+                    <p class="lang-sw">Onyesha maagizo 200% zaidi</p>
+                    <p class="lang-en" style="display: none;">Show 200% more orders</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="lang-sw">Usafirishaji wa Bure</h3>
+                    <h3 class="lang-en" style="display: none;">Free Delivery</h3>
+                    <p class="lang-sw">Tunachukua usafirishaji wako wote</p>
+                    <p class="lang-en" style="display: none;">We handle all your deliveries</p>
+                </div>
+            </div>
+            
+            <a href="contact.html?vendor=apply" class="btn btn-secondary btn-lg">
+                <i class="fas fa-user-plus"></i>
+                <span class="lang-sw">Omba Sasa</span>
+                <span class="lang-en" style="display: none;">Apply Now</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CH</div>
+                        <div>
+                            <span class="brand-name">Chakula Haraka</span>
+                            <span class="tagline">Premium Delivery</span>
+                        </div>
+                    </div>
+                    <p class="lang-sw">Uhusika wa karibu wa vyakula vya mitaani Dar es Salaam. Vyakula safi, haraka, salama.</p>
+                    <p class="lang-en" style="display: none;">Authentic street food experience Dar es Salaam. Fresh food, fast, secure.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Viungo Muhimu</h4>
+                    <h4 class="lang-en" style="display: none;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Wauzaji</h4>
+                    <h4 class="lang-en" style="display: none;">For Vendors</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Join as Vendor</a></li>
+                        <li><a href="#">Vendor Benefits</a></li>
+                        <li><a href="#">Requirements</a></li>
+                        <li><a href="#">Vendor Dashboard</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Mawasiliano</h4>
+                    <h4 class="lang-en" style="display: none;">Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span class="lang-sw">24/7 Tovuti Inafanya Kazi</span>
+                            <span class="lang-en" style="display: none;">24/7 Website Active</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text lang-sw">Peekia Sasa</span>
+        <span class="float-text lang-en" style="display: none;">Order Now</span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Vendor Filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const areaFilter = document.getElementById('areaFilter');
+            const foodTypeFilter = document.getElementById('foodTypeFilter');
+            const ratingFilter = document.getElementById('ratingFilter');
+            
+            function filterVendors() {
+                const area = areaFilter.value;
+                const foodType = foodTypeFilter.value;
+                const rating = ratingFilter.value;
+                
+                console.log('Filtering by:', { area, foodType, rating });
+                // In a real implementation, you would filter vendor cards here
+            }
+            
+            areaFilter.addEventListener('change', filterVendors);
+            foodTypeFilter.addEventListener('change', filterVendors);
+            ratingFilter.addEventListener('change', filterVendors);
+            
+            // Initialize filters based on URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const areaParam = urlParams.get('area');
+            const typeParam = urlParams.get('type');
+            
+            if (areaParam) areaFilter.value = areaParam;
+            if (typeParam) foodTypeFilter.value = typeParam;
+        });
+    </script>
+</body>
+</html>
