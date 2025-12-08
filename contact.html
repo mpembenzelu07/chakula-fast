@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Chakula Haraka - Get in Touch</title>
+    <meta name="description" content="Contact Chakula Haraka for orders, vendor applications, driver jobs, or general inquiries. We're here to help 24/7.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 168, 150, 0.9), rgba(0, 78, 137, 0.9)),
+                        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .contact-section {
+            background: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-info {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: var(--border-radius);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .contact-method:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 10px;
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Contact Form */
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236C757D' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+        }
+        
+        /* Office Hours */
+        .office-hours {
+            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(0,168,150,0.05) 100%);
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .hours-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .hours-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .hours-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Map Section */
+        .map-section {
+            height: 400px;
+            position: relative;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 100%;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-gray), #e9ecef);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+        
+        .map-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Emergency Contact */
+        .emergency-contact {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .emergency-box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .emergency-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        /* Contact Tabs */
+        .contact-tabs {
+            background: var(--light-gray);
+            padding: 40px 0;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="sw">
+                    <i class="fas fa-flag"></i> Kiswahili
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Chakula Haraka</span>
+                        <span class="tagline">Premium Delivery</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="tel:+255747193972" class="phone-link">
+                            <i class="fas fa-phone"></i> +255 747 193 972
+                        </a>
+                        <a href="https://wa.me/255747193972" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="display-2 lang-sw">Wasiliana Nasi</h1>
+            <h1 class="display-2 lang-en" style="display: none;">Contact Us</h1>
+            <p class="lead lang-sw">Tunakaribisha maswali yako, maoni, na maagizo 24/7</p>
+            <p class="lead lang-en" style="display: none;">We welcome your questions, feedback, and orders 24/7</p>
+        </div>
+    </section>
+
+    <!-- Contact Tabs -->
+    <section class="contact-tabs">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="general">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="lang-sw">Maswali ya Jumla</span>
+                    <span class="lang-en" style="display: none;">General Inquiry</span>
+                </button>
+                <button class="tab-btn" data-tab="vendor">
+                    <i class="fas fa-store"></i>
+                    <span class="lang-sw">Jiunge kama Mwuzaji</span>
+                    <span class="lang-en" style="display: none;">Become a Vendor</span>
+                </button>
+                <button class="tab-btn" data-tab="driver">
+                    <i class="fas fa-truck"></i>
+                    <span class="lang-sw">Waajiriwa kama Dereva</span>
+                    <span class="lang-en" style="display: none;">Become a Driver</span>
+                </button>
+                <button class="tab-btn" data-tab="support">
+                    <i class="fas fa-headset"></i>
+                    <span class="lang-sw">Usaidizi wa Mteja</span>
+                    <span class="lang-en" style="display: none;">Customer Support</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2 class="section-title lang-sw">Tuwasiliane</h2>
+                    <h2 class="section-title lang-en" style="display: none;">Get in Touch</h2>
+                    <p class="lang-sw" style="margin-bottom: 30px;">Tuna karibu njia mbalimbali za mawasiliano. Chagua inayokufaa zaidi.</p>
+                    <p class="lang-en" style="margin-bottom: 30px; display: none;">We have various contact methods. Choose what works best for you.</p>
+                    
+                    <!-- WhatsApp -->
+                    <div class="contact-method">
+                        <div class="contact-icon" style="background: #25D366;">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="lang-sw">WhatsApp</h3>
+                            <h3 class="lang-en" style="display: none;">WhatsApp</h3>
+                            <p class="lang-sw">Ili kupeekia chakula au kujiuliza maswali</p>
+                            <p class="lang-en" style="display: none;">To order food or ask questions</p>
+                            <a href="https://wa.me/255747193972">+255 747 193 972</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Phone -->
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="lang-sw">Simu</h3>
+                            <h3 class="lang-en" style="display: none;">Phone</h3>
+                            <p class="lang-sw">Kwa maswali ya haraka na maagizo</p>
+                            <p class="lang-en" style="display: none;">For quick questions & orders</p>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="contact-method">
+                        <div class="contact-icon" style="background: var(--accent);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="lang-sw">Barua Pepe</h3>
+                            <h3 class="lang-en" style="display: none;">Email</h3>
+                            <p class="lang-sw">Kwa maombi rasmi na mawasiliano ya biashara</p>
+                            <p class="lang-en" style="display: none;">For formal applications & business communications</p>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="contact-method">
+                        <div class="contact-icon" style="background: var(--secondary);">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="lang-sw">Mitandao ya Kijamii</h3>
+                            <h3 class="lang-en" style="display: none;">Social Media</h3>
+                            <p class="lang-sw">Fuata habari zetu na wasiliana nasi</p>
+                            <p class="lang-en" style="display: none;">Follow our updates & contact us</p>
+                            <div style="display: flex; gap: 15px; margin-top: 10px;">
+                                <a href="#" style="font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                                <a href="#" style="font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                                <a href="#" style="font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="font-size: 1.2rem;"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <!-- General Inquiry Form (Default) -->
+                    <div class="tab-content active" id="general-form">
+                        <h2 class="section-title lang-sw">Tuma Ujumbe</h2>
+                        <h2 class="section-title lang-en" style="display: none;">Send Message</h2>
+                        
+                        <form id="generalContactForm">
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Jina Lako</label>
+                                <label class="form-label lang-en" style="display: none;">Your Name</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Namba ya Simu</label>
+                                <label class="form-label lang-en" style="display: none;">Phone Number</label>
+                                <input type="tel" class="form-control" name="phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Barua Pepe</label>
+                                <label class="form-label lang-en" style="display: none;">Email Address</label>
+                                <input type="email" class="form-control" name="email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Aina ya Ujumbe</label>
+                                <label class="form-label lang-en" style="display: none;">Message Type</label>
+                                <select class="form-control form-select" name="message_type">
+                                    <option value="order" class="lang-sw">Swali Kuhusu Agizo</option>
+                                    <option value="order" class="lang-en" style="display: none;">Order Question</option>
+                                    <option value="feedback" class="lang-sw">Maoni ya Huduma</option>
+                                    <option value="feedback" class="lang-en" style="display: none;">Service Feedback</option>
+                                    <option value="complaint" class="lang-sw">Lalamiko</option>
+                                    <option value="complaint" class="lang-en" style="display: none;">Complaint</option>
+                                    <option value="suggestion" class="lang-sw">Mapendekezo</option>
+                                    <option value="suggestion" class="lang-en" style="display: none;">Suggestion</option>
+                                    <option value="other" class="lang-sw">Nyingine</option>
+                                    <option value="other" class="lang-en" style="display: none;">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Ujumbe Wako</label>
+                                <label class="form-label lang-en" style="display: none;">Your Message</label>
+                                <textarea class="form-control" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="lang-sw">Tuma Ujumbe</span>
+                                <span class="lang-en" style="display: none;">Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Vendor Application Form -->
+                    <div class="tab-content" id="vendor-form">
+                        <h2 class="section-title lang-sw">Ombi la Mwuzaji</h2>
+                        <h2 class="section-title lang-en" style="display: none;">Vendor Application</h2>
+                        
+                        <form id="vendorApplicationForm">
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Jina la Biashara</label>
+                                <label class="form-label lang-en" style="display: none;">Business Name</label>
+                                <input type="text" class="form-control" name="business_name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Aina ya Chakula</label>
+                                <label class="form-label lang-en" style="display: none;">Food Type</label>
+                                <select class="form-control form-select" name="food_type">
+                                    <option value="nyama-choma" class="lang-sw">Nyama Choma</option>
+                                    <option value="nyama-choma" class="lang-en" style="display: none;">Grilled Meat</option>
+                                    <option value="seafood" class="lang-sw">Seafood</option>
+                                    <option value="seafood" class="lang-en" style="display: none;">Seafood</option>
+                                    <option value="street-food" class="lang-sw">Vyakula vya Mitaani</option>
+                                    <option value="street-food" class="lang-en" style="display: none;">Street Food</option>
+                                    <option value="pilau" class="lang-sw">Pilau & Wali</option>
+                                    <option value="pilau" class="lang-en" style="display: none;">Pilau & Rice</option>
+                                    <option value="snacks" class="lang-sw">Vitafunio</option>
+                                    <option value="snacks" class="lang-en" style="display: none;">Snacks</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Eneo la Biashara</label>
+                                <label class="form-label lang-en" style="display: none;">Business Location</label>
+                                <input type="text" class="form-control" name="location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Namba ya Simu ya Biashara</label>
+                                <label class="form-label lang-en" style="display: none;">Business Phone</label>
+                                <input type="tel" class="form-control" name="business_phone" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label lang-sw">Umepika kwa miaka mingapi?</label>
+                                <label class="form-label lang-en" style="display: none;">Years of Cooking Experience</label>
+                                <select class="form-control form-select" name="experience">
+                                    <option value="0-1" class="lang-sw">Chini ya Mwaka 1</option>
+                                    <option value="0-1" class="lang-en" style="display: none;">Less than 1 Year</option>
+                                    <option value="1-3" class="lang-sw">Miaka 1-3</option>
+                                    <option value="1-3" class="lang-en" style="display: none;">1-3 Years</option>
+                                    <option value="3-5" class="lang-sw">Miaka 3-5</option>
+                                    <option value="3-5" class="lang-en" style="display: none;">3-5 Years</option>
+                                    <option value="5+" class="lang-sw">Zaidi ya Miaka 5</option>
+                                    <option value="5+" class="lang-en" style="display: none;">More than 5 Years</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                                <i class="fas fa-store"></i>
+                                <span class="lang-sw">Wasilisha Ombi</span>
+                                <span class="lang-en" style="display: none;">Submit Application</span>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                        <h3 class="lang-sw">Asante! Ujumbe wako umetumwa.</h3>
+                        <h3 class="lang-en" style="display: none;">Thank you! Your message has been sent.</h3>
+                        <p class="lang-sw">Tutawasiliana nawe hivi karibuni.</p>
+                        <p class="lang-en" style="display: none;">We'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Hours -->
+    <section class="office-hours">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Muda wa Ofisi</h2>
+                <h2 class="section-title lang-en" style="display: none;">Office Hours</h2>
+                <p class="section-subtitle lang-sw">Tunaunganisha wauzaji na wateja kila siku</p>
+                <p class="section-subtitle lang-en" style="display: none;">Connecting vendors & customers every day</p>
+            </div>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="lang-sw">Usaidizi wa Mteja</h3>
+                    <h3 class="lang-en" style="display: none;">Customer Support</h3>
+                    <p class="lang-sw">Tunakusikiliza 24/7</p>
+                    <p class="lang-en" style="display: none;">We listen 24/7</p>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="lang-sw">Jumatatu-Jumapili</span>
+                            <span class="lang-en" style="display: none;">Monday-Sunday</span>
+                            <span>24/7</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="lang-sw">Maagizo ya Chakula</h3>
+                    <h3 class="lang-en" style="display: none;">Food Orders</h3>
+                    <p class="lang-sw">Peekia wakati wowote</p>
+                    <p class="lang-en" style="display: none;">Order anytime</p>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="lang-sw">Asubuhi</span>
+                            <span class="lang-en" style="display: none;">Morning</span>
+                            <span>7AM - 11AM</span>
+                        </li>
+                        <li>
+                            <span class="lang-sw">Mchana</span>
+                            <span class="lang-en" style="display: none;">Afternoon</span>
+                            <span>12PM - 3PM</span>
+                        </li>
+                        <li>
+                            <span class="lang-sw">Jioni</span>
+                            <span class="lang-en" style="display: none;">Evening</span>
+                            <span>6PM - 10PM</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="lang-sw">Ofisi ya Kimkakati</h3>
+                    <h3 class="lang-en" style="display: none;">Head Office</h3>
+                    <p class="lang-sw">Ziara ofisi yetu</p>
+                    <p class="lang-en" style="display: none;">Visit our office</p>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="lang-sw">Jumatatu-Ijumaa</span>
+                            <span class="lang-en" style="display: none;">Monday-Friday</span>
+                            <span>8AM - 5PM</span>
+                        </li>
+                        <li>
+                            <span class="lang-sw">Jumamosi</span>
+                            <span class="lang-en" style="display: none;">Saturday</span>
+                            <span>9AM - 1PM</span>
+                        </li>
+                        <li>
+                            <span class="lang-sw">Jumapili</span>
+                            <span class="lang-en" style="display: none;">Sunday</span>
+                            <span>Imefungwa</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Pata Ofisi Yetu</h2>
+                <h2 class="section-title lang-en" style="display: none;">Find Our Office</h2>
+            </div>
+            
+            <div class="map-container">
+                <!-- In a real website, you would embed Google Maps here -->
+                <div class="map-placeholder">
+                    <div class="map-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="lang-sw">Ofisi ya Chakula Haraka</h3>
+                    <h3 class="lang-en" style="display: none;">Chakula Haraka Office</h3>
+                    <p class="lang-sw">42396 Dar es Salaam, Tanzania</p>
+                    <p class="lang-en" style="display: none;">42396 Dar es Salaam, Tanzania</p>
+                    <a href="https://maps.google.com/?q=Dar+es+Salaam+Tanzania" 
+                       class="btn btn-outline mt-3" 
+                       target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        <span class="lang-sw">Fungua Ramani</span>
+                        <span class="lang-en" style="display: none;">Open Map</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="container">
+            <div class="emergency-box">
+                <div class="emergency-icon">
+                    <i class="fas fa-life-ring"></i>
+                </div>
+                <h2 class="lang-sw">Usaidizi wa Haraka</h2>
+                <h2 class="lang-en" style="display: none;">Emergency Support</h2>
+                <p class="lang-sw">Kwa shida zozote za haraka kuhusu agizo lako</p>
+                <p class="lang-en" style="display: none;">For any urgent issues with your order</p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="tel:+255747193972" class="btn btn-secondary btn-lg" style="margin: 10px;">
+                        <i class="fas fa-phone"></i>
+                        <span class="lang-sw">Piga Sasa: +255 747 193 972</span>
+                        <span class="lang-en" style="display: none;">Call Now: +255 747 193 972</span>
+                    </a>
+                    <a href="https://wa.me/255747193972" class="btn btn-outline btn-lg" style="border-color: white; color: white; margin: 10px;">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-sw">WhatsApp Haraka</span>
+                        <span class="lang-en" style="display: none;">Quick WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CH</div>
+                        <div>
+                            <span class="brand-name">Chakula Haraka</span>
+                            <span class="tagline">Premium Delivery</span>
+                        </div>
+                    </div>
+                    <p class="lang-sw">Uhusika wa karibu wa vyakula vya mitaani Dar es Salaam. Vyakula safi, haraka, salama.</p>
+                    <p class="lang-en" style="display: none;">Authentic street food experience Dar es Salaam. Fresh food, fast, secure.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Viungo Muhimu</h4>
+                    <h4 class="lang-en" style="display: none;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Usaidizi</h4>
+                    <h4 class="lang-en" style="display: none;">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="how-it-works.html#faq">FAQ</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Mawasiliano</h4>
+                    <h4 class="lang-en" style="display: none;">Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>42396 Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span class="lang-sw">Usaidizi: 24/7</span>
+                            <span class="lang-en" style="display: none;">Support: 24/7</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text lang-sw">Peekia Sasa</span>
+        <span class="float-text lang-en" style="display: none;">Order Now</span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Contact Form Tabs
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab Switching
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-form`).classList.add('active');
+                });
+            });
+            
+            // Form Submission
+            const forms = document.querySelectorAll('form');
+            const successMessage = document.getElementById('successMessage');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // Show success message
+                        successMessage.classList.add('show');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                        }, 5000);
+                        
+                        // Log form data (in real app, send to backend)
+                        console.log('Form submitted:', data);
+                        
+                        // Send to WhatsApp (optional)
+                        const message = `New ${this.id} Submission:\n\n${JSON.stringify(data, null, 2)}`;
+                        // window.open(`https://wa.me/255747193972?text=${encodeURIComponent(message)}`, '_blank');
+                        
+                    }, 1500);
+                });
+            });
+            
+            // Check URL parameters for active tab
+            const urlParams = new URLSearchParams(window.location.search);
+            const activeTab = urlParams.get('tab') || 'general';
+            
+            if (activeTab) {
+                const tabBtn = document.querySelector(`.tab-btn[data-tab="${activeTab}"]`);
+                if (tabBtn) {
+                    tabBtn.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
