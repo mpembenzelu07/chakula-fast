@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Chakula Haraka - Full Food Menu</title>
+    <meta name="description" content="Complete food menu from Chakula Haraka. Browse all dishes, categories, and prices.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Menu Specific Styles */
+        .menu-header {
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,168,150,0.1) 100%);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .menu-categories {
+            background: var(--light-gray);
+            padding: 40px 0;
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+        }
+        
+        .category-filters {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .category-filter {
+            background: white;
+            border: 2px solid var(--light-gray);
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+        
+        .category-filter.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .menu-item-content {
+            padding: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+        
+        .item-tags {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .item-tag {
+            background: var(--light-gray);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="sw">
+                    <i class="fas fa-flag"></i> Kiswahili
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Chakula Haraka</span>
+                        <span class="tagline">Premium Delivery</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" class="active">Menu</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="tel:+255747193972" class="phone-link">
+                            <i class="fas fa-phone"></i> +255 747 193 972
+                        </a>
+                        <a href="https://wa.me/255747193972" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1 class="display-2 text-primary lang-sw">Menu Yetu</h1>
+            <h1 class="display-2 text-primary lang-en" style="display: none;">Our Menu</h1>
+            <p class="lead lang-sw">Chagua kutoka kwa vyakula 100+ kutoka Dar es Salaam</p>
+            <p class="lead lang-en" style="display: none;">Choose from 100+ dishes from Dar es Salaam</p>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-categories">
+        <div class="container">
+            <div class="category-filters">
+                <div class="category-filter active" data-category="all">
+                    <span class="lang-sw">Vyote</span>
+                    <span class="lang-en" style="display: none;">All</span>
+                </div>
+                <div class="category-filter" data-category="nyama-choma">
+                    <span class="lang-sw">Nyama Choma</span>
+                    <span class="lang-en" style="display: none;">Grilled Meat</span>
+                </div>
+                <div class="category-filter" data-category="seafood">
+                    <span class="lang-sw">Seafood</span>
+                    <span class="lang-en" style="display: none;">Seafood</span>
+                </div>
+                <div class="category-filter" data-category="street-food">
+                    <span class="lang-sw">Vyakula vya Mitaani</span>
+                    <span class="lang-en" style="display: none;">Street Food</span>
+                </div>
+                <div class="category-filter" data-category="pilau">
+                    <span class="lang-sw">Pilau & Wali</span>
+                    <span class="lang-en" style="display: none;">Pilau & Rice</span>
+                </div>
+                <div class="category-filter" data-category="snacks">
+                    <span class="lang-sw">Vitafunio</span>
+                    <span class="lang-en" style="display: none;">Snacks</span>
+                </div>
+                <div class="category-filter" data-category="beverages">
+                    <span class="lang-sw">Vinywaji</span>
+                    <span class="lang-en" style="display: none;">Beverages</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-items">
+        <div class="container">
+            <div class="menu-grid">
+                <!-- Add menu items here -->
+                <div class="menu-item">
+                    <div class="dish-image">
+                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" 
+                             alt="Nyama Choma">
+                    </div>
+                    <div class="menu-item-content">
+                        <div class="item-header">
+                            <h3>Nyama Choma Special</h3>
+                            <span class="price">TSh 15,000</span>
+                        </div>
+                        <p class="lang-sw">½ kg nyama ya ng'ombe iliyochomwa kwa ustadi</p>
+                        <p class="lang-en" style="display: none;">½ kg expertly grilled beef</p>
+                        <div class="item-tags">
+                            <span class="item-tag">Beef</span>
+                            <span class="item-tag">Grilled</span>
+                            <span class="item-tag">Spicy</span>
+                        </div>
+                        <a href="https://wa.me/255747193972?text=Nataka%20Nyama%20Choma%20Special" 
+                           class="btn btn-order">
+                            <i class="fab fa-whatsapp"></i>
+                            <span class="lang-sw">Peekia</span>
+                            <span class="lang-en" style="display: none;">Order</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- More menu items would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Category filtering for menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const filters = document.querySelectorAll('.category-filter');
+            
+            filters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Remove active class from all filters
+                    filters.forEach(f => f.classList.remove('active'));
+                    // Add active class to clicked filter
+                    this.classList.add('active');
+                    
+                    // Filter logic would go here
+                    const category = this.getAttribute('data-category');
+                    console.log('Filtering by:', category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
