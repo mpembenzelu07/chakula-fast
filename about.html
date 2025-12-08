@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Chakula Haraka - Our Story & Mission</title>
+    <meta name="description" content="Learn about Chakula Haraka's story, mission, and vision. Discover how we're transforming food delivery in Tanzania with authentic street food.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(0, 78, 137, 0.9)),
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .story-section {
+            background: white;
+            position: relative;
+        }
+        
+        .story-timeline {
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+        
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+            padding: 0 40px;
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .timeline-item.left .timeline-content::before {
+            right: -50px;
+        }
+        
+        .timeline-item.right .timeline-content::before {
+            left: -50px;
+        }
+        
+        .timeline-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Mission & Values */
+        .mission-values {
+            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(0,168,150,0.05) 100%);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Team Section */
+        .team-section {
+            background: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            background: var(--light-gray);
+        }
+        
+        .partners-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 40px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        
+        .partners-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .partner-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 100px;
+            background: white;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .partner-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .story-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+            
+            .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="sw">
+                    <i class="fas fa-flag"></i> Kiswahili
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Chakula Haraka</span>
+                        <span class="tagline">Premium Delivery</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="tel:+255747193972" class="phone-link">
+                            <i class="fas fa-phone"></i> +255 747 193 972
+                        </a>
+                        <a href="https://wa.me/255747193972" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="display-2 lang-sw">Kuhusu Chakula Haraka</h1>
+            <h1 class="display-2 lang-en" style="display: none;">About Chakula Haraka</h1>
+            <p class="lead lang-sw">Kuleta vyakula vya mitaani vya Tanzania hadi mlangoni mwako tangu 2020</p>
+            <p class="lead lang-en" style="display: none;">Bringing Tanzanian street food to your doorstep since 2020</p>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Hadithi Yetu</h2>
+                <h2 class="section-title lang-en" style="display: none;">Our Story</h2>
+                <p class="section-subtitle lang-sw">Jinsi tulivyoanzisha na kukua kuwa wakala wakuu wa usambazaji wa vyakula Tanzania</p>
+                <p class="section-subtitle lang-en" style="display: none;">How we started and grew to become Tanzania's leading food delivery agent</p>
+            </div>
+            
+            <div class="story-timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="lang-sw">Mwanzilishi</h3>
+                        <h3 class="lang-en" style="display: none;">Foundation</h3>
+                        <p class="lang-sw">Tulianzisha Chakula Haraka na wauzaji 5 wa kwanza huko Kariakoo, Dar es Salaam. Lengo letu lilikuwa kuleta nyama choma kwa wateja haraka.</p>
+                        <p class="lang-en" style="display: none;">We founded Chakula Haraka with 5 initial vendors in Kariakoo, Dar es Salaam. Our goal was to deliver nyama choma to customers quickly.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3 class="lang-sw">Upanaaji</h3>
+                        <h3 class="lang-en" style="display: none;">Expansion</h3>
+                        <p class="lang-sw">Tuliongeza huduma kufikia maeneo 10 ya Dar es Salaam na wauzaji 50+. Tukaanza kutoa usafirishaji wa bure kwa maagizo makubwa.</p>
+                        <p class="lang-en" style="display: none;">We expanded service to 10 areas of Dar es Salaam with 50+ vendors. We started offering free delivery for large orders.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3 class="lang-sw">Teknolojia</h3>
+                        <h3 class="lang-en" style="display: none;">Technology</h3>
+                        <p class="lang-sw">Tulizindua tovuti yetu na mfumo wa WhatsApp. Wakati huu tulikuwa na wauzaji 100+ na wateja 10,000+.</p>
+                        <p class="lang-en" style="display: none;">We launched our website and WhatsApp system. By this time we had 100+ vendors and 10,000+ customers.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="lang-sw">Udhibiti wa Ubora</h3>
+                        <h3 class="lang-en" style="display: none;">Quality Control</h3>
+                        <p class="lang-sw">Tulianzisha mfumo wa uthibitishaji wa wauzaji na udhibiti wa ubora. Wakati huu tulikuwa na wauzaji 150+.</p>
+                        <p class="lang-en" style="display: none;">We launched vendor verification system and quality control. By this time we had 150+ vendors.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3 class="lang-sw">30-Minute Guarantee</h3>
+                        <h3 class="lang-en" style="display: none;">30-Minute Guarantee</h3>
+                        <p class="lang-sw">Tulianzisha hakikishi ya dakika 30. Chakula hakijafika ndani ya dakika 30, ni bure! Tulifika wateja 50,000+.</p>
+                        <p class="lang-en" style="display: none;">We launched 30-minute guarantee. If food doesn't arrive within 30 minutes, it's free! We reached 50,000+ customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-values">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Dhamira na Maadili</h2>
+                <h2 class="section-title lang-en" style="display: none;">Mission & Values</h2>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="lang-sw">Dhamira Yetu</h3>
+                    <h3 class="lang-en" style="display: none;">Our Mission</h3>
+                    <p class="lang-sw">Kuleta vyakula vya mitaani vya Tanzania kwa kila mtu haraka, kwa usafi, na kwa bei nafuu.</p>
+                    <p class="lang-en" style="display: none;">To bring Tanzanian street food to everyone quickly, hygienically, and affordably.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="lang-sw">Maono Yetu</h3>
+                    <h3 class="lang-en" style="display: none;">Our Vision</h3>
+                    <p class="lang-sw">Kuwa wakala wakuu wa usambazaji wa vyakula barani Afrika kufikia 2030.</p>
+                    <p class="lang-en" style="display: none;">To become Africa's leading food delivery agent by 2030.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="lang-sw">Thamani Zetu</h3>
+                    <h3 class="lang-en" style="display: none;">Our Values</h3>
+                    <p class="lang-sw">Ubora, Uaminifu, Haraka, Usafi, na Kujali jamii.</p>
+                    <p class="lang-en" style="display: none;">Quality, Trustworthiness, Speed, Hygiene, and Community care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="lang-sw">Tunafanya Tofauti</h2>
+                <h2 class="lang-en" style="display: none;">Making a Difference</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label lang-sw">Wauzaji</span>
+                    <span class="stat-label lang-en" style="display: none;">Vendors</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label lang-sw">Wateja</span>
+                    <span class="stat-label lang-en" style="display: none;">Customers</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">500K+</span>
+                    <span class="stat-label lang-sw">Maagizo</span>
+                    <span class="stat-label lang-en" style="display: none;">Orders</span>
+                </div>
+                
+                <div class="stat-item">
+                    <span class="stat-number">30min</span>
+                    <span class="stat-label lang-sw">Hakikishi</span>
+                    <span class="stat-label lang-en" style="display: none;">Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Timu Yetu</h2>
+                <h2 class="section-title lang-en" style="display: none;">Our Team</h2>
+                <p class="section-subtitle lang-sw">Watunga majukwaa yetu ya usambazaji wa vyakula</p>
+                <p class="section-subtitle lang-en" style="display: none;">The team behind our food delivery platform</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop" 
+                             alt="Michael Kivuyo">
+                    </div>
+                    <div class="team-info">
+                        <h3>Michael Kivuyo</h3>
+                        <p class="lang-sw">Mkurugenzi Mtendaji</p>
+                        <p class="lang-en" style="display: none;">Chief Executive Officer</p>
+                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Mwanzilishi wa Chakula Haraka</p>
+                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Founder of Chakula Haraka</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&auto=format&fit=crop" 
+                             alt="Sarah Juma">
+                    </div>
+                    <div class="team-info">
+                        <h3>Sarah Juma</h3>
+                        <p class="lang-sw">Mkurugenzi wa Uendeshaji</p>
+                        <p class="lang-en" style="display: none;">Operations Director</p>
+                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Anasimamia wauzaji na usafirishaji</p>
+                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Manages vendors & delivery</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?w=400&auto=format&fit=crop" 
+                             alt="David Mwamba">
+                    </div>
+                    <div class="team-info">
+                        <h3>David Mwamba</h3>
+                        <p class="lang-sw">Mkurugenzi wa Teknolojia</p>
+                        <p class="lang-en" style="display: none;">Technology Director</p>
+                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Anajenga teknolojia yetu</p>
+                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Builds our technology</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Washirika Wetu</h2>
+                <h2 class="section-title lang-en" style="display: none;">Our Partners</h2>
+            </div>
+            
+            <div class="partners-slider">
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/1A472A/FFFFFF?text=Vodacom" alt="Vodacom">
+                </div>
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/D4AF37/000000?text=Airtel" alt="Airtel">
+                </div>
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/1A1A1A/FFFFFF?text=Kariakoo+Market" alt="Kariakoo Market">
+                </div>
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/E63946/FFFFFF?text=Dar+City+Council" alt="Dar City Council">
+                </div>
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/004E89/FFFFFF?text=Tigo" alt="Tigo">
+                </div>
+                <div class="partner-item">
+                    <img src="https://via.placeholder.com/150x60/00A896/FFFFFF?text=Kivukoni+Fisheries" alt="Kivukoni Fisheries">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title lang-sw">Jiunge na Safari Yetu</h2>
+                <h2 class="cta-title lang-en" style="display: none;">Join Our Journey</h2>
+                <p class="cta-subtitle lang-sw">Tunatafuta watu wenye hamu ya kubadilisha sekta ya usambazaji wa vyakula Tanzania.</p>
+                <p class="cta-subtitle lang-en" style="display: none;">We're looking for passionate people to transform Tanzania's food delivery sector.</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html?careers" class="btn btn-primary btn-lg">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="lang-sw">Maombi ya Kazi</span>
+                        <span class="lang-en" style="display: none;">Career Opportunities</span>
+                    </a>
+                    <a href="vendors.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                        <i class="fas fa-store"></i>
+                        <span class="lang-sw">Jiunge kama Mwuzaji</span>
+                        <span class="lang-en" style="display: none;">Become a Vendor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CH</div>
+                        <div>
+                            <span class="brand-name">Chakula Haraka</span>
+                            <span class="tagline">Premium Delivery</span>
+                        </div>
+                    </div>
+                    <p class="lang-sw">Kuleta vyakula vya mitaani vya Tanzania hadi mlangoni mwako tangu 2020.</p>
+                    <p class="lang-en" style="display: none;">Bringing Tanzanian street food to your doorstep since 2020.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Viungo Muhimu</h4>
+                    <h4 class="lang-en" style="display: none;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Kampuni</h4>
+                    <h4 class="lang-en" style="display: none;">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html#story">Our Story</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="contact.html?careers">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Mawasiliano</h4>
+                    <h4 class="lang-en" style="display: none;">Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>42396 Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span class="lang-sw">Ofisi: Jumatatu-Jumapili 8AM-10PM</span>
+                            <span class="lang-en" style="display: none;">Office: Mon-Sun 8AM-10PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text lang-sw">Peekia Sasa</span>
+        <span class="float-text lang-en" style="display: none;">Order Now</span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Auto-scroll partners slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.partners-slider');
+            if (slider) {
+                let scrollAmount = 0;
+                const slideTimer = setInterval(() => {
+                    slider.scrollLeft += 1;
+                    scrollAmount += 1;
+                    
+                    if (scrollAmount >= slider.scrollWidth / 2) {
+                        slider.scrollLeft = 0;
+                        scrollAmount = 0;
+                    }
+                }, 30);
+            }
+        });
+    </script>
+</body>
+</html>
