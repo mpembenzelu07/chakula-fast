@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | Chakula Haraka - Delivery Process</title>
+    <meta name="description" content="Learn how Chakula Haraka works. Simple 4-step process from ordering to delivery at your door in Dar es Salaam.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* How It Works Specific Styles */
+        .process-hero {
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,168,150,0.1) 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .process-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 80px auto;
+        }
+        
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transform: translateX(-50%);
+        }
+        
+        .process-step {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 100px;
+        }
+        
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .step-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            background: white;
+            text-align: center;
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .payment-method {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .payment-method:hover {
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .payment-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, rgba(0, 78, 137, 0.05) 0%, rgba(0, 168, 150, 0.05) 100%);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 30px 30px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        /* Delivery Areas */
+        .delivery-areas {
+            background: white;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .area-card {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .area-card:hover {
+            background: white;
+            box-shadow: var(--shadow);
+            transform: translateY(-5px);
+        }
+        
+        .area-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Tabs -->
+    <div class="language-tabs">
+        <div class="container">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="sw">
+                    <i class="fas fa-flag"></i> Kiswahili
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-globe"></i> English
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">
+                        <span class="brand-name">Chakula Haraka</span>
+                        <span class="tagline">Premium Delivery</span>
+                    </div>
+                </a>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                    <li><a href="how-it-works.html" class="active">How It Works</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="nav-cta">
+                        <a href="tel:+255747193972" class="phone-link">
+                            <i class="fas fa-phone"></i> +255 747 193 972
+                        </a>
+                        <a href="https://wa.me/255747193972" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Order Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Process Hero -->
+    <section class="process-hero">
+        <div class="container">
+            <h1 class="display-2 text-primary lang-sw">Jinsi Inavyofanya Kazi</h1>
+            <h1 class="display-2 text-primary lang-en" style="display: none;">How It Works</h1>
+            <p class="lead lang-sw">Njia rahisi ya kupata chakula cha mitaani mlangoni mwako</p>
+            <p class="lang-en lead" style="display: none;">Simple way to get street food at your doorstep</p>
+        </div>
+    </section>
+
+    <!-- Process Timeline -->
+    <section class="process-section">
+        <div class="container">
+            <div class="process-timeline">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="lang-sw">Peekia kupitia WhatsApp</h3>
+                        <h3 class="lang-en" style="display: none;">Order via WhatsApp</h3>
+                        <p class="lang-sw">Tuma ujumbe kwa namba yetu ya WhatsApp au tumia tovuti yetu. Chagua chakula unachotaka kutoka kwa wauzaji wetu.</p>
+                        <p class="lang-en" style="display: none;">Send a message to our WhatsApp number or use our website. Choose food you want from our vendors.</p>
+                        
+                        <div class="mt-3">
+                            <a href="https://wa.me/255747193972" class="btn btn-primary">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="lang-sw">Tupigie WhatsApp</span>
+                                <span class="lang-en" style="display: none;">WhatsApp Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="lang-sw">Tayarisha Chakula</h3>
+                        <h3 class="lang-en" style="display: none;">Food Preparation</h3>
+                        <p class="lang-sw">Mwuzaji anapokea agizo lako na kuanza kutayarisha chakula chako mara moja. Chakula huchakatwa na kupikwa safi.</p>
+                        <p class="lang-en" style="display: none;">Vendor receives your order and starts preparing your food immediately. Food is freshly cut and cooked.</p>
+                        
+                        <div class="mt-3">
+                            <a href="vendors.html" class="btn btn-outline">
+                                <i class="fas fa-store"></i>
+                                <span class="lang-sw">Angalia Wauzaji</span>
+                                <span class="lang-en" style="display: none;">View Vendors</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3 class="lang-sw">Wasilisha kwa Bajaji</h3>
+                        <h3 class="lang-en" style="display: none;">Delivery via Bajaji</h3>
+                        <p class="lang-sw">Bajaji yetu huchukua chakula kutoka kwa mwuzaji na kukifikisha kwako. Tunatumia bajaji kwa usafirishaji wa haraka.</p>
+                        <p class="lang-en" style="display: none;">Our bajaji picks up food from vendor and delivers to you. We use bajaji for fast delivery.</p>
+                        
+                        <div class="lang-sw mt-3">
+                            <div class="alert" style="background: #e8f4fd; padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+                                <strong>⚡ 30-Minute Guarantee:</strong> Chakula kinafika ndani ya dakika 30 au ni BURE!
+                            </div>
+                        </div>
+                        <div class="lang-en mt-3" style="display: none;">
+                            <div class="alert" style="background: #e8f4fd; padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
+                                <strong>⚡ 30-Minute Guarantee:</strong> Food arrives within 30 minutes or it's FREE!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3 class="lang-sw">Lipa na Kufurahia</h3>
+                        <h3 class="lang-en" style="display: none;">Pay & Enjoy</h3>
+                        <p class="lang-sw">Lipa kwa fedha taslimu, M-Pesa, au njia nyingine unapopokea chakula. Kula na kufurahia!</p>
+                        <p class="lang-en" style="display: none;">Pay with cash, M-Pesa, or other methods when receiving food. Eat & enjoy!</p>
+                        
+                        <div class="mt-3">
+                            <a href="#payment" class="btn btn-outline">
+                                <i class="fas fa-credit-card"></i>
+                                <span class="lang-sw">Angalia Njia za Malipo</span>
+                                <span class="lang-en" style="display: none;">View Payment Methods</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Kwa Nini Kuchagua Chakula Haraka?</h2>
+                <h2 class="section-title lang-en" style="display: none;">Why Choose Chakula Haraka?</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="lang-sw">Haraka</h3>
+                    <h3 class="lang-en" style="display: none;">Fast</h3>
+                    <p class="lang-sw">Wasilishaji wa dakika 30 au chakula chako ni bure</p>
+                    <p class="lang-en" style="display: none;">30-minute delivery or your food is free</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="lang-sw">Salama</h3>
+                    <h3 class="lang-en" style="display: none;">Safe</h3>
+                    <p class="lang-sw">Wauzaji wote wanathibitishwa kwa usafi na ubora</p>
+                    <p class="lang-en" style="display: none;">All vendors verified for hygiene & quality</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="lang-sw">Ladha ya Asili</h3>
+                    <h3 class="lang-en" style="display: none;">Authentic Taste</h3>
+                    <p class="lang-sw">Chakula halisi cha mitaani cha Tanzania</p>
+                    <p class="lang-en" style="display: none;">Authentic Tanzanian street food</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-methods" id="payment">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Njia za Malipo</h2>
+                <h2 class="section-title lang-en" style="display: none;">Payment Methods</h2>
+                <p class="section-subtitle lang-sw">Chagua njia ya malipo inayokufaa zaidi</p>
+                <p class="section-subtitle lang-en" style="display: none;">Choose payment method that works best for you</p>
+            </div>
+            
+            <div class="payment-grid">
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Cash</h3>
+                    <p class="lang-sw">Lipa kwa fedha taslimu unapopokea chakula</p>
+                    <p class="lang-en" style="display: none;">Pay with cash when receiving food</p>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>M-Pesa</h3>
+                    <p class="lang-sw">Malipo ya haraka na salama kupitia M-Pesa</p>
+                    <p class="lang-en" style="display: none;">Fast & secure payment via M-Pesa</p>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Airtel Money</h3>
+                    <p class="lang-sw">Malipo kwa njia ya Airtel Money</p>
+                    <p class="lang-en" style="display: none;">Payment via Airtel Money</p>
+                </div>
+                
+                <div class="payment-method">
+                    <div class="payment-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>Tigo Pesa</h3>
+                    <p class="lang-sw">Malipo kwa Tigo Pesa</p>
+                    <p class="lang-en" style="display: none;">Payment via Tigo Pesa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery Areas -->
+    <section class="delivery-areas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Maeneo Tunayofikia</h2>
+                <h2 class="section-title lang-en" style="display: none;">Areas We Cover</h2>
+                <p class="section-subtitle lang-sw">Tunafikia maeneo mengi ya Dar es Salaam</p>
+                <p class="section-subtitle lang-en" style="display: none;">We cover many areas of Dar es Salaam</p>
+            </div>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-city"></i>
+                    </div>
+                    <h3>Kariakoo</h3>
+                    <p class="lang-sw">Mji mkuu wa vyakula vya mitaani</p>
+                    <p class="lang-en" style="display: none;">Street food capital</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Masaki</h3>
+                    <p class="lang-sw">Wasilishaji wa hali ya juu</p>
+                    <p class="lang-en" style="display: none;">Upscale deliveries</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Posta</h3>
+                    <p class="lang-sw">Eneo la biashara</p>
+                    <p class="lang-en" style="display: none;">Business district</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Ubungo</h3>
+                    <p class="lang-sw">Eneo la wanafunzi</p>
+                    <p class="lang-en" style="display: none;">Student area</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Kivukoni</h3>
+                    <p class="lang-sw">Maalum ya seafood</p>
+                    <p class="lang-en" style="display: none;">Seafood special</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Mbezi Beach</h3>
+                    <p class="lang-sw">Maeneo ya makazi</p>
+                    <p class="lang-en" style="display: none;">Residential areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Maswali Yanayoulizwa Mara Kwa Mara</h2>
+                <h2 class="section-title lang-en" style="display: none;">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-sw">Je, gharama ya usafirishaji ni ngapi?</span>
+                        <span class="lang-en" style="display: none;">How much is delivery cost?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-sw">Usafirishaji ni BURE kwa maagizo yote ya TSh 10,000 na zaidi. Kwa maagizo chini ya TSh 10,000, ada ni TSh 1,500.</p>
+                        <p class="lang-en" style="display: none;">Delivery is FREE for all orders of TSh 10,000 and above. For orders below TSh 10,000, fee is TSh 1,500.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-sw">Chakula kinafika lini?</span>
+                        <span class="lang-en" style="display: none;">When does food arrive?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-sw">Chakula hufika ndani ya dakika 30. Kama hakijafika ndani ya dakika 30, chakula chako ni BURE!</p>
+                        <p class="lang-en" style="display: none;">Food arrives within 30 minutes. If it doesn't arrive within 30 minutes, your food is FREE!</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-sw">Nawezaje kulipa?</span>
+                        <span class="lang-en" style="display: none;">How can I pay?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-sw">Unaweza kulipa kwa fedha taslimu, M-Pesa, Airtel Money, au Tigo Pesa.</p>
+                        <p class="lang-en" style="display: none;">You can pay with cash, M-Pesa, Airtel Money, or Tigo Pesa.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="lang-sw">Nawezaje kubadilisha au kufuta agizo?</span>
+                        <span class="lang-en" style="display: none;">How can I change or cancel order?</span>
+                        <i class="fas fa-chevron-down faq-toggle"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-sw">Piga +255 747 193 972 kufuta agizo lako ndani ya dakika 5 za kwanza.</p>
+                        <p class="lang-en" style="display: none;">Call +255 747 193 972 to cancel your order within first 5 minutes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CH</div>
+                        <div>
+                            <span class="brand-name">Chakula Haraka</span>
+                            <span class="tagline">Premium Delivery</span>
+                        </div>
+                    </div>
+                    <p class="lang-sw">Uhusika wa karibu wa vyakula vya mitaani Dar es Salaam. Vyakula safi, haraka, salama.</p>
+                    <p class="lang-en" style="display: none;">Authentic street food experience Dar es Salaam. Fresh food, fast, secure.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Viungo Muhimu</h4>
+                    <h4 class="lang-en" style="display: none;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Usaidizi</h4>
+                    <h4 class="lang-en" style="display: none;">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Mawasiliano</h4>
+                    <h4 class="lang-en" style="display: none;">Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span class="lang-sw">24/7 Tovuti Inafanya Kazi</span>
+                            <span class="lang-en" style="display: none;">24/7 Website Active</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span class="float-text lang-sw">Peekia Sasa</span>
+        <span class="float-text lang-en" style="display: none;">Order Now</span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                
+                question.addEventListener('click', function() {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-answer').classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    answer.classList.toggle('active');
+                });
+            });
+            
+            // Open FAQ based on URL hash
+            const hash = window.location.hash;
+            if (hash) {
+                const targetItem = document.querySelector(hash);
+                if (targetItem) {
+                    targetItem.classList.add('active');
+                    targetItem.querySelector('.faq-answer').classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
