@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakula Haraka - Tanzania's Street Food Marketplace | Multi-Vendor Delivery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Chakula Haraka | Tanzania's Leading Street Food Delivery Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -14,703 +14,594 @@
         }
 
         :root {
-            --tanzania-green: #1EB53A;
-            --tanzania-blue: #00A3DD;
-            --tanzania-black: #000000;
-            --tanzania-yellow: #FCD116;
-            --spice-red: #E63946;
-            --white: #FFFFFF;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --light-gray: #f8f9fa;
-            --dark-gray: #343a40;
+            --primary-green: #1EB53A;
+            --primary-blue: #00A3DD;
+            --accent-yellow: #FCD116;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray-medium: #6C757D;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: var(--light-gray);
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Language Tabs */
-        .language-tabs {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: white;
-            z-index: 2000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: center;
+        section {
+            padding: 80px 0;
         }
 
-        .tab-container {
-            display: flex;
-            max-width: 1400px;
-            width: 100%;
-            padding: 0 20px;
-        }
-
-        .lang-tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            background: #f5f5f5;
-            cursor: pointer;
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary-green);
+            color: var(--light);
             border: none;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            border-radius: var(--border-radius);
             font-weight: 600;
-            color: #666;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        .lang-tab:hover {
-            background: #e9e9e9;
+        .btn:hover {
+            background: #15952e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 181, 58, 0.3);
         }
 
-        .lang-tab.active {
-            background: white;
-            color: var(--tanzania-green);
-            border-bottom: 3px solid var(--tanzania-green);
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
         }
 
-        /* Content Sections */
-        .content-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: var(--light);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .btn-yellow {
+            background: var(--accent-yellow);
+            color: var(--dark);
         }
 
-        .content-section.active {
-            display: block;
+        .btn-yellow:hover {
+            background: #e6b800;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(90deg, 
-                var(--tanzania-green) 0%, 
-                var(--tanzania-green) 25%, 
-                var(--tanzania-blue) 25%, 
-                var(--tanzania-blue) 50%, 
-                var(--tanzania-black) 50%, 
-                var(--tanzania-black) 75%, 
-                var(--tanzania-yellow) 75%, 
-                var(--tanzania-yellow) 100%);
-            position: fixed;
-            width: 100%;
-            top: 55px;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        /* Top Bar */
+        .top-bar {
+            background: var(--dark);
+            color: var(--light);
+            padding: 10px 0;
+            font-size: 0.9rem;
         }
 
-        .nav-container {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            margin: 5px 20px;
-            border-radius: 50px;
-            padding: 0.8rem 2rem;
+        .top-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .contact-info span {
+            margin-right: 20px;
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+            color: var(--accent-yellow);
+        }
+
+        /* Header */
+        header {
+            background: var(--light);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 15px;
+            text-decoration: none;
         }
 
-        .logo-flag {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(45deg, 
-                var(--tanzania-green) 0%, 
-                var(--tanzania-blue) 33%, 
-                var(--tanzania-black) 66%, 
-                var(--tanzania-yellow) 100%);
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary-green), var(--primary-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--light);
+            font-size: 1.5rem;
             font-weight: bold;
-            font-size: 1.3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .logo-text {
-            font-family: 'Roboto Slab', serif;
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            color: var(--dark);
         }
 
-        .user-actions {
+        .logo-text span {
+            color: var(--primary-green);
+        }
+
+        .main-nav ul {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            list-style: none;
+            gap: 30px;
         }
 
-        .track-order-btn {
-            background: var(--tanzania-yellow);
-            color: var(--tanzania-black);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-        }
-
-        .track-order-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(252, 209, 22, 0.3);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .profile-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--tanzania-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .cart-icon {
+        .main-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 0;
             position: relative;
-            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .cart-count {
+        .main-nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .main-nav a::after {
+            content: '';
             position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--spice-red);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            font-size: 0.8rem;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .language-toggle {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 5px;
+            margin-left: 30px;
+        }
+
+        .lang-btn {
+            padding: 6px 15px;
+            background: var(--gray-light);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background: var(--primary-green);
+            color: var(--light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
         }
 
         /* Hero Section */
         .hero {
-            padding: 12rem 20px 5rem;
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
-                        url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1600&auto=format&fit=crop') center/cover;
-            color: white;
-            text-align: center;
+            background: linear-gradient(135deg, rgba(30, 181, 58, 0.05) 0%, rgba(0, 163, 221, 0.05) 100%);
+            padding: 100px 0;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(30, 181, 58, 0.1) 0%, rgba(30, 181, 58, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .hero-content {
-            max-width: 1000px;
-            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
         }
 
         .hero h1 {
-            font-family: 'Roboto Slab', serif;
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
         }
 
-        .hero .highlight {
-            color: var(--tanzania-yellow);
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px rgba(252, 209, 22, 0.5); }
-            to { text-shadow: 0 0 20px rgba(252, 209, 22, 0.8); }
+        .hero h1 span {
+            color: var(--primary-green);
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.2rem;
+            color: var(--gray-medium);
+            margin-bottom: 30px;
+            max-width: 500px;
         }
 
-        /* Stats Bar */
-        .stats-bar {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin: 2rem auto;
-            max-width: 800px;
+        .hero-buttons {
             display: flex;
-            justify-content: space-around;
+            gap: 15px;
             flex-wrap: wrap;
-            gap: 1rem;
         }
 
-        .stat-item {
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            z-index: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Features */
+        .features {
+            background: var(--light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--tanzania-yellow);
-            display: block;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Order Tracking Modal */
-        .tracking-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tracking-modal.active {
-            display: flex;
-        }
-
-        .tracking-content {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-        }
-
-        .tracking-timeline {
-            margin: 2rem 0;
-        }
-
-        .tracking-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: all 0.3s;
-        }
-
-        .tracking-step.active {
-            background: var(--tanzania-green);
-            color: white;
-        }
-
-        .tracking-step.completed {
-            background: #e8f5e9;
-            border-left: 4px solid var(--success);
-        }
-
-        .step-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            font-weight: bold;
+            margin: 0 auto 20px;
+            color: var(--light);
+            font-size: 2rem;
         }
 
-        .tracking-step.active .step-icon {
-            background: white;
-            color: var(--tanzania-green);
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
 
-        .step-info h4 {
-            margin-bottom: 5px;
+        /* Partners */
+        .partners {
+            background: var(--gray-light);
         }
 
-        .step-time {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .live-tracking {
-            background: var(--tanzania-yellow);
-            color: var(--tanzania-black);
-            padding: 10px;
-            border-radius: 10px;
-            margin-top: 1rem;
-            font-weight: 600;
-        }
-
-        /* Vendors Section */
-        .vendors {
-            padding: 5rem 20px;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Roboto Slab', serif;
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: var(--tanzania-black);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, var(--tanzania-green), var(--tanzania-blue));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-        }
-
-        .vendor-categories {
+        .partners-logos {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .category-btn {
-            padding: 10px 25px;
-            background: #f8f9fa;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
+        .partner-logo {
+            height: 60px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: var(--transition);
         }
 
-        .category-btn.active {
-            background: var(--tanzania-green);
-            color: white;
-            border-color: var(--tanzania-green);
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--light);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray-light);
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            flex: 1;
+            box-shadow: var(--box-shadow);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-green);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Vendor Showcase */
+        .vendor-showcase {
+            background: linear-gradient(135deg, rgba(252, 209, 22, 0.05) 0%, rgba(30, 181, 58, 0.05) 100%);
         }
 
         .vendor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .vendor-card {
-            background: white;
-            border-radius: 20px;
+            background: var(--light);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            position: relative;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
         }
 
         .vendor-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(30, 181, 58, 0.15);
+            transform: translateY(-5px);
         }
 
-        .vendor-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--tanzania-yellow);
-            color: var(--tanzania-black);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            z-index: 1;
-        }
-
-        .vendor-img {
+        .vendor-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .vendor-info {
-            padding: 1.5rem;
+        .vendor-content {
+            padding: 25px;
         }
 
         .vendor-header {
             display: flex;
             justify-content: space-between;
             align-items: start;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
 
         .vendor-rating {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            background: #fff3cd;
+            background: var(--accent-yellow);
+            color: var(--dark);
             padding: 5px 10px;
-            border-radius: 15px;
+            border-radius: 20px;
+            font-weight: 600;
             font-size: 0.9rem;
-        }
-
-        .star {
-            color: var(--tanzania-yellow);
         }
 
         .vendor-tags {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 10px;
+            margin: 15px 0;
             flex-wrap: wrap;
         }
 
         .tag {
-            background: #e9ecef;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
+            background: var(--gray-light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--gray-medium);
         }
 
-        .vendor-features {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
         }
 
-        .feature {
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+
+        .testimonial {
+            background: var(--light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             text-align: center;
         }
 
-        .feature i {
-            color: var(--tanzania-green);
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--dark);
         }
 
-        /* Menu Items */
-        .menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .menu-item {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .menu-item:hover {
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 0.5rem;
-        }
-
-        .item-price {
-            color: var(--spice-red);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .item-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .item-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 0.5rem;
-        }
-
-        .add-to-cart {
-            background: var(--tanzania-green);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .add-to-cart:hover {
-            background: var(--tanzania-blue);
-        }
-
-        /* Payment Options */
-        .payment-options {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .payment-method {
-            flex: 1;
-            padding: 1rem;
-            background: white;
-            border: 2px solid #ddd;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .payment-method.active {
-            border-color: var(--tanzania-green);
-            background: #f0fff4;
-        }
-
-        .payment-method i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--tanzania-green);
-        }
-
-        /* User Reviews */
-        .reviews {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
-            padding: 5rem 20px;
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .review-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .review-header {
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .reviewer-img {
+        .author-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .review-meta {
-            flex: 1;
+        .author-info h4 {
+            margin-bottom: 5px;
         }
 
-        .review-stars {
-            color: var(--tanzania-yellow);
-        }
-
-        .review-date {
+        .author-info p {
+            color: var(--gray-medium);
             font-size: 0.9rem;
-            color: #666;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
+            color: var(--light);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn {
+            background: var(--light);
+            color: var(--primary-green);
+        }
+
+        .cta-buttons .btn:hover {
+            background: var(--accent-yellow);
+            color: var(--dark);
         }
 
         /* Footer */
-        .footer {
-            background: var(--tanzania-black);
-            color: white;
-            padding: 4rem 20px 2rem;
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 80px 0 30px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            color: var(--tanzania-yellow);
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--light);
         }
 
         .footer-links {
@@ -718,23 +609,32 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
-            color: #ddd;
+            color: #B0B7C3;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--tanzania-yellow);
+            color: var(--accent-yellow);
+            padding-left: 5px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #B0B7C3;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .social-links a {
@@ -743,900 +643,532 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            color: white;
-            transition: all 0.3s;
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
-            background: var(--tanzania-green);
+            background: var(--primary-green);
             transform: translateY(-3px);
         }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
-            z-index: 1000;
-            animation: float 3s ease-in-out infinite;
-            text-decoration: none;
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #B0B7C3;
+            font-size: 0.9rem;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive Design */
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
             }
             
-            .nav-container {
-                padding: 0.8rem 1rem;
+            .hero-image {
+                position: relative;
+                width: 100%;
+                max-width: 500px;
+                margin-top: 50px;
+                transform: none;
             }
             
-            .user-actions {
-                gap: 10px;
+            .steps {
+                flex-direction: column;
             }
             
-            .track-order-btn span {
+            .steps::before {
                 display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--light);
+                padding: 80px 30px 30px;
+                transition: var(--transition);
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                z-index: 1001;
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .language-toggle {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            .contact-info {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
             }
             
             .vendor-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stats-bar {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Language Tabs -->
-    <div class="language-tabs">
-        <div class="tab-container">
-            <button class="lang-tab active" id="swahiliTab">
-                <i class="fas fa-flag"></i> KISWAHILI
-            </button>
-            <button class="lang-tab" id="englishTab">
-                <i class="fas fa-globe"></i> ENGLISH
-            </button>
-        </div>
-    </div>
-
-    <!-- Order Tracking Modal -->
-    <div class="tracking-modal" id="trackingModal">
-        <div class="tracking-content">
-            <div class="close-modal" onclick="closeTracking()">×</div>
-            <h3>Track Your Order</h3>
-            <div class="tracking-timeline">
-                <div class="tracking-step completed">
-                    <div class="step-icon">✓</div>
-                    <div class="step-info">
-                        <h4>Order Received</h4>
-                        <div class="step-time">2:30 PM</div>
-                    </div>
-                </div>
-                <div class="tracking-step active">
-                    <div class="step-icon"><i class="fas fa-utensils"></i></div>
-                    <div class="step-info">
-                        <h4>Preparing Food</h4>
-                        <div class="step-time">Estimated: 15 min</div>
-                    </div>
-                </div>
-                <div class="tracking-step">
-                    <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
-                    <div class="step-info">
-                        <h4>On the Way</h4>
-                        <div class="step-time">--</div>
-                    </div>
-                </div>
-                <div class="tracking-step">
-                    <div class="step-icon"><i class="fas fa-home"></i></div>
-                    <div class="step-info">
-                        <h4>Delivered</h4>
-                        <div class="step-time">--</div>
-                    </div>
-                </div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +255 747 193 972</span>
+                <span><i class="fas fa-envelope"></i> info@chakulaharaka.co.tz</span>
+                <span><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</span>
             </div>
-            <div class="live-tracking">
-                <i class="fas fa-map-marker-alt"></i> Driver is 1.2km away - Arriving in 12 min
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="sw">SW</button>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
         </div>
     </div>
-
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/255747193972" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-container">
-                    <div class="logo">
-                        <div class="logo-flag">🇹🇿</div>
-                        <span class="logo-text">CHAKULA HARAKA PRO</span>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">CH</div>
+                    <div class="logo-text">Chakula<span>Haraka</span></div>
+                </a>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="#home">Nyumbani</a></li>
+                        <li><a href="#features">Huduma</a></li>
+                        <li><a href="#how-it-works">Jinsi Inavyofanya Kazi</a></li>
+                        <li><a href="#vendors">Wauzaji</a></li>
+                        <li><a href="#contact">Mawasiliano</a></li>
+                    </ul>
+                    <div class="language-toggle">
+                        <button class="lang-btn active" data-lang="sw">SW</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
                     </div>
-                    
-                    <div class="user-actions">
-                        <button class="track-order-btn" onclick="openTracking()">
-                            <i class="fas fa-shipping-fast"></i>
-                            <span>Track Order</span>
-                        </button>
-                        
-                        <div class="user-menu">
-                            <div class="cart-icon">
-                                <i class="fas fa-shopping-cart" style="font-size: 1.3rem;"></i>
-                                <span class="cart-count">2</span>
-                            </div>
-                            
-                            <div class="user-profile">
-                                <div class="profile-icon">MK</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </nav>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- SWAHILI CONTENT -->
-    <div id="swahiliContent" class="content-section active">
-        <!-- Hero -->
-        <section class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
             <div class="hero-content">
-                <h1>Chakula Haraka <span class="highlight">PRO</span><br>Usambazaji wa Chakula Tanzania</h1>
-                <p>Uwanja wa biashara wa vyakula vya mitaani unaounganisha wauzaji 100+ na wateja kupitia mfumo wa kisasa wa usambazaji, ufuatiliaji wa muda halisi, na malipo salama.</p>
-                
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Wauzaji Waliosajiliwa</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">30min</span>
-                        <span class="stat-label">Hakikishi ya Wasilishaji</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">4.8★</span>
-                        <span class="stat-label">Ukadiriaji wa Wateja</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10K+</span>
-                        <span class="stat-label">Maagizo Kila Mwezi</span>
-                    </div>
+                <h1>Chakula Haraka:<br>Nyama Choma kwa <span>Dakika 30</span></h1>
+                <p>Uhusika wa karibu wa vyakula vya mitaani kutoka Dar es Salaam hadi mlangoni mwako. Wasilishaji wa uhakika, vyakula safi, bei nafuu.</p>
+                <div class="hero-buttons">
+                    <a href="#vendors" class="btn">Peekia Sasa</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Jinsi Inavyofanya Kazi</a>
                 </div>
             </div>
-        </section>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&auto=format&fit=crop" alt="Delicious Tanzanian Food">
+            </div>
+        </div>
+    </section>
 
-        <!-- Vendors -->
-        <section class="vendors">
-            <div class="container">
-                <h2 class="section-title">Wauzaji Wetu</h2>
-                <p class="section-subtitle">Chagua kutoka kwa wauzaji bora 150+ wa vyakula vya mitaani Dar es Salaam</p>
-                
-                <div class="vendor-categories">
-                    <button class="category-btn active">Vyote</button>
-                    <button class="category-btn">Nyama Choma</button>
-                    <button class="category-btn">Seafood</button>
-                    <button class="category-btn">Vyakula vya Mitaani</button>
-                    <button class="category-btn">Vitafunio</button>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kwa Nini Kuchagua Chakula Haraka?</h2>
+                <p>Huduma bora ya usambazaji wa vyakula nchini Tanzania</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Uwasilishaji wa Haraka</h3>
+                    <p>Chakula kwa dakika 30 au ni bure. Tunatumia bajaji na bodaboda kwa usafirishaji wa haraka.</p>
                 </div>
-                
-                <div class="vendor-grid">
-                    <!-- Vendor 1 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">BEST SELLER</div>
-                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" class="vendor-img" alt="Baba Lameck">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Baba Lameck Nyama Choma</h3>
-                                    <p>Kariakoo, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.9 (1.2k)
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Nyama Choma</span>
-                                <span class="tag">Mishikaki</span>
-                                <span class="tag">Ugali</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Nyama Choma Special</h4>
-                                        <span class="item-price">TSh 15,000</span>
-                                    </div>
-                                    <p class="item-desc">½ kg nyama ya ng'ombe, kachumbari, ugali</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 20-25 min</span>
-                                        <button class="add-to-cart">Ongeza</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-features">
-                                <div class="feature">
-                                    <i class="fas fa-motorcycle"></i>
-                                    <div>Free Delivery</div>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-clock"></i>
-                                    <div>Open 24/7</div>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-star"></i>
-                                    <div>Top Rated</div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    
-                    <!-- Vendor 2 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">FAST DELIVERY</div>
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" class="vendor-img" alt="Mama Zainab">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Mama Zainab Seafood</h3>
-                                    <p>Kivukoni, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.7 (890)
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Seafood</span>
-                                <span class="tag">Kamba</span>
-                                <span class="tag">Samaki</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Seafood Platter</h4>
-                                        <span class="item-price">TSh 22,000</span>
-                                    </div>
-                                    <p class="item-desc">Kamba, ngisi, samaki na wali wa nazi</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 25-30 min</span>
-                                        <button class="add-to-cart">Ongeza</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>Wauzaji 100+</h3>
+                    <p>Chagua kutoka kwa wauzaji bora wa vyakula vya mitaani Dar es Salaam. Kila ladha unayotamani.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    
-                    <!-- Vendor 3 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">NEW</div>
-                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" class="vendor-img" alt="Street Bites">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Street Bites Dar</h3>
-                                    <p>Ubungo, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.8 (1.5k)
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Chips Mayai</span>
-                                <span class="tag">Mishikaki</span>
-                                <span class="tag">Vitafunio</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Bongo Street Combo</h4>
-                                        <span class="item-price">TSh 8,500</span>
-                                    </div>
-                                    <p class="item-desc">Chips mayai, mishikaki 2, maandazi 3</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 15-20 min</span>
-                                        <button class="add-to-cart">Ongeza</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Usalama na Uaminifu</h3>
+                    <p>Malipo salama kupitia M-Pesa. Ukaguzi wa usafi na ubora wa chakula kila wakati.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Payment Options -->
-        <section class="vendors">
-            <div class="container">
-                <h2 class="section-title">Njia za Malipo</h2>
-                <p class="section-subtitle">Chagua njia ya malipo inayokufaa zaidi</p>
-                
-                <div class="payment-options">
-                    <div class="payment-method active">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <h4>Cash on Delivery</h4>
-                        <p>Lipa unapopokea chakula</p>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h4>M-Pesa</h4>
-                        <p>Malipo ya haraka na salama</p>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-credit-card"></i>
-                        <h4>Airtel Money</h4>
-                        <p>Malipo ya mtandao</p>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-wallet"></i>
-                        <h4>Tigo Pesa</h4>
-                        <p>Malipo ya haraka</p>
-                    </div>
-                </div>
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="section-header">
+                <h2>Washirika Wetu</h2>
+                <p>Kushirikiana na wauzaji waaminifu katika maeneo mbalimbali</p>
             </div>
-        </section>
+            <div class="partners-logos">
+                <img src="https://via.placeholder.com/120x60/1EB53A/FFFFFF?text=Baba+Lameck" alt="Baba Lameck" class="partner-logo">
+                <img src="https://via.placeholder.com/120x60/00A3DD/FFFFFF?text=Mama+Zainab" alt="Mama Zainab" class="partner-logo">
+                <img src="https://via.placeholder.com/120x60/FCD116/000000?text=Street+Bites" alt="Street Bites" class="partner-logo">
+                <img src="https://via.placeholder.com/120x60/1A1A1A/FFFFFF?text=Kivukoni+Seafood" alt="Kivukoni Seafood" class="partner-logo">
+            </div>
+        </div>
+    </section>
 
-        <!-- Reviews -->
-        <section class="reviews">
-            <div class="container">
-                <h2 class="section-title">Maoni ya Wateja</h2>
-                <p class="section-subtitle">Sikiliza kutoka kwa wateja wetu waaminifu</p>
-                
-                <div class="review-grid">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Sarah J.</h4>
-                                <div class="review-stars">★★★★★</div>
-                                <div class="review-date">2 days ago</div>
-                            </div>
-                        </div>
-                        <p>"Huduma bora kabisa! Chakula kilifika ndani ya dakika 25. Ufuatiliaji wa muda halisi ulinifanya nijisikie salama. Nitafanya tena maagizo!"</p>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Michael T.</h4>
-                                <div class="review-stars">★★★★★</div>
-                                <div class="review-date">1 week ago</div>
-                            </div>
-                        </div>
-                        <p>"Nyama choma ya Baba Lameck ni ya kupindukia! Ubora wa chakula ni sawa na kukaa mitaani. Mfumo wa malipo wa M-Pesa ni rahisi sana."</p>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/women/67.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Fatma K.</h4>
-                                <div class="review-stars">★★★★☆</div>
-                                <div class="review-date">3 days ago</div>
-                            </div>
-                        </div>
-                        <p>"Nimependa variety ya wauzaji. Ninaweza kulinganisha bei na ubora. Ufuatiliaji wa driver ulinisaidia kujua nitapokea lini chakula."</p>
-                    </div>
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Jinsi Inavyofanya Kazi</h2>
+                <p>Njia rahisi ya kupata chakula cha mitaani Dar es Salaam</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Peekia Mtandaoni</h3>
+                    <p>Chagua chakula unachotoka kwa wauzaji wetu. Tuma ombi lako kupitia tovuti au WhatsApp.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Tayarisha Chakula</h3>
+                    <p>Mwuzaji anatayarisha chakula chako kwa usafi na ubora wa juu. Tunaangalia kila hatua.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Wasilisha Haraka</h3>
+                    <p>Wapiganaji wetu wa bajaji huchukua chakula na kukifikisha ndani ya dakika 30.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Lipa na Kula</h3>
+                    <p>Lipa kwa fedha taslimu au M-Pesa unapopokea chakula. Kula na kufurahia!</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <h3>Chakula Haraka PRO</h3>
-                        <p>Uwanja wa biashara wa vyakula vya mitaani Tanzania. Tunaunganisha wauzaji na wateja kupitia teknolojia ya kisasa.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Viungo Muhimu</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Kuhusu Sisi</a></li>
-                            <li><a href="#">Jiunge kama Mwuzaji</a></li>
-                            <li><a href="#">Waajiriwa kama Mwendeshaji</a></li>
-                            <li><a href="#">Msaada na Usaidizi</a></li>
-                            <li><a href="#">Sheria na Masharti</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Mawasiliano</h3>
-                        <ul class="footer-links">
-                            <li><i class="fas fa-phone"></i> +255 747 193 972</li>
-                            <li><i class="fas fa-envelope"></i> support@chakulaharakapro.co.tz</li>
-                            <li><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam</li>
-                            <li><i class="fab fa-whatsapp"></i> +255 747 193 972</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Pakua App Yetu</h3>
-                        <p>Pata huduma bora kupitia programu yetu.</p>
-                        <div style="margin-top: 1rem;">
-                            <button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 10px;">
-                                <i class="fab fa-apple"></i> App Store
-                            </button>
-                            <button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 10px;">
-                                <i class="fab fa-google-play"></i> Play Store
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #444;">
-                    <p>© 2025 Chakula Haraka PRO. Haki zote zimehifadhiwa. Dar es Salaam, Tanzania.</p>
-                </div>
+    <!-- Vendor Showcase -->
+    <section class="vendor-showcase" id="vendors">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wauzaji Wetu Wa Kipekee</h2>
+                <p>Gusa vyakula vya mitaani vya Dar es Salaam</p>
             </div>
-        </footer>
-    </div>
+            <div class="vendor-grid">
+                <div class="vendor-card">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" alt="Nyama Choma" class="vendor-image">
+                    <div class="vendor-content">
+                        <div class="vendor-header">
+                            <div>
+                                <h3>Baba Lameck Nyama Choma</h3>
+                                <p>Kariakoo, Dar es Salaam</p>
+                            </div>
+                            <div class="vendor-rating">4.9★</div>
+                        </div>
+                        <p>Nyama choma bora ya Dar, kwa ladha ya asili na usafi wa juu.</p>
+                        <div class="vendor-tags">
+                            <span class="tag">Nyama Choma</span>
+                            <span class="tag">Mishikaki</span>
+                            <span class="tag">Ugali</span>
+                        </div>
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Baba%20Lameck" class="btn" style="width: 100%; margin-top: 15px;">Peekia Sasa</a>
+                    </div>
+                </div>
 
-    <!-- ENGLISH CONTENT -->
-    <div id="englishContent" class="content-section">
-        <!-- Hero -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Chakula Haraka <span class="highlight">PRO</span><br>Tanzania's Food Delivery Platform</h1>
-                <p>A marketplace connecting 100+ street food vendors with customers through modern delivery system, real-time tracking, and secure payments.</p>
-                
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Registered Vendors</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">30min</span>
-                        <span class="stat-label">Delivery Guarantee</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">4.8★</span>
-                        <span class="stat-label">Customer Rating</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10K+</span>
-                        <span class="stat-label">Monthly Orders</span>
+                <div class="vendor-card">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" alt="Seafood" class="vendor-image">
+                    <div class="vendor-content">
+                        <div class="vendor-header">
+                            <div>
+                                <h3>Mama Zainab Seafood</h3>
+                                <p>Kivukoni, Dar es Salaam</p>
+                            </div>
+                            <div class="vendor-rating">4.7★</div>
+                        </div>
+                        <p>Seafood safi kutoka bandari ya Dar, kutayarishwa kwa ustadi wa pwani.</p>
+                        <div class="vendor-tags">
+                            <span class="tag">Seafood</span>
+                            <span class="tag">Kamba</span>
+                            <span class="tag">Samaki</span>
+                        </div>
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Mama%20Zainab" class="btn" style="width: 100%; margin-top: 15px;">Peekia Sasa</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Vendors -->
-        <section class="vendors">
-            <div class="container">
-                <h2 class="section-title">Our Vendors</h2>
-                <p class="section-subtitle">Choose from 150+ best street food vendors in Dar es Salaam</p>
-                
-                <div class="vendor-categories">
-                    <button class="category-btn active">All</button>
-                    <button class="category-btn">Nyama Choma</button>
-                    <button class="category-btn">Seafood</button>
-                    <button class="category-btn">Street Food</button>
-                    <button class="category-btn">Snacks</button>
-                </div>
-                
-                <div class="vendor-grid">
-                    <!-- Vendor 1 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">BEST SELLER</div>
-                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" class="vendor-img" alt="Baba Lameck">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Baba Lameck Nyama Choma</h3>
-                                    <p>Kariakoo, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.9 (1.2k)
-                                </div>
+                <div class="vendor-card">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" alt="Street Food" class="vendor-image">
+                    <div class="vendor-content">
+                        <div class="vendor-header">
+                            <div>
+                                <h3>Street Bites Dar</h3>
+                                <p>Ubungo, Dar es Salaam</p>
                             </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Grilled Meat</span>
-                                <span class="tag">Mishikaki</span>
-                                <span class="tag">Ugali</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Nyama Choma Special</h4>
-                                        <span class="item-price">TSh 15,000</span>
-                                    </div>
-                                    <p class="item-desc">½ kg BBQ beef, kachumbari, ugali</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 20-25 min</span>
-                                        <button class="add-to-cart">Add</button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-features">
-                                <div class="feature">
-                                    <i class="fas fa-motorcycle"></i>
-                                    <div>Free Delivery</div>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-clock"></i>
-                                    <div>Open 24/7</div>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-star"></i>
-                                    <div>Top Rated</div>
-                                </div>
-                            </div>
+                            <div class="vendor-rating">4.8★</div>
                         </div>
-                    </div>
-                    
-                    <!-- Vendor 2 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">FAST DELIVERY</div>
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" class="vendor-img" alt="Mama Zainab">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Mama Zainab Seafood</h3>
-                                    <p>Kivukoni, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.7 (890)
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Seafood</span>
-                                <span class="tag">Prawns</span>
-                                <span class="tag">Fish</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Seafood Platter</h4>
-                                        <span class="item-price">TSh 22,000</span>
-                                    </div>
-                                    <p class="item-desc">Prawns, calamari, fish with coconut rice</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 25-30 min</span>
-                                        <button class="add-to-cart">Add</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <p>Vyakula vya mitaani vya Bongo kwa ladha ya asili na bei nafuu.</p>
+                        <div class="vendor-tags">
+                            <span class="tag">Chips Mayai</span>
+                            <span class="tag">Mishikaki</span>
+                            <span class="tag">Vitafunio</span>
                         </div>
-                    </div>
-                    
-                    <!-- Vendor 3 -->
-                    <div class="vendor-card">
-                        <div class="vendor-badge">NEW</div>
-                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" class="vendor-img" alt="Street Bites">
-                        <div class="vendor-info">
-                            <div class="vendor-header">
-                                <div>
-                                    <h3>Street Bites Dar</h3>
-                                    <p>Ubungo, Dar es Salaam</p>
-                                </div>
-                                <div class="vendor-rating">
-                                    <span class="star">★</span> 4.8 (1.5k)
-                                </div>
-                            </div>
-                            
-                            <div class="vendor-tags">
-                                <span class="tag">Chips Mayai</span>
-                                <span class="tag">Mishikaki</span>
-                                <span class="tag">Snacks</span>
-                            </div>
-                            
-                            <div class="menu-items">
-                                <div class="menu-item">
-                                    <div class="item-header">
-                                        <h4>Bongo Street Combo</h4>
-                                        <span class="item-price">TSh 8,500</span>
-                                    </div>
-                                    <p class="item-desc">Chips mayai, 2 mishikaki, 3 maandazi</p>
-                                    <div class="item-actions">
-                                        <span>⏱️ 15-20 min</span>
-                                        <button class="add-to-cart">Add</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Street%20Bites" class="btn" style="width: 100%; margin-top: 15px;">Peekia Sasa</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Payment Options -->
-        <section class="vendors">
-            <div class="container">
-                <h2 class="section-title">Payment Options</h2>
-                <p class="section-subtitle">Choose the payment method that works best for you</p>
-                
-                <div class="payment-options">
-                    <div class="payment-method active">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <h4>Cash on Delivery</h4>
-                        <p>Pay when you receive your food</p>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Wateja Wetu Wanasema</h2>
+                <p>Jinsi tunavyobadilisha jinsi watu wanavyokula Dar es Salaam</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Nimekuwa nikipata chakula kutoka Chakula Haraka kwa miezi sita sasa. Huduma yao ni ya haraka na ya uhakika. Nyama choma yao ni ya kupindukia!"
                     </div>
-                    <div class="payment-method">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h4>M-Pesa</h4>
-                        <p>Fast and secure mobile payment</p>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-credit-card"></i>
-                        <h4>Airtel Money</h4>
-                        <p>Online payment option</p>
-                    </div>
-                    <div class="payment-method">
-                        <i class="fas fa-wallet"></i>
-                        <h4>Tigo Pesa</h4>
-                        <p>Quick payment solution</p>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="author-avatar">
+                        <div class="author-info">
+                            <h4>Juma Mohammed</h4>
+                            <p>Mteja wa Kawaida, Kariakoo</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Reviews -->
-        <section class="reviews">
-            <div class="container">
-                <h2 class="section-title">Customer Reviews</h2>
-                <p class="section-subtitle">Hear from our satisfied customers</p>
-                
-                <div class="review-grid">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Sarah J.</h4>
-                                <div class="review-stars">★★★★★</div>
-                                <div class="review-date">2 days ago</div>
-                            </div>
-                        </div>
-                        <p>"Best service ever! Food arrived in 25 minutes. Real-time tracking made me feel secure. Will definitely order again!"</p>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/men/54.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Michael T.</h4>
-                                <div class="review-stars">★★★★★</div>
-                                <div class="review-date">1 week ago</div>
-                            </div>
-                        </div>
-                        <p>"Baba Lameck's nyama choma is amazing! Food quality is just like sitting at the street. M-Pesa payment is super convenient."</p>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <img src="https://randomuser.me/api/portraits/women/67.jpg" class="reviewer-img" alt="User">
-                            <div class="review-meta">
-                                <h4>Fatma K.</h4>
-                                <div class="review-stars">★★★★☆</div>
-                                <div class="review-date">3 days ago</div>
-                            </div>
-                        </div>
-                        <p>"Love the variety of vendors. I can compare prices and quality. Driver tracking helped me know exactly when to expect my food."</p>
-                    </div>
-                </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Tayari Kuanza Kupeekia?</h2>
+            <p>Jiunge na wateja elfu ambao tayari wanatumia huduma yetu ya usambazaji wa vyakula. Chakula bora, haraka, na salama.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/255747193972" class="btn">Tupigie WhatsApp</a>
+                <a href="#vendors" class="btn btn-secondary">Angalia Wauzaji</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-section">
-                        <h3>Chakula Haraka PRO</h3>
-                        <p>Tanzania's street food marketplace. Connecting vendors with customers through modern technology.</p>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-tiktok"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Become a Vendor</a></li>
-                            <li><a href="#">Join as Driver</a></li>
-                            <li><a href="#">Help & Support</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Contact Us</h3>
-                        <ul class="footer-links">
-                            <li><i class="fas fa-phone"></i> +255 747 193 972</li>
-                            <li><i class="fas fa-envelope"></i> support@chakulaharakapro.co.tz</li>
-                            <li><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam</li>
-                            <li><i class="fab fa-whatsapp"></i> +255 747 193 972</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h3>Download Our App</h3>
-                        <p>Get better experience through our mobile app.</p>
-                        <div style="margin-top: 1rem;">
-                            <button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 10px; margin-right: 10px;">
-                                <i class="fab fa-apple"></i> App Store
-                            </button>
-                            <button style="background: #000; color: white; border: none; padding: 10px 20px; border-radius: 10px;">
-                                <i class="fab fa-google-play"></i> Play Store
-                            </button>
-                        </div>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Chakula Haraka</h3>
+                    <p>Uhusika wa karibu wa vyakula vya mitaani Dar es Salaam. Vyakula safi, haraka, na salama.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                
-                <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #444;">
-                    <p>© 2025 Chakula Haraka PRO. All rights reserved. Dar es Salaam, Tanzania.</p>
+                <div class="footer-column">
+                    <h3>Viungo Muhimu</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Nyumbani</a></li>
+                        <li><a href="#features">Huduma</a></li>
+                        <li><a href="#how-it-works">Jinsi Inavyofanya Kazi</a></li>
+                        <li><a href="#vendors">Wauzaji</a></li>
+                        <li><a href="#contact">Mawasiliano</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Jiunge Nasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Jiunge kama Mwuzaji</a></li>
+                        <li><a href="#">Waajiriwa kama Mwendeshaji</a></li>
+                        <li><a href="#">Ushirika na Biashara</a></li>
+                        <li><a href="#">Kuwa Sehemu ya Timu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Mawasiliano</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone"></i> +255 747 193 972</li>
+                        <li><i class="fas fa-envelope"></i> info@chakulaharaka.co.tz</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 42396 Dar es Salaam, Tanzania</li>
+                        <li><i class="fas fa-clock"></i> 24/7 - Tovuti Inafanya Kazi</li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-    </div>
+            <div class="copyright">
+                <p>&copy; 2025 Chakula Haraka. Haki zote zimehifadhiwa. | Dar es Salaam, Tanzania</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Language Tabs
-        const swahiliTab = document.getElementById('swahiliTab');
-        const englishTab = document.getElementById('englishTab');
-        const swahiliContent = document.getElementById('swahiliContent');
-        const englishContent = document.getElementById('englishContent');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
 
-        function switchLanguage(lang) {
-            if (lang === 'sw') {
-                swahiliTab.classList.add('active');
-                englishTab.classList.remove('active');
-                swahiliContent.classList.add('active');
-                englishContent.classList.remove('active');
-                document.title = "Chakula Haraka PRO - Usambazaji wa Chakula Tanzania";
-            } else {
-                englishTab.classList.add('active');
-                swahiliTab.classList.remove('active');
-                englishContent.classList.add('active');
-                swahiliContent.classList.remove('active');
-                document.title = "Chakula Haraka PRO - Tanzania's Food Delivery Platform";
-            }
-            window.scrollTo(0, 0);
-        }
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
 
-        swahiliTab.addEventListener('click', () => switchLanguage('sw'));
-        englishTab.addEventListener('click', () => switchLanguage('en'));
-
-        // Order Tracking Modal
-        const trackingModal = document.getElementById('trackingModal');
-        
-        function openTracking() {
-            trackingModal.classList.add('active');
-        }
-        
-        function closeTracking() {
-            trackingModal.classList.remove('active');
-        }
-        
-        // Close modal when clicking outside
-        trackingModal.addEventListener('click', (e) => {
-            if (e.target === trackingModal) {
-                closeTracking();
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
 
-        // Vendor Categories Filter
-        document.querySelectorAll('.category-btn').forEach(button => {
+        // Language Toggle
+        const langButtons = document.querySelectorAll('.lang-btn');
+        
+        langButtons.forEach(button => {
             button.addEventListener('click', () => {
-                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                const lang = button.getAttribute('data-lang');
+                
+                // Remove active class from all buttons
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
                 button.classList.add('active');
                 
-                // In a real app, this would filter vendors
-                // For demo, just show a message
-                const vendorName = button.textContent.trim();
-                if (vendorName !== 'All' && vendorName !== 'Vyote') {
-                    alert(`Filtering vendors by: ${vendorName}\n(In a real app, this would show only ${vendorName} vendors)`);
+                // Here you would typically change the content based on language
+                // For this demo, we'll just show an alert
+                if (lang === 'en') {
+                    document.querySelector('.hero h1').innerHTML = 'Chakula Haraka:<br>Street Food in <span>30 Minutes</span>';
+                    document.querySelector('.hero p').textContent = 'Authentic street food experience from Dar es Salaam to your doorstep. Reliable delivery, fresh food, affordable prices.';
+                    document.querySelectorAll('.btn')[0].textContent = 'Order Now';
+                    document.querySelectorAll('.btn')[1].textContent = 'How It Works';
+                } else {
+                    document.querySelector('.hero h1').innerHTML = 'Chakula Haraka:<br>Nyama Choma kwa <span>Dakika 30</span>';
+                    document.querySelector('.hero p').textContent = 'Uhusika wa karibu wa vyakula vya mitaani kutoka Dar es Salaam hadi mlangoni mwako. Wasilishaji wa uhakika, vyakula safi, bei nafuu.';
+                    document.querySelectorAll('.btn')[0].textContent = 'Peekia Sasa';
+                    document.querySelectorAll('.btn')[1].textContent = 'Jinsi Inavyofanya Kazi';
                 }
             });
         });
 
-        // Add to Cart Functionality
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                const item = this.closest('.menu-item');
-                const itemName = item.querySelector('h4').textContent;
-                const itemPrice = item.querySelector('.item-price').textContent;
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Update cart count
-                const cartCount = document.querySelector('.cart-count');
-                let count = parseInt(cartCount.textContent);
-                cartCount.textContent = count + 1;
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                // Visual feedback
-                this.textContent = '✓ Added';
-                this.style.background = 'var(--success)';
-                setTimeout(() => {
-                    this.textContent = this.textContent.includes('Added') ? 'Add' : 'Ongeza';
-                    this.style.background = 'var(--tanzania-green)';
-                }, 1500);
-                
-                console.log(`Added to cart: ${itemName} - ${itemPrice}`);
-            });
-        });
-
-        // Payment Method Selection
-        document.querySelectorAll('.payment-method').forEach(method => {
-            method.addEventListener('click', () => {
-                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
-                method.classList.add('active');
-            });
-        });
-
-        // Simulate Live Order Tracking
-        function simulateTracking() {
-            const steps = document.querySelectorAll('.tracking-step');
-            let currentStep = 1;
-            
-            setInterval(() => {
-                steps.forEach(step => step.classList.remove('active', 'completed'));
-                
-                for (let i = 0; i < currentStep; i++) {
-                    if (i < currentStep - 1) {
-                        steps[i].classList.add('completed');
-                    } else {
-                        steps[i].classList.add('active');
-                    }
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
                 }
-                
-                currentStep = currentStep < 4 ? currentStep + 1 : 1;
-            }, 5000); // Change step every 5 seconds
-        }
+            });
+        });
+
+        // Vendor Card Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe vendor cards
+        document.querySelectorAll('.vendor-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+
+        // WhatsApp Integration
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Optional: Add tracking or analytics here
+                console.log('WhatsApp order initiated');
+            });
+        });
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('sw');
-            simulateTracking();
+            // Add some interactive elements
+            console.log('Chakula Haraka website loaded successfully!');
             
-            // Welcome message
-            setTimeout(() => {
-                const isSwahili = swahiliTab.classList.contains('active');
-                const welcomeMsg = isSwahili 
-                    ? "Karibu Chakula Haraka PRO! 🚀 Tuna wauzaji 150+ wako tayari kukutumikia." 
-                    : "Welcome to Chakula Haraka PRO! 🚀 We have 150+ vendors ready to serve you.";
-                console.log(welcomeMsg);
-            }, 1000);
+            // Add hover effect to vendor cards
+            const vendorCards = document.querySelectorAll('.vendor-card');
+            vendorCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                });
+            });
         });
     </script>
 </body>
