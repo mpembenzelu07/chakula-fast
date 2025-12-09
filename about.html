@@ -3,283 +3,978 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Chakula Haraka - Our Story & Mission</title>
-    <meta name="description" content="Learn about Chakula Haraka's story, mission, and vision. Discover how we're transforming food delivery in Tanzania with authentic street food.">
+    <title>About Us | Chakula Haraka - Our Mission, Story & Impact</title>
+    <meta name="description" content="Discover Chakula Haraka's journey, mission, and impact in transforming Tanzania's food delivery. Learn about our team, values, and vision for authentic street food.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     
+    <!-- CSS -->
     <style>
-        /* About Page Specific Styles */
+        /* Reset & Base Styles */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #00A896;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --gray: #6C757D;
+            --success: #28A745;
+            --warning: #FFC107;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #008C7A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .btn-lg {
+            padding: 16px 36px;
+            font-size: 18px;
+        }
+        
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        
+        /* Header & Navigation */
+        .language-tabs {
+            background: var(--dark);
+            padding: 8px 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .main-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--dark);
+        }
+        
+        .tagline {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* About Hero */
         .about-hero {
-            background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(0, 78, 137, 0.9)),
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(255, 107, 53, 0.9)),
                         url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop') center/cover;
             color: white;
-            padding: 150px 0 80px;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 C250,100 750,100 1000,0 L1000,100 L0,100 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: 100% 150px;
+            background-position: bottom;
+            pointer-events: none;
+        }
+        
+        .display-2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .lead {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        /* Introduction Section */
+        .intro-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .intro-image {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .intro-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .intro-text p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .intro-stat {
             text-align: center;
         }
         
-        .story-section {
-            background: white;
-            position: relative;
+        .intro-stat-number {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
         }
         
-        .story-timeline {
-            max-width: 800px;
-            margin: 50px auto;
-            position: relative;
+        .intro-stat-label {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
         }
         
-        .story-timeline::before {
+        /* Journey Timeline */
+        .journey-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(0,168,150,0.05) 100%);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
             content: '';
             position: absolute;
             top: 0;
             bottom: 0;
             left: 50%;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
             transform: translateX(-50%);
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
         
-        .timeline-item {
+        .timeline-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
             position: relative;
-            margin-bottom: 60px;
-            width: 50%;
-            padding: 0 40px;
         }
         
-        .timeline-item.left {
-            left: 0;
-        }
-        
-        .timeline-item.right {
-            left: 50%;
-        }
-        
-        .timeline-content {
+        .timeline-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+            padding: 40px 30px;
             background: white;
-            padding: 30px;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            position: relative;
+            transition: var(--transition);
         }
         
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-        
-        .timeline-item.left .timeline-content::before {
-            right: -50px;
-        }
-        
-        .timeline-item.right .timeline-content::before {
-            left: -50px;
+        .timeline-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
         .timeline-year {
-            font-size: 1.2rem;
-            font-weight: 700;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+        
+        .timeline-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .timeline-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: var(--dark);
+        }
+        
+        .timeline-card p {
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .timeline-milestone {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.1);
             color: var(--primary);
-            margin-bottom: 10px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
         }
         
         /* Mission & Values */
-        .mission-values {
-            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(0,168,150,0.05) 100%);
+        .mission-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .mission-statement {
+            padding: 40px;
+            background: linear-gradient(135deg, var(--light), #f8f9fa);
+            border-radius: var(--radius);
+            border-left: 5px solid var(--primary);
+        }
+        
+        .mission-statement h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark);
         }
         
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
         
         .value-card {
             background: white;
             padding: 40px 30px;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
             text-align: center;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         
         .value-card:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .value-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
         
         .value-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             color: white;
-            font-size: 2rem;
+            font-size: 28px;
+            transition: var(--transition);
         }
         
-        /* Team Section */
+        .value-card:hover .value-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .value-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        /* Impact Stats */
+        .impact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, #2A2A3E 100%);
+            color: white;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .impact-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .impact-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+        
+        .impact-number {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .impact-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .impact-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* Leadership Team */
         .team-section {
+            padding: 100px 0;
             background: white;
         }
         
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
         
         .team-card {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
         }
         
         .team-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
         }
         
         .team-image {
-            height: 250px;
+            height: 300px;
             overflow: hidden;
+            position: relative;
         }
         
         .team-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: transform 0.8s ease;
         }
         
         .team-card:hover .team-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+        }
+        
+        .team-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 25px;
+            color: white;
+        }
+        
+        .team-overlay h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .team-overlay p {
+            font-size: 16px;
+            opacity: 0.9;
         }
         
         .team-info {
-            padding: 25px;
-            text-align: center;
+            padding: 30px 25px;
+        }
+        
+        .team-bio {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
         
         .team-social {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
         }
         
         .team-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--light-gray);
-            border-radius: 50%;
             color: var(--dark);
-            text-decoration: none;
             transition: var(--transition);
         }
         
         .team-social a:hover {
             background: var(--primary);
             color: white;
+            transform: translateY(-3px);
         }
         
-        /* Stats Section */
-        .stats-section {
+        .team-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* Partners Section */
+        .partners-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f8f9fa 100%);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .partner-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            min-height: 150px;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .partner-logo {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .stat-item {
-            padding: 30px;
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white;
         }
         
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
+        .cta-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
         }
         
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        /* Partners Section */
-        .partners-section {
-            background: var(--light-gray);
-        }
-        
-        .partners-slider {
+        .cta-buttons {
             display: flex;
-            overflow-x: auto;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            padding: 20px 0;
-            scrollbar-width: none;
+            margin-bottom: 60px;
         }
         
-        .partners-slider::-webkit-scrollbar {
-            display: none;
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
-        .partner-item {
-            flex: 0 0 auto;
-            width: 200px;
-            height: 100px;
-            background: white;
-            border-radius: var(--border-radius);
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            box-shadow: var(--shadow);
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
         }
         
-        .partner-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
         
-        /* Responsive Timeline */
-        @media (max-width: 768px) {
-            .story-timeline::before {
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .display-2 {
+                font-size: 42px;
+            }
+            
+            .intro-content,
+            .mission-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
                 left: 30px;
             }
             
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 60px;
-                padding-right: 20px;
+            .timeline-card {
+                min-width: 100%;
             }
             
-            .timeline-content::before {
-                left: -40px !important;
-                right: auto !important;
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 40px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-2 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-stats {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .display-2 {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .timeline-card {
+                padding: 40px 20px;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -340,222 +1035,411 @@
         <div class="container">
             <h1 class="display-2 lang-sw">Kuhusu Chakula Haraka</h1>
             <h1 class="display-2 lang-en" style="display: none;">About Chakula Haraka</h1>
-            <p class="lead lang-sw">Kuleta vyakula vya mitaani vya Tanzania hadi mlangoni mwako tangu 2020</p>
-            <p class="lead lang-en" style="display: none;">Bringing Tanzanian street food to your doorstep since 2020</p>
+            <p class="lead lang-sw">Kuleta ladha ya mitaani ya Tanzania hadi mlangoni mwako tangu 2020</p>
+            <p class="lead lang-en" style="display: none;">Bringing authentic Tanzanian street flavors to your doorstep since 2020</p>
+            
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span class="lang-sw">Dakika 30 Guarantee</span>
+                    <span class="lang-en" style="display: none;">30-Minute Guarantee</span>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="lang-sw">150+ Wauzaji Walioidhinishwa</span>
+                    <span class="lang-en" style="display: none;">150+ Verified Vendors</span>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-users"></i>
+                    <span class="lang-sw">Wateja 50,000+</span>
+                    <span class="lang-en" style="display: none;">50,000+ Customers</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Our Story -->
-    <section class="story-section">
+    <!-- Introduction -->
+    <section class="intro-section" id="introduction">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&auto=format&fit=crop" 
+                         alt="Chakula Haraka Team" loading="lazy">
+                </div>
+                <div class="intro-text">
+                    <h3 class="lang-sw">Jukumu Letu la Kubadilisha Usambazaji wa Chakula Tanzania</h3>
+                    <h3 class="lang-en" style="display: none;">Our Mission to Transform Tanzania's Food Delivery</h3>
+                    
+                    <p class="lang-sw">Tulianzishwa mwaka 2020 kwa dhamira rahisi lakini yenye nguvu: kuleta vyakula vya mitaani vya Tanzania, vilivyo na ladha asilia na usafi wa juu, hadi kwenye meza ya wateja wetu. Leo, tumegeuka kuwa muungano mkubwa wa wauzaji na huduma ya haraka zaidi nchini.</p>
+                    <p class="lang-en" style="display: none;">We were founded in 2020 with a simple yet powerful mission: to bring authentic Tanzanian street food, with premium hygiene and quality, to our customers' tables. Today, we've grown into Tanzania's largest vendor network and fastest delivery service.</p>
+                    
+                    <p class="lang-sw">Kwa kutumia teknolojia ya kisasa na mifumo ya jadi ya upishi, tunahakikisha kuwa kila kisupe kinahifadhi ladha ya asili ya Tanzania wakati huo huo tukiwahi mahitaji ya kisasa ya usafi na haraka.</p>
+                    <p class="lang-en" style="display: none;">By combining modern technology with traditional cooking systems, we ensure every dish preserves authentic Tanzanian flavor while meeting modern hygiene and speed requirements.</p>
+                    
+                    <div class="intro-stats">
+                        <div class="intro-stat">
+                            <span class="intro-stat-number">4.8★</span>
+                            <span class="intro-stat-label lang-sw">Ukadiriaji Wastani</span>
+                            <span class="intro-stat-label lang-en" style="display: none;">Average Rating</span>
+                        </div>
+                        <div class="intro-stat">
+                            <span class="intro-stat-number">98%</span>
+                            <span class="intro-stat-label lang-sw">Kuridhika kwa Wateja</span>
+                            <span class="intro-stat-label lang-en" style="display: none;">Customer Satisfaction</span>
+                        </div>
+                        <div class="intro-stat">
+                            <span class="intro-stat-number">95%</span>
+                            <span class="intro-stat-label lang-sw">Wastani wa Kufikisha</span>
+                            <span class="intro-stat-label lang-en" style="display: none;">Delivery Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline -->
+    <section class="journey-section" id="journey">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Hadithi Yetu</h2>
-                <h2 class="section-title lang-en" style="display: none;">Our Story</h2>
-                <p class="section-subtitle lang-sw">Jinsi tulivyoanzisha na kukua kuwa wakala wakuu wa usambazaji wa vyakula Tanzania</p>
-                <p class="section-subtitle lang-en" style="display: none;">How we started and grew to become Tanzania's leading food delivery agent</p>
+                <h2 class="section-title lang-sw">Safari Yetu</h2>
+                <h2 class="section-title lang-en" style="display: none;">Our Journey</h2>
+                <p class="section-subtitle lang-sw">Kutoka kwa wauzaji 5 wa kwanza hadi muungano mkubwa wa Tanzania</p>
+                <p class="section-subtitle lang-en" style="display: none;">From our first 5 vendors to Tanzania's largest food network</p>
             </div>
             
-            <div class="story-timeline">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item left">
-                    <div class="timeline-content">
+            <div class="timeline">
+                <div class="timeline-container">
+                    <!-- 2020 -->
+                    <div class="timeline-card">
                         <div class="timeline-year">2020</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
                         <h3 class="lang-sw">Mwanzilishi</h3>
                         <h3 class="lang-en" style="display: none;">Foundation</h3>
-                        <p class="lang-sw">Tulianzisha Chakula Haraka na wauzaji 5 wa kwanza huko Kariakoo, Dar es Salaam. Lengo letu lilikuwa kuleta nyama choma kwa wateja haraka.</p>
-                        <p class="lang-en" style="display: none;">We founded Chakula Haraka with 5 initial vendors in Kariakoo, Dar es Salaam. Our goal was to deliver nyama choma to customers quickly.</p>
+                        <p class="lang-sw">Tulianzisha na wauzaji 5 wa kwanza huko Kariakoo. Lengo letu lilikuwa kuleta nyama choma ya darasa la juu kwa wateja haraka na kwa usafi.</p>
+                        <p class="lang-en" style="display: none;">We started with 5 initial vendors in Kariakoo. Our goal was to deliver premium nyama choma quickly and hygienically to customers.</p>
+                        <div class="timeline-milestone">
+                            <i class="fas fa-users"></i>
+                            <span class="lang-sw">Wauzaji 5 wa Kwanza</span>
+                            <span class="lang-en" style="display: none;">First 5 Vendors</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item right">
-                    <div class="timeline-content">
+
+                    <!-- 2021 -->
+                    <div class="timeline-card">
                         <div class="timeline-year">2021</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
                         <h3 class="lang-sw">Upanaaji</h3>
                         <h3 class="lang-en" style="display: none;">Expansion</h3>
-                        <p class="lang-sw">Tuliongeza huduma kufikia maeneo 10 ya Dar es Salaam na wauzaji 50+. Tukaanza kutoa usafirishaji wa bure kwa maagizo makubwa.</p>
-                        <p class="lang-en" style="display: none;">We expanded service to 10 areas of Dar es Salaam with 50+ vendors. We started offering free delivery for large orders.</p>
+                        <p class="lang-sw">Tulipanua huduma kufikia maeneo 10 ya Dar es Salaam na wauzaji 50+. Tukaanza kutoa usafirishaji wa bure kwa maagizo makubwa na kuanza mifumo ya udhibiti wa ubora.</p>
+                        <p class="lang-en" style="display: none;">We expanded service to 10 areas of Dar es Salaam with 50+ vendors. We began offering free delivery for large orders and started quality control systems.</p>
+                        <div class="timeline-milestone">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span class="lang-sw">Maeneo 10</span>
+                            <span class="lang-en" style="display: none;">10 Areas Covered</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item left">
-                    <div class="timeline-content">
+
+                    <!-- 2022 -->
+                    <div class="timeline-card">
                         <div class="timeline-year">2022</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
                         <h3 class="lang-sw">Teknolojia</h3>
                         <h3 class="lang-en" style="display: none;">Technology</h3>
-                        <p class="lang-sw">Tulizindua tovuti yetu na mfumo wa WhatsApp. Wakati huu tulikuwa na wauzaji 100+ na wateja 10,000+.</p>
-                        <p class="lang-en" style="display: none;">We launched our website and WhatsApp system. By this time we had 100+ vendors and 10,000+ customers.</p>
+                        <p class="lang-sw">Tulizindua tovuti yetu na mfumo wa ombi la WhatsApp. Wakati huu tulikuwa na wauzaji 100+ na wateja 10,000+. Tukaanza mfumo wa ufuatiliaji wa maagizo.</p>
+                        <p class="lang-en" style="display: none;">We launched our website and WhatsApp ordering system. By this time we had 100+ vendors and 10,000+ customers. We began our order tracking system.</p>
+                        <div class="timeline-milestone">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span class="lang-sw">Mfumo wa WhatsApp</span>
+                            <span class="lang-en" style="display: none;">WhatsApp System</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Timeline Item 4 -->
-                <div class="timeline-item right">
-                    <div class="timeline-content">
+
+                    <!-- 2023 -->
+                    <div class="timeline-card">
                         <div class="timeline-year">2023</div>
+                        <div class="timeline-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
                         <h3 class="lang-sw">Udhibiti wa Ubora</h3>
                         <h3 class="lang-en" style="display: none;">Quality Control</h3>
-                        <p class="lang-sw">Tulianzisha mfumo wa uthibitishaji wa wauzaji na udhibiti wa ubora. Wakati huu tulikuwa na wauzaji 150+.</p>
-                        <p class="lang-en" style="display: none;">We launched vendor verification system and quality control. By this time we had 150+ vendors.</p>
+                        <p class="lang-sw">Tulianzisha mfumo mkali wa uthibitishaji wa wauzaji. Kila muuzaji sasa anapita ukaguzi wa hatua 6 kabla ya kupata cheti cha "Muuzaji Mwenye Thibitisho".</p>
+                        <p class="lang-en" style="display: none;">We launched our rigorous vendor verification system. Every vendor now passes a 6-step inspection before receiving our "Verified Vendor" certificate.</p>
+                        <div class="timeline-milestone">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="lang-sw">Wauzaji 150+</span>
+                            <span class="lang-en" style="display: none;">150+ Verified Vendors</span>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Timeline Item 5 -->
-                <div class="timeline-item left">
-                    <div class="timeline-content">
+
+                    <!-- 2024 -->
+                    <div class="timeline-card">
                         <div class="timeline-year">2024</div>
-                        <h3 class="lang-sw">30-Minute Guarantee</h3>
+                        <div class="timeline-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="lang-sw">Dakika 30 Guarantee</h3>
                         <h3 class="lang-en" style="display: none;">30-Minute Guarantee</h3>
-                        <p class="lang-sw">Tulianzisha hakikishi ya dakika 30. Chakula hakijafika ndani ya dakika 30, ni bure! Tulifika wateja 50,000+.</p>
-                        <p class="lang-en" style="display: none;">We launched 30-minute guarantee. If food doesn't arrive within 30 minutes, it's free! We reached 50,000+ customers.</p>
+                        <p class="lang-sw">Tulianzisha hakikishi yetu ya dakika 30 - chakula hakijafika ndani ya dakika 30, ni bure! Tulifika wateja 50,000+ na tulianzisha programu ya wauzaji.</p>
+                        <p class="lang-en" style="display: none;">We launched our 30-minute guarantee - if food doesn't arrive within 30 minutes, it's free! We reached 50,000+ customers and launched our vendor app.</p>
+                        <div class="timeline-milestone">
+                            <i class="fas fa-trophy"></i>
+                            <span class="lang-sw">Wateja 50,000+</span>
+                            <span class="lang-en" style="display: none;">50,000+ Customers</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section class="mission-values">
+    <!-- Mission & Values -->
+    <section class="mission-section" id="mission">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Dhamira na Maadili</h2>
-                <h2 class="section-title lang-en" style="display: none;">Mission & Values</h2>
+                <h2 class="section-title lang-sw">Dhamira, Maono & Maadili</h2>
+                <h2 class="section-title lang-en" style="display: none;">Mission, Vision & Values</h2>
+                <p class="section-subtitle lang-sw">Kanuni zinazotuongoza katika kubadilisha sekta ya usambazaji wa chakula</p>
+                <p class="section-subtitle lang-en" style="display: none;">Principles guiding our transformation of the food delivery industry</p>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-statement">
+                    <h3 class="lang-sw">Dhamira Yetu</h3>
+                    <h3 class="lang-en" style="display: none;">Our Mission</h3>
+                    <p class="lang-sw">Kuwaunganisha wateja na wauzaji wa vyakula vya mitaani vya Tanzania kupitia teknolojia, tukihakikisha usafi, ubora, na haraka katika kila kisupe.</p>
+                    <p class="lang-en" style="display: none;">To connect customers with Tanzania's street food vendors through technology, ensuring hygiene, quality, and speed in every dish.</p>
+                </div>
+                
+                <div class="mission-statement">
+                    <h3 class="lang-sw">Maono Yetu</h3>
+                    <h3 class="lang-en" style="display: none;">Our Vision</h3>
+                    <p class="lang-sw">Kuwa muungano wakuu wa vyakula vya mitaani barani Afrika kufikia 2030, tukihudumia mamilioni ya wateja na kusaidia maelfu ya wauzaji.</p>
+                    <p class="lang-en" style="display: none;">To become Africa's leading street food network by 2030, serving millions of customers and supporting thousands of vendors.</p>
+                </div>
             </div>
             
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-bullseye"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <h3 class="lang-sw">Dhamira Yetu</h3>
-                    <h3 class="lang-en" style="display: none;">Our Mission</h3>
-                    <p class="lang-sw">Kuleta vyakula vya mitaani vya Tanzania kwa kila mtu haraka, kwa usafi, na kwa bei nafuu.</p>
-                    <p class="lang-en" style="display: none;">To bring Tanzanian street food to everyone quickly, hygienically, and affordably.</p>
+                    <h3 class="lang-sw">Ubora Bora</h3>
+                    <h3 class="lang-en" style="display: none;">Premium Quality</h3>
+                    <p class="lang-sw">Tunatumia viungo vya hali ya juu na kufuata viwango vya usafi vya kimataifa katika kila kisupe.</p>
+                    <p class="lang-en" style="display: none;">We use premium ingredients and follow international hygiene standards in every dish.</p>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-icon">
-                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="lang-sw">Maono Yetu</h3>
-                    <h3 class="lang-en" style="display: none;">Our Vision</h3>
-                    <p class="lang-sw">Kuwa wakala wakuu wa usambazaji wa vyakula barani Afrika kufikia 2030.</p>
-                    <p class="lang-en" style="display: none;">To become Africa's leading food delivery agent by 2030.</p>
+                    <h3 class="lang-sw">Haraka ya Kipekee</h3>
+                    <h3 class="lang-en" style="display: none;">Unmatched Speed</h3>
+                    <p class="lang-sw">Dakika 30 guarantee - chakula hakijafika ndani ya dakika 30, ni bure. Tuko haraka zaidi nchini.</p>
+                    <p class="lang-en" style="display: none;">30-minute guarantee - if food doesn't arrive within 30 minutes, it's free. We're the fastest nationwide.</p>
                 </div>
                 
                 <div class="value-card">
                     <div class="value-icon">
                         <i class="fas fa-heart"></i>
                     </div>
-                    <h3 class="lang-sw">Thamani Zetu</h3>
-                    <h3 class="lang-en" style="display: none;">Our Values</h3>
-                    <p class="lang-sw">Ubora, Uaminifu, Haraka, Usafi, na Kujali jamii.</p>
-                    <p class="lang-en" style="display: none;">Quality, Trustworthiness, Speed, Hygiene, and Community care.</p>
+                    <h3 class="lang-sw">Kujali Jamii</h3>
+                    <h3 class="lang-en" style="display: none;">Community Care</h3>
+                    <p class="lang-sw">Tunasaidia wauzaji wetu kukuza biashara zao na kutoa fursa za ajira katika jamii.</p>
+                    <p class="lang-en" style="display: none;">We help our vendors grow their businesses and provide employment opportunities in communities.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="lang-sw">Uaminifu</h3>
+                    <h3 class="lang-en" style="display: none;">Trustworthiness</h3>
+                    <p class="lang-sw">Kila muuzaji anapita ukaguzi mkali. Hakuna malipo kabla ya kufurahia chakula.</p>
+                    <p class="lang-en" style="display: none;">Every vendor passes rigorous inspection. No payment before enjoying your food.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="lang-sw">Uendelevu</h3>
+                    <h3 class="lang-en" style="display: none;">Sustainability</h3>
+                    <p class="lang-sw">Tunatumia vifaa vinavyoweza kutumiwa tena na kusaidia wauzaji wetu kutumia rasilimali zenye uendelevu.</p>
+                    <p class="lang-en" style="display: none;">We use reusable packaging and help our vendors use sustainable resources.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="lang-sw">Usawa</h3>
+                    <h3 class="lang-en" style="display: none;">Inclusion</h3>
+                    <p class="lang-sw">Tunatoa fursa sawa kwa wauzaji wote, haijalishi ukubwa wa biashara yao.</p>
+                    <p class="lang-en" style="display: none;">We provide equal opportunities to all vendors, regardless of their business size.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
+    <!-- Impact Stats -->
+    <section class="impact-section" id="impact">
         <div class="container">
             <div class="section-header">
-                <h2 class="lang-sw">Tunafanya Tofauti</h2>
-                <h2 class="lang-en" style="display: none;">Making a Difference</h2>
+                <h2 class="section-title" style="color: white;">Tunafanya Tofauti</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Usafirishaji bora wa chakula nchini Tanzania</p>
             </div>
             
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label lang-sw">Wauzaji</span>
-                    <span class="stat-label lang-en" style="display: none;">Vendors</span>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <span class="impact-number">150+</span>
+                    <h3 class="lang-sw">Wauzaji</h3>
+                    <h3 class="lang-en" style="display: none;">Verified Vendors</h3>
+                    <p class="lang-sw">Wauzaji walioidhinishwa kwenye muungano wetu, wote wakifuata viwango vya ubora</p>
+                    <p class="lang-en" style="display: none;">Verified vendors in our network, all following quality standards</p>
                 </div>
                 
-                <div class="stat-item">
-                    <span class="stat-number">50K+</span>
-                    <span class="stat-label lang-sw">Wateja</span>
-                    <span class="stat-label lang-en" style="display: none;">Customers</span>
+                <div class="impact-card">
+                    <span class="impact-number">50K+</span>
+                    <h3 class="lang-sw">Wateja wa Kudumu</h3>
+                    <h3 class="lang-en" style="display: none;">Loyal Customers</h3>
+                    <p class="lang-sw">Wateja wanaorudi tena katika miji 20+ ya Tanzania</p>
+                    <p class="lang-en" style="display: none;">Repeat customers across 20+ cities in Tanzania</p>
                 </div>
                 
-                <div class="stat-item">
-                    <span class="stat-number">500K+</span>
-                    <span class="stat-label lang-sw">Maagizo</span>
-                    <span class="stat-label lang-en" style="display: none;">Orders</span>
+                <div class="impact-card">
+                    <span class="impact-number">500K+</span>
+                    <h3 class="lang-sw">Maagizo</h3>
+                    <h3 class="lang-en" style="display: none;">Orders Delivered</h3>
+                    <p class="lang-sw">Zaidi ya maagizo 500,000 yamewasilishwa tangu mwanzilishi wetu</p>
+                    <p class="lang-en" style="display: none;">Over 500,000 orders delivered since our founding</p>
                 </div>
                 
-                <div class="stat-item">
-                    <span class="stat-number">30min</span>
-                    <span class="stat-label lang-sw">Hakikishi</span>
-                    <span class="stat-label lang-en" style="display: none;">Guarantee</span>
+                <div class="impact-card">
+                    <span class="impact-number">30min</span>
+                    <h3 class="lang-sw">Wastani wa Uwasilishaji</h3>
+                    <h3 class="lang-en" style="display: none;">Average Delivery Time</h3>
+                    <p class="lang-sw">Wastani wa dakika 28 kwa kila agizo - haraka kuliko ushindani wowote</p>
+                    <p class="lang-en" style="display: none;">Average 28 minutes per order - faster than any competitor</p>
+                </div>
+                
+                <div class="impact-card">
+                    <span class="impact-number">98%</span>
+                    <h3 class="lang-sw">Kuridhika kwa Wateja</h3>
+                    <h3 class="lang-en" style="display: none;">Customer Satisfaction</h3>
+                    <p class="lang-sw">Asilimia 98 ya wateja wetu wameridhika na huduma yetu</p>
+                    <p class="lang-en" style="display: none;">98% of our customers are satisfied with our service</p>
+                </div>
+                
+                <div class="impact-card">
+                    <span class="impact-number">250+</span>
+                    <h3 class="lang-sw">Ajira Zilizoundwa</h3>
+                    <h3 class="lang-en" style="display: none;">Jobs Created</h3>
+                    <p class="lang-sw">Ajira 250+ zimeundwa kwa wauzaji na wafanyakazi wetu wa usafirishaji</p>
+                    <p class="lang-en" style="display: none;">250+ jobs created for our vendors and delivery staff</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team-section">
+    <!-- Leadership Team -->
+    <section class="team-section" id="team">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Timu Yetu</h2>
-                <h2 class="section-title lang-en" style="display: none;">Our Team</h2>
-                <p class="section-subtitle lang-sw">Watunga majukwaa yetu ya usambazaji wa vyakula</p>
-                <p class="section-subtitle lang-en" style="display: none;">The team behind our food delivery platform</p>
+                <h2 class="section-title lang-sw">Timu ya Uongozi</h2>
+                <h2 class="section-title lang-en" style="display: none;">Leadership Team</h2>
+                <p class="section-subtitle lang-sw">Watu wanaoongoza mabadiliko katika sekta ya usambazaji wa chakula</p>
+                <p class="section-subtitle lang-en" style="display: none;">The people leading change in the food delivery industry</p>
             </div>
             
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop" 
-                             alt="Michael Kivuyo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop" 
+                             alt="Michael Kivuyo - CEO" loading="lazy">
+                        <div class="team-overlay">
+                            <h3>Michael Kivuyo</h3>
+                            <p class="lang-sw">Mkurugenzi Mtendaji</p>
+                            <p class="lang-en" style="display: none;">Chief Executive Officer</p>
+                        </div>
                     </div>
                     <div class="team-info">
-                        <h3>Michael Kivuyo</h3>
-                        <p class="lang-sw">Mkurugenzi Mtendaji</p>
-                        <p class="lang-en" style="display: none;">Chief Executive Officer</p>
-                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Mwanzilishi wa Chakula Haraka</p>
-                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Founder of Chakula Haraka</p>
+                        <div class="team-bio">
+                            <p class="lang-sw">Mwanzilishi na kiongozi wa kiteknolojia aliyeleta wazo la Chakula Haraka. Ana uzoefu wa miaka 10 katika teknolojia na biashara za mtandaoni.</p>
+                            <p class="lang-en" style="display: none;">Founder and technology leader who brought the Chakula Haraka vision. 10+ years experience in technology and online businesses.</p>
+                        </div>
+                        <div class="team-highlight">
+                            <i class="fas fa-lightbulb"></i>
+                            <span class="lang-sw">Mwanzilishi wa Mradi</span>
+                            <span class="lang-en" style="display: none;">Project Founder</span>
+                        </div>
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&auto=format&fit=crop" 
-                             alt="Sarah Juma">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&auto=format&fit=crop" 
+                             alt="Sarah Juma - COO" loading="lazy">
+                        <div class="team-overlay">
+                            <h3>Sarah Juma</h3>
+                            <p class="lang-sw">Mkurugenzi wa Uendeshaji</p>
+                            <p class="lang-en" style="display: none;">Chief Operations Officer</p>
+                        </div>
                     </div>
                     <div class="team-info">
-                        <h3>Sarah Juma</h3>
-                        <p class="lang-sw">Mkurugenzi wa Uendeshaji</p>
-                        <p class="lang-en" style="display: none;">Operations Director</p>
-                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Anasimamia wauzaji na usafirishaji</p>
-                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Manages vendors & delivery</p>
+                        <div class="team-bio">
+                            <p class="lang-sw">Anajenga na kusimamia muungano wa wauzaji wetu. Ana uzoefu wa miaka 8 katika ugavi wa chakula na udhibiti wa ubora.</p>
+                            <p class="lang-en" style="display: none;">Builds and manages our vendor network. 8+ years experience in food supply and quality control.</p>
+                        </div>
+                        <div class="team-highlight">
+                            <i class="fas fa-network-wired"></i>
+                            <span class="lang-sw">Ujenzi wa Muungano</span>
+                            <span class="lang-en" style="display: none;">Network Building</span>
+                        </div>
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?w=400&auto=format&fit=crop" 
-                             alt="David Mwamba">
+                        <img src="https://images.unsplash.com/photo-1562788869-4ed32648eb72?w=600&auto=format&fit=crop" 
+                             alt="David Mwamba - CTO" loading="lazy">
+                        <div class="team-overlay">
+                            <h3>David Mwamba</h3>
+                            <p class="lang-sw">Mkurugenzi wa Teknolojia</p>
+                            <p class="lang-en" style="display: none;">Chief Technology Officer</p>
+                        </div>
                     </div>
                     <div class="team-info">
-                        <h3>David Mwamba</h3>
-                        <p class="lang-sw">Mkurugenzi wa Teknolojia</p>
-                        <p class="lang-en" style="display: none;">Technology Director</p>
-                        <p class="lang-sw" style="color: var(--gray); font-size: 0.9rem;">Anajenga teknolojia yetu</p>
-                        <p class="lang-en" style="color: var(--gray); font-size: 0.9rem; display: none;">Builds our technology</p>
+                        <div class="team-bio">
+                            <p class="lang-sw">Anajenga na kudumisha mifumo yetu ya teknolojia. Ana uzoefu wa miaka 12 katika ukuzaji wa programu na usimamizi wa data.</p>
+                            <p class="lang-en" style="display: none;">Builds and maintains our technology systems. 12+ years experience in software development and data management.</p>
+                        </div>
+                        <div class="team-highlight">
+                            <i class="fas fa-code"></i>
+                            <span class="lang-sw">Ukuzaji wa Mifumo</span>
+                            <span class="lang-en" style="display: none;">System Development</span>
+                        </div>
                         <div class="team-social">
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
@@ -563,57 +1447,70 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners-section">
+    <!-- Partners -->
+    <section class="partners-section" id="partners">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Washirika Wetu</h2>
-                <h2 class="section-title lang-en" style="display: none;">Our Partners</h2>
+                <h2 class="section-title lang-sw">Washirika na Ushirikiano</h2>
+                <h2 class="section-title lang-en" style="display: none;">Partners & Collaborations</h2>
+                <p class="section-subtitle lang-sw">Tunafanya kazi na mashirika yanayoongoza kuleta mabadiliko</p>
+                <p class="section-subtitle lang-en" style="display: none;">Working with leading organizations to drive change</p>
             </div>
             
-            <div class="partners-slider">
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/1A472A/FFFFFF?text=Vodacom" alt="Vodacom">
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/1A472A/FFFFFF?text=Vodacom+TZ" alt="Vodacom Tanzania" class="partner-logo">
                 </div>
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/D4AF37/000000?text=Airtel" alt="Airtel">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/004E89/FFFFFF?text=Airtel+Tanzania" alt="Airtel Tanzania" class="partner-logo">
                 </div>
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/1A1A1A/FFFFFF?text=Kariakoo+Market" alt="Kariakoo Market">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/1A1A1A/FFFFFF?text=Kariakoo+Market" alt="Kariakoo Market" class="partner-logo">
                 </div>
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/E63946/FFFFFF?text=Dar+City+Council" alt="Dar City Council">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/00A896/FFFFFF?text=Kivukoni+Fisheries" alt="Kivukoni Fisheries" class="partner-logo">
                 </div>
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/004E89/FFFFFF?text=Tigo" alt="Tigo">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/FF6B35/FFFFFF?text=Tigo+Money" alt="Tigo Money" class="partner-logo">
                 </div>
-                <div class="partner-item">
-                    <img src="https://via.placeholder.com/150x60/00A896/FFFFFF?text=Kivukoni+Fisheries" alt="Kivukoni Fisheries">
+                <div class="partner-card">
+                    <img src="https://via.placeholder.com/200x80/1A1A2E/FFFFFF?text=Dar+Food+Safety" alt="Dar Food Safety Council" class="partner-logo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Join Us CTA -->
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title lang-sw">Jiunge na Safari Yetu</h2>
-                <h2 class="cta-title lang-en" style="display: none;">Join Our Journey</h2>
-                <p class="cta-subtitle lang-sw">Tunatafuta watu wenye hamu ya kubadilisha sekta ya usambazaji wa vyakula Tanzania.</p>
-                <p class="cta-subtitle lang-en" style="display: none;">We're looking for passionate people to transform Tanzania's food delivery sector.</p>
+                <h2 class="cta-title lang-sw">Jiunge na Safari Yetu ya Mabadiliko</h2>
+                <h2 class="cta-title lang-en" style="display: none;">Join Our Journey of Transformation</h2>
+                <p class="cta-subtitle lang-sw">Tunatafuta watu wenye hamu ya kubadilisha sekta ya usambazaji wa vyakula na kusaidia kuinua uchumi wa Tanzania</p>
+                <p class="cta-subtitle lang-en" style="display: none;">We're looking for passionate people to transform the food delivery sector and help uplift Tanzania's economy</p>
                 
                 <div class="cta-buttons">
                     <a href="contact.html?careers" class="btn btn-primary btn-lg">
                         <i class="fas fa-briefcase"></i>
-                        <span class="lang-sw">Maombi ya Kazi</span>
-                        <span class="lang-en" style="display: none;">Career Opportunities</span>
+                        <span class="lang-sw">Tuma Maombi ya Kazi</span>
+                        <span class="lang-en" style="display: none;">Apply for Careers</span>
                     </a>
-                    <a href="vendors.html" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                    <a href="vendors.html#become-vendor" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
                         <i class="fas fa-store"></i>
                         <span class="lang-sw">Jiunge kama Mwuzaji</span>
                         <span class="lang-en" style="display: none;">Become a Vendor</span>
                     </a>
+                    <a href="contact.html?partnership" class="btn btn-outline btn-lg" style="border-color: white; color: white;">
+                        <i class="fas fa-handshake"></i>
+                        <span class="lang-sw">Ushirikiano wa Biashara</span>
+                        <span class="lang-en" style="display: none;">Business Partnership</span>
+                    </a>
+                </div>
+                
+                <div class="mt-4" style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                    <i class="fas fa-envelope"></i>
+                    <span class="lang-sw">Tuma barua pepe kwa: careers@chakulaharaka.co.tz</span>
+                    <span class="lang-en" style="display: none;">Email us at: careers@chakulaharaka.co.tz</span>
                 </div>
             </div>
         </div>
@@ -631,8 +1528,8 @@
                             <span class="tagline">Premium Delivery</span>
                         </div>
                     </div>
-                    <p class="lang-sw">Kuleta vyakula vya mitaani vya Tanzania hadi mlangoni mwako tangu 2020.</p>
-                    <p class="lang-en" style="display: none;">Bringing Tanzanian street food to your doorstep since 2020.</p>
+                    <p class="lang-sw">Kuleta ladha ya mitaani ya Tanzania hadi mlangoni mwako tangu 2020.</p>
+                    <p class="lang-en" style="display: none;">Bringing authentic Tanzanian street flavors to your doorstep since 2020.</p>
                     
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -660,11 +1557,12 @@
                     <h4 class="lang-sw">Kampuni</h4>
                     <h4 class="lang-en" style="display: none;">Company</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html#story">Our Story</a></li>
-                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#mission">Mission & Values</a></li>
+                        <li><a href="about.html#journey">Our Journey</a></li>
+                        <li><a href="about.html#team">Leadership Team</a></li>
+                        <li><a href="about.html#impact">Our Impact</a></li>
                         <li><a href="contact.html?careers">Careers</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="press.html">Press</a></li>
                     </ul>
                 </div>
                 
@@ -696,9 +1594,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -707,27 +1605,122 @@
     <!-- WhatsApp Float -->
     <a href="https://wa.me/255747193972" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
-        <span class="float-text lang-sw">Peekia Sasa</span>
-        <span class="float-text lang-en" style="display: none;">Order Now</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
     <script>
-        // Auto-scroll partners slider
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.querySelector('.partners-slider');
-            if (slider) {
-                let scrollAmount = 0;
-                const slideTimer = setInterval(() => {
-                    slider.scrollLeft += 1;
-                    scrollAmount += 1;
-                    
-                    if (scrollAmount >= slider.scrollWidth / 2) {
-                        slider.scrollLeft = 0;
-                        scrollAmount = 0;
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.lang-sw').forEach(el => {
+                    el.style.display = lang === 'sw' ? 'block' : 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = lang === 'en' ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
                     }
-                }, 30);
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
             }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.timeline-card, .value-card, .team-card, .partner-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Impact cards counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.impact-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/[^0-9]/g, ''));
+                const suffix = counter.textContent.replace(/[0-9]/g, '');
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 20);
+            });
+        }
+
+        // Animate counters when in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const impactSection = document.querySelector('.impact-section');
+        if (impactSection) {
+            observer.observe(impactSection);
+        }
+
+        // Add click animation to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Auto-scroll for timeline on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineCards = document.querySelectorAll('.timeline-card');
+            timelineCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
         });
     </script>
 </body>
