@@ -3,77 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works | Chakula Haraka - Delivery Process</title>
-    <meta name="description" content="Learn how Chakula Haraka works. Simple 4-step process from ordering to delivery at your door in Dar es Salaam.">
+    <title>How It Works | Chakula Haraka - Premium Food Delivery Process</title>
+    <meta name="description" content="Discover the Chakula Haraka 4-step premium delivery process. From ordering to doorstep delivery in Dar es Salaam - fast, safe, and reliable.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     
+    <!-- CSS -->
     <style>
-        /* How It Works Specific Styles */
+        /* Reset & Base Styles */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #00A896;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --gray: #6C757D;
+            --success: #28A745;
+            --warning: #FFC107;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #008C7A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .btn-lg {
+            padding: 16px 36px;
+            font-size: 18px;
+        }
+        
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        
+        /* Header & Navigation */
+        .language-tabs {
+            background: var(--dark);
+            padding: 8px 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .main-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--dark);
+        }
+        
+        .tagline {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Process Hero */
         .process-hero {
-            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,168,150,0.1) 100%);
-            padding: 150px 0 80px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(0,168,150,0.05) 100%);
+            padding: 160px 0 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 C250,100 750,100 1000,0 L1000,100 L0,100 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            pointer-events: none;
+        }
+        
+        .display-2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .lead {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .guarantee-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Process Timeline */
+        .process-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .process-timeline {
             position: relative;
-            max-width: 800px;
-            margin: 80px auto;
+            max-width: 1000px;
+            margin: 80px auto 0;
+            padding: 40px 0;
         }
         
         .process-timeline::before {
             content: '';
             position: absolute;
             top: 0;
-            bottom: 0;
-            left: 50px;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            left: 50%;
             transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            z-index: 1;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
         }
         
         .process-step {
+            flex: 1;
+            min-width: 280px;
+            max-width: 450px;
             position: relative;
-            margin-bottom: 60px;
-            padding-left: 100px;
+        }
+        
+        .step-number-container {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
         }
         
         .step-number {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100px;
-            height: 100px;
-            background: var(--primary);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
             box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            position: relative;
+            border: 4px solid white;
         }
         
         .step-content {
             background: white;
-            padding: 40px;
-            border-radius: var(--border-radius);
+            padding: 60px 40px 40px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-content {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .step-icon {
-            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover .step-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .step-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .step-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 107, 53, 0.1);
             color: var(--primary);
-            margin-bottom: 20px;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        .step-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .step-feature {
+            background: var(--light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--gray);
         }
         
         /* Features Section */
         .features-section {
-            background: var(--light-gray);
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f8f9fa 100%);
         }
         
         .features-grid {
@@ -85,64 +490,236 @@
         
         .feature-card {
             background: white;
-            padding: 40px 30px;
-            border-radius: var(--border-radius);
+            padding: 50px 30px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
             text-align: center;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
         }
         
         .feature-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
             color: white;
-            font-size: 2rem;
+            font-size: 32px;
+            transform: rotate(-45deg);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(0deg);
+        }
+        
+        .feature-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.6;
         }
         
         /* Payment Methods */
-        .payment-methods {
+        .payment-section {
+            padding: 100px 0;
             background: white;
-            text-align: center;
         }
         
         .payment-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
         
-        .payment-method {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--border-radius);
+        .payment-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
             transition: var(--transition);
+            border: 1px solid var(--light-gray);
         }
         
-        .payment-method:hover {
-            background: white;
-            box-shadow: var(--shadow);
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .payment-icon {
-            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light), var(--light-gray));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
             color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 36px;
+            transition: var(--transition);
+        }
+        
+        .payment-card:hover .payment-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .payment-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .payment-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .payment-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        
+        /* Delivery Areas */
+        .delivery-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f8f9fa 100%);
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .area-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .area-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 28px;
+            transition: var(--transition);
+        }
+        
+        .area-card:hover .area-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .area-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .area-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        
+        .area-time {
+            color: var(--primary);
+            font-weight: 600;
+            padding: 5px 15px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .coverage-map {
+            position: relative;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            background: linear-gradient(135deg, #e9ecef, #f8f9fa);
+            border-radius: var(--radius);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.5;
         }
         
         /* FAQ Section */
         .faq-section {
-            background: linear-gradient(135deg, rgba(0, 78, 137, 0.05) 0%, rgba(0, 168, 150, 0.05) 100%);
+            padding: 100px 0;
+            background: white;
         }
         
         .faq-container {
@@ -152,10 +729,16 @@
         
         .faq-item {
             background: white;
-            margin-bottom: 20px;
-            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--primary);
         }
         
         .faq-question {
@@ -165,13 +748,45 @@
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
+            background: white;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(0,168,150,0.05));
+        }
+        
+        .faq-question span {
+            font-size: 18px;
+            color: var(--dark);
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-toggle {
+            background: var(--primary);
+            color: white;
+            transform: rotate(180deg);
         }
         
         .faq-answer {
             padding: 0 30px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease;
+            color: var(--gray);
         }
         
         .faq-answer.active {
@@ -179,44 +794,188 @@
             max-height: 500px;
         }
         
-        .faq-toggle {
-            transition: transform 0.3s ease;
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark) 0%, #2A2A3E 100%);
+            color: white;
+            text-align: center;
         }
         
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        /* Delivery Areas */
-        .delivery-areas {
-            background: white;
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: white;
         }
         
-        .areas-grid {
+        .cta-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-bottom: 60px;
         }
         
-        .area-card {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
             transition: var(--transition);
         }
         
-        .area-card:hover {
-            background: white;
-            box-shadow: var(--shadow);
-            transform: translateY(-5px);
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
         
-        .area-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .display-2 {
+                font-size: 42px;
+            }
+            
+            .process-timeline::before {
+                left: 30px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 60px;
+            }
+            
+            .process-step {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .step-number-container {
+                left: 30px;
+                transform: none;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 40px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-2 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .process-step {
+                min-width: 100%;
+            }
+            
+            .step-content {
+                padding: 50px 25px 30px;
+            }
+            
+            .features-grid,
+            .payment-grid,
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .display-2 {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .step-content {
+                padding: 50px 20px 25px;
+            }
+            
+            .faq-question {
+                padding: 20px 25px;
+            }
+            
+            .faq-question span {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -276,50 +1035,89 @@
         <div class="container">
             <h1 class="display-2 text-primary lang-sw">Jinsi Inavyofanya Kazi</h1>
             <h1 class="display-2 text-primary lang-en" style="display: none;">How It Works</h1>
-            <p class="lead lang-sw">Njia rahisi ya kupata chakula cha mitaani mlangoni mwako</p>
-            <p class="lang-en lead" style="display: none;">Simple way to get street food at your doorstep</p>
+            <p class="lead lang-sw">Njia ya kipekee 4-hatua ya kupata vyakula vya mitaani kwa ubora wa juu mlangoni mwako</p>
+            <p class="lead lang-en" style="display: none;">Unique 4-step process to get premium street food at your doorstep</p>
+            
+            <div class="guarantee-badge">
+                <i class="fas fa-bolt"></i>
+                <span class="lang-sw">Dakika 30 au BURE!</span>
+                <span class="lang-en" style="display: none;">30 minutes or FREE!</span>
+            </div>
         </div>
     </section>
 
     <!-- Process Timeline -->
     <section class="process-section">
         <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Mchakato Wetu wa Usafirishaji</h2>
+                <h2 class="section-title lang-en" style="display: none;">Our Delivery Process</h2>
+                <p class="section-subtitle lang-sw">Kutoka kwa ombi lako hadi chakula mlangoni mwako kwa dakika 30 tu</p>
+                <p class="section-subtitle lang-en" style="display: none;">From your order to food at your door in just 30 minutes</p>
+            </div>
+            
             <div class="process-timeline">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fab fa-whatsapp"></i>
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-number-container">
+                            <div class="step-number">1</div>
                         </div>
-                        <h3 class="lang-sw">Peekia kupitia WhatsApp</h3>
-                        <h3 class="lang-en" style="display: none;">Order via WhatsApp</h3>
-                        <p class="lang-sw">Tuma ujumbe kwa namba yetu ya WhatsApp au tumia tovuti yetu. Chagua chakula unachotaka kutoka kwa wauzaji wetu.</p>
-                        <p class="lang-en" style="display: none;">Send a message to our WhatsApp number or use our website. Choose food you want from our vendors.</p>
-                        
-                        <div class="mt-3">
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <h3 class="lang-sw">Peekia Haraka</h3>
+                            <h3 class="lang-en" style="display: none;">Quick Order</h3>
+                            <p class="lang-sw">Tuma ombi lako kupitia WhatsApp, tovuti, au simu. Chagua kutoka kwa vyakula 100+ vya mitaani</p>
+                            <p class="lang-en" style="display: none;">Send your order via WhatsApp, website, or phone. Choose from 100+ street food items</p>
+                            
+                            <div class="step-highlight">
+                                <i class="fas fa-clock"></i>
+                                <span class="lang-sw">Dakika 2 tu</span>
+                                <span class="lang-en" style="display: none;">Only 2 minutes</span>
+                            </div>
+                            
+                            <div class="step-features">
+                                <span class="step-feature">WhatsApp Ordering</span>
+                                <span class="step-feature">Easy Menu Navigation</span>
+                                <span class="step-feature">Live Support</span>
+                            </div>
+                            
                             <a href="https://wa.me/255747193972" class="btn btn-primary">
                                 <i class="fab fa-whatsapp"></i>
-                                <span class="lang-sw">Tupigie WhatsApp</span>
-                                <span class="lang-en" style="display: none;">WhatsApp Us</span>
+                                <span class="lang-sw">Peekia Sasa</span>
+                                <span class="lang-en" style="display: none;">Order Now</span>
                             </a>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-utensils"></i>
+
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="step-number-container">
+                            <div class="step-number">2</div>
                         </div>
-                        <h3 class="lang-sw">Tayarisha Chakula</h3>
-                        <h3 class="lang-en" style="display: none;">Food Preparation</h3>
-                        <p class="lang-sw">Mwuzaji anapokea agizo lako na kuanza kutayarisha chakula chako mara moja. Chakula huchakatwa na kupikwa safi.</p>
-                        <p class="lang-en" style="display: none;">Vendor receives your order and starts preparing your food immediately. Food is freshly cut and cooked.</p>
-                        
-                        <div class="mt-3">
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 class="lang-sw">Tayarisha kwa Ustadi</h3>
+                            <h3 class="lang-en" style="display: none;">Expert Preparation</h3>
+                            <p class="lang-sw">Mwuzaji mwenye sifa hupokea ombi lako na kuanza kutayarisha chakula kwa usafi wa juu</p>
+                            <p class="lang-en" style="display: none;">Qualified vendor receives your order and starts preparing food with premium hygiene</p>
+                            
+                            <div class="step-highlight">
+                                <i class="fas fa-shield-alt"></i>
+                                <span class="lang-sw">Wauzaji Walioidhinishwa</span>
+                                <span class="lang-en" style="display: none;">Verified Vendors</span>
+                            </div>
+                            
+                            <div class="step-features">
+                                <span class="step-feature">Premium Hygiene</span>
+                                <span class="step-feature">Fresh Ingredients</span>
+                                <span class="step-feature">Traditional Recipes</span>
+                            </div>
+                            
                             <a href="vendors.html" class="btn btn-outline">
                                 <i class="fas fa-store"></i>
                                 <span class="lang-sw">Angalia Wauzaji</span>
@@ -327,50 +1125,74 @@
                             </a>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-shipping-fast"></i>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-number-container">
+                            <div class="step-number">3</div>
                         </div>
-                        <h3 class="lang-sw">Wasilisha kwa Bajaji</h3>
-                        <h3 class="lang-en" style="display: none;">Delivery via Bajaji</h3>
-                        <p class="lang-sw">Bajaji yetu huchukua chakula kutoka kwa mwuzaji na kukifikisha kwako. Tunatumia bajaji kwa usafirishaji wa haraka.</p>
-                        <p class="lang-en" style="display: none;">Our bajaji picks up food from vendor and delivers to you. We use bajaji for fast delivery.</p>
-                        
-                        <div class="lang-sw mt-3">
-                            <div class="alert" style="background: #e8f4fd; padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
-                                <strong>⚡ 30-Minute Guarantee:</strong> Chakula kinafika ndani ya dakika 30 au ni BURE!
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-shipping-fast"></i>
                             </div>
-                        </div>
-                        <div class="lang-en mt-3" style="display: none;">
-                            <div class="alert" style="background: #e8f4fd; padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--primary);">
-                                <strong>⚡ 30-Minute Guarantee:</strong> Food arrives within 30 minutes or it's FREE!
+                            <h3 class="lang-sw">Wasilisha kwa Bajaji</h3>
+                            <h3 class="lang-en" style="display: none;">Bajaji Delivery</h3>
+                            <p class="lang-sw">Bajaji yetu ya kipekee huchukua chakula chenye joto na kukifikisha kwako kwa ufanisi</p>
+                            <p class="lang-en" style="display: none;">Our unique bajaji picks up hot food and delivers it to you efficiently</p>
+                            
+                            <div class="step-highlight">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="lang-sw">Ufuatiliaji wa Maagizo</span>
+                                <span class="lang-en" style="display: none;">Order Tracking</span>
+                            </div>
+                            
+                            <div class="step-features">
+                                <span class="step-feature">Live Tracking</span>
+                                <span class="step-feature">Temperature Control</span>
+                                <span class="step-feature">Contactless Delivery</span>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <small class="lang-sw" style="color: var(--primary); font-weight: 600;">
+                                    <i class="fas fa-bolt"></i> Dakika 30 au BURE!
+                                </small>
+                                <small class="lang-en" style="display: none; color: var(--primary); font-weight: 600;">
+                                    <i class="fas fa-bolt"></i> 30 minutes or FREE!
+                                </small>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <div class="step-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
+
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="step-number-container">
+                            <div class="step-number">4</div>
                         </div>
-                        <h3 class="lang-sw">Lipa na Kufurahia</h3>
-                        <h3 class="lang-en" style="display: none;">Pay & Enjoy</h3>
-                        <p class="lang-sw">Lipa kwa fedha taslimu, M-Pesa, au njia nyingine unapopokea chakula. Kula na kufurahia!</p>
-                        <p class="lang-en" style="display: none;">Pay with cash, M-Pesa, or other methods when receiving food. Eat & enjoy!</p>
-                        
-                        <div class="mt-3">
-                            <a href="#payment" class="btn btn-outline">
+                        <div class="step-content">
+                            <div class="step-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="lang-sw">Lipa na Kufurahia</h3>
+                            <h3 class="lang-en" style="display: none;">Pay & Enjoy</h3>
+                            <p class="lang-sw">Lipa kwa njia yoyote unayopendelea, pokea chakula, na ufurahie ladha asilia ya Tanzania</p>
+                            <p class="lang-en" style="display: none;">Pay with any method you prefer, receive food, and enjoy authentic Tanzanian flavors</p>
+                            
+                            <div class="step-highlight">
                                 <i class="fas fa-credit-card"></i>
-                                <span class="lang-sw">Angalia Njia za Malipo</span>
-                                <span class="lang-en" style="display: none;">View Payment Methods</span>
+                                <span class="lang-sw">Njia Nyingi za Malipo</span>
+                                <span class="lang-en" style="display: none;">Multiple Payment Methods</span>
+                            </div>
+                            
+                            <div class="step-features">
+                                <span class="step-feature">Cash on Delivery</span>
+                                <span class="step-feature">Mobile Payments</span>
+                                <span class="step-feature">Secure Transactions</span>
+                            </div>
+                            
+                            <a href="#payment" class="btn btn-outline">
+                                <i class="fas fa-wallet"></i>
+                                <span class="lang-sw">Angalia Malipo</span>
+                                <span class="lang-en" style="display: none;">View Payments</span>
                             </a>
                         </div>
                     </div>
@@ -385,6 +1207,8 @@
             <div class="section-header">
                 <h2 class="section-title lang-sw">Kwa Nini Kuchagua Chakula Haraka?</h2>
                 <h2 class="section-title lang-en" style="display: none;">Why Choose Chakula Haraka?</h2>
+                <p class="section-subtitle lang-sw">Uzoefu bora wa usafirishaji wa chakula nchini Tanzania</p>
+                <p class="section-subtitle lang-en" style="display: none;">Best food delivery experience in Tanzania</p>
             </div>
             
             <div class="features-grid">
@@ -392,93 +1216,140 @@
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3 class="lang-sw">Haraka</h3>
-                    <h3 class="lang-en" style="display: none;">Fast</h3>
-                    <p class="lang-sw">Wasilishaji wa dakika 30 au chakula chako ni bure</p>
-                    <p class="lang-en" style="display: none;">30-minute delivery or your food is free</p>
+                    <h3 class="lang-sw">Haraka Zaidi</h3>
+                    <h3 class="lang-en" style="display: none;">Fastest</h3>
+                    <p class="lang-sw">Dakika 30 za uhakika au chakula chako ni bure. Huduma ya haraka zaidi nchini</p>
+                    <p class="lang-en" style="display: none;">30-minute guarantee or your food is free. Fastest service nationwide</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="lang-sw">Salama</h3>
-                    <h3 class="lang-en" style="display: none;">Safe</h3>
-                    <p class="lang-sw">Wauzaji wote wanathibitishwa kwa usafi na ubora</p>
-                    <p class="lang-en" style="display: none;">All vendors verified for hygiene & quality</p>
+                    <h3 class="lang-sw">Salama Zaidi</h3>
+                    <h3 class="lang-en" style="display: none;">Safest</h3>
+                    <p class="lang-sw">Wauzaji wote wanaidhinishwa kwa usafi na ubora. Uokoaji kamili wa chakula</p>
+                    <p class="lang-en" style="display: none;">All vendors certified for hygiene and quality. Complete food safety</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <h3 class="lang-sw">Ladha ya Asili</h3>
-                    <h3 class="lang-en" style="display: none;">Authentic Taste</h3>
-                    <p class="lang-sw">Chakula halisi cha mitaani cha Tanzania</p>
-                    <p class="lang-en" style="display: none;">Authentic Tanzanian street food</p>
+                    <h3 class="lang-sw">Ladha Bora</h3>
+                    <h3 class="lang-en" style="display: none;">Best Taste</h3>
+                    <p class="lang-sw">Ladha asilia ya mitaani ya Tanzania. Viongo vya asili na mapishi ya jadi</p>
+                    <p class="lang-en" style="display: none;">Authentic Tanzanian street flavor. Natural spices and traditional recipes</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="lang-sw">Msaada 24/7</h3>
+                    <h3 class="lang-en" style="display: none;">24/7 Support</h3>
+                    <p class="lang-sw">Timu yetu iko tayari kukusaidia saa zote. Msaada wa haraka kupitia WhatsApp</p>
+                    <p class="lang-en" style="display: none;">Our team is ready to help anytime. Quick support via WhatsApp</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="lang-sw">Usafirishaji wa Bure</h3>
+                    <h3 class="lang-en" style="display: none;">Free Delivery</h3>
+                    <p class="lang-sw">Usafirishaji bure kwa maagizo yote ya TSh 10,000 na zaidi. Bei bora zaidi</p>
+                    <p class="lang-en" style="display: none;">Free delivery for all orders of TSh 10,000+. Best prices</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="lang-sw">Kuridhika 100%</h3>
+                    <h3 class="lang-en" style="display: none;">100% Satisfaction</h3>
+                    <p class="lang-sw">Wateja 10,000+ wameridhika na huduma yetu. Hakuna malipo kabla ya kufurahia</p>
+                    <p class="lang-en" style="display: none;">10,000+ customers satisfied with our service. No payment before enjoyment</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Payment Methods -->
-    <section class="payment-methods" id="payment">
+    <section class="payment-section" id="payment">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Njia za Malipo</h2>
-                <h2 class="section-title lang-en" style="display: none;">Payment Methods</h2>
-                <p class="section-subtitle lang-sw">Chagua njia ya malipo inayokufaa zaidi</p>
-                <p class="section-subtitle lang-en" style="display: none;">Choose payment method that works best for you</p>
+                <h2 class="section-title lang-sw">Chagua Njia Ya Malipo</h2>
+                <h2 class="section-title lang-en" style="display: none;">Choose Your Payment Method</h2>
+                <p class="section-subtitle lang-sw">Malipo salama na rahisi kulingana na upendeleo wako</p>
+                <p class="section-subtitle lang-en" style="display: none;">Secure and easy payments according to your preference</p>
             </div>
             
             <div class="payment-grid">
-                <div class="payment-method">
+                <div class="payment-card">
                     <div class="payment-icon">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <h3>Cash</h3>
-                    <p class="lang-sw">Lipa kwa fedha taslimu unapopokea chakula</p>
-                    <p class="lang-en" style="display: none;">Pay with cash when receiving food</p>
+                    <h3>Cash on Delivery</h3>
+                    <p class="lang-sw">Lipa unapopokea chakula kwako. Hakuna malipo ya awali</p>
+                    <p class="lang-en" style="display: none;">Pay when you receive food at your location. No advance payment</p>
+                    <div class="payment-number">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="lang-sw">Inapatikana Kila Mahali</span>
+                        <span class="lang-en" style="display: none;">Available Everywhere</span>
+                    </div>
                 </div>
                 
-                <div class="payment-method">
+                <div class="payment-card">
                     <div class="payment-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>M-Pesa</h3>
-                    <p class="lang-sw">Malipo ya haraka na salama kupitia M-Pesa</p>
-                    <p class="lang-en" style="display: none;">Fast & secure payment via M-Pesa</p>
+                    <p class="lang-sw">Malipo ya haraka na salama kupitia M-Pesa Tanzania</p>
+                    <p class="lang-en" style="display: none;">Fast & secure payment via M-Pesa Tanzania</p>
+                    <div class="payment-number">
+                        <i class="fas fa-phone"></i>
+                        <span>+255 747 193 972</span>
+                    </div>
                 </div>
                 
-                <div class="payment-method">
+                <div class="payment-card">
                     <div class="payment-icon">
                         <i class="fas fa-credit-card"></i>
                     </div>
                     <h3>Airtel Money</h3>
-                    <p class="lang-sw">Malipo kwa njia ya Airtel Money</p>
-                    <p class="lang-en" style="display: none;">Payment via Airtel Money</p>
+                    <p class="lang-sw">Malipo kwa njia ya Airtel Money kwa wateja wa Airtel</p>
+                    <p class="lang-en" style="display: none;">Payment via Airtel Money for Airtel customers</p>
+                    <div class="payment-number">
+                        <i class="fas fa-phone"></i>
+                        <span>+255 747 193 972</span>
+                    </div>
                 </div>
                 
-                <div class="payment-method">
+                <div class="payment-card">
                     <div class="payment-icon">
                         <i class="fas fa-wallet"></i>
                     </div>
                     <h3>Tigo Pesa</h3>
-                    <p class="lang-sw">Malipo kwa Tigo Pesa</p>
-                    <p class="lang-en" style="display: none;">Payment via Tigo Pesa</p>
+                    <p class="lang-sw">Malipo ya Tigo Pesa kwa wateja wa Tigo</p>
+                    <p class="lang-en" style="display: none;">Tigo Pesa payment for Tigo customers</p>
+                    <div class="payment-number">
+                        <i class="fas fa-phone"></i>
+                        <span>+255 747 193 972</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Delivery Areas -->
-    <section class="delivery-areas">
+    <section class="delivery-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title lang-sw">Maeneo Tunayofikia</h2>
-                <h2 class="section-title lang-en" style="display: none;">Areas We Cover</h2>
-                <p class="section-subtitle lang-sw">Tunafikia maeneo mengi ya Dar es Salaam</p>
-                <p class="section-subtitle lang-en" style="display: none;">We cover many areas of Dar es Salaam</p>
+                <h2 class="section-title lang-sw">Maeneo Tunayohudumia</h2>
+                <h2 class="section-title lang-en" style="display: none;">Areas We Serve</h2>
+                <p class="section-subtitle lang-sw">Tunafikia maeneo 20+ ya Dar es Salaam kwa usafirishaji wa haraka</p>
+                <p class="section-subtitle lang-en" style="display: none;">We reach 20+ areas of Dar es Salaam for fast delivery</p>
             </div>
             
             <div class="areas-grid">
@@ -487,8 +1358,14 @@
                         <i class="fas fa-city"></i>
                     </div>
                     <h3>Kariakoo</h3>
-                    <p class="lang-sw">Mji mkuu wa vyakula vya mitaani</p>
-                    <p class="lang-en" style="display: none;">Street food capital</p>
+                    <p class="lang-sw">Mji mkuu wa vyakula vya mitaani Dar es Salaam</p>
+                    <p class="lang-en" style="display: none;">Street food capital of Dar es Salaam</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 15-20min</span>
+                        <span class="lang-en" style="display: none;">Average: 15-20min</span>
+                    </div>
+                    <div class="area-time">Fastest Area</div>
                 </div>
                 
                 <div class="area-card">
@@ -496,8 +1373,14 @@
                         <i class="fas fa-umbrella-beach"></i>
                     </div>
                     <h3>Masaki</h3>
-                    <p class="lang-sw">Wasilishaji wa hali ya juu</p>
-                    <p class="lang-en" style="display: none;">Upscale deliveries</p>
+                    <p class="lang-sw">Eneo la hali ya juu na watembeleaji wa kimataifa</p>
+                    <p class="lang-en" style="display: none;">Upscale area with international visitors</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 20-25min</span>
+                        <span class="lang-en" style="display: none;">Average: 20-25min</span>
+                    </div>
+                    <div class="area-time">Premium Service</div>
                 </div>
                 
                 <div class="area-card">
@@ -505,8 +1388,14 @@
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Posta</h3>
-                    <p class="lang-sw">Eneo la biashara</p>
-                    <p class="lang-en" style="display: none;">Business district</p>
+                    <p class="lang-sw">Kitovu cha biashara cha mkoa wa Dar es Salaam</p>
+                    <p class="lang-en" style="display: none;">Business hub of Dar es Salaam region</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 18-22min</span>
+                        <span class="lang-en" style="display: none;">Average: 18-22min</span>
+                    </div>
+                    <div class="area-time">Business Hub</div>
                 </div>
                 
                 <div class="area-card">
@@ -514,8 +1403,14 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Ubungo</h3>
-                    <p class="lang-sw">Eneo la wanafunzi</p>
-                    <p class="lang-en" style="display: none;">Student area</p>
+                    <p class="lang-sw">Kitovu cha elimu na makazi ya wanafunzi</p>
+                    <p class="lang-en" style="display: none;">Education center and student residence</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 20-25min</span>
+                        <span class="lang-en" style="display: none;">Average: 20-25min</span>
+                    </div>
+                    <div class="area-time">Student Favorite</div>
                 </div>
                 
                 <div class="area-card">
@@ -523,8 +1418,14 @@
                         <i class="fas fa-ship"></i>
                     </div>
                     <h3>Kivukoni</h3>
-                    <p class="lang-sw">Maalum ya seafood</p>
-                    <p class="lang-en" style="display: none;">Seafood special</p>
+                    <p class="lang-sw">Eneo la bandari na chakula cha bahari</p>
+                    <p class="lang-en" style="display: none;">Port area and seafood specialty</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 22-27min</span>
+                        <span class="lang-en" style="display: none;">Average: 22-27min</span>
+                    </div>
+                    <div class="area-time">Seafood Zone</div>
                 </div>
                 
                 <div class="area-card">
@@ -532,8 +1433,26 @@
                         <i class="fas fa-home"></i>
                     </div>
                     <h3>Mbezi Beach</h3>
-                    <p class="lang-sw">Maeneo ya makazi</p>
-                    <p class="lang-en" style="display: none;">Residential areas</p>
+                    <p class="lang-sw">Maeneo ya makazi ya kisasa na familia</p>
+                    <p class="lang-en" style="display: none;">Modern residential areas and families</p>
+                    <div class="area-detail">
+                        <i class="fas fa-clock"></i>
+                        <span class="lang-sw">Wastani: 25-30min</span>
+                        <span class="lang-en" style="display: none;">Average: 25-30min</span>
+                    </div>
+                    <div class="area-time">Family Area</div>
+                </div>
+            </div>
+            
+            <div class="coverage-map">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <div>
+                        <h4 class="lang-sw">Ramani ya Usafirishaji ya Dar es Salaam</h4>
+                        <h4 class="lang-en" style="display: none;">Dar es Salaam Delivery Map</h4>
+                        <p class="lang-sw" style="color: var(--gray);">Tunafikia maeneo 20+ ya Dar es Salaam</p>
+                        <p class="lang-en" style="display: none; color: var(--gray);">We cover 20+ areas of Dar es Salaam</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -545,59 +1464,156 @@
             <div class="section-header">
                 <h2 class="section-title lang-sw">Maswali Yanayoulizwa Mara Kwa Mara</h2>
                 <h2 class="section-title lang-en" style="display: none;">Frequently Asked Questions</h2>
+                <p class="section-subtitle lang-sw">Majibu kwa maswali yote muhimu kuhusu huduma yetu</p>
+                <p class="section-subtitle lang-en" style="display: none;">Answers to all important questions about our service</p>
             </div>
             
             <div class="faq-container">
                 <!-- FAQ 1 -->
-                <div class="faq-item">
+                <div class="faq-item" id="delivery-cost">
                     <div class="faq-question">
                         <span class="lang-sw">Je, gharama ya usafirishaji ni ngapi?</span>
                         <span class="lang-en" style="display: none;">How much is delivery cost?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="lang-sw">Usafirishaji ni BURE kwa maagizo yote ya TSh 10,000 na zaidi. Kwa maagizo chini ya TSh 10,000, ada ni TSh 1,500.</p>
-                        <p class="lang-en" style="display: none;">Delivery is FREE for all orders of TSh 10,000 and above. For orders below TSh 10,000, fee is TSh 1,500.</p>
+                        <p class="lang-sw">Usafirishaji ni BURE kabisa kwa maagizo yote ya TSh 10,000 na zaidi. Kwa maagizo chini ya TSh 10,000, ada ndogo ya TSh 1,500 inatumika.</p>
+                        <p class="lang-en" style="display: none;">Delivery is completely FREE for all orders of TSh 10,000 and above. For orders below TSh 10,000, a small fee of TSh 1,500 applies.</p>
+                        <p class="lang-sw" style="margin-top: 10px; color: var(--primary); font-weight: 600;">
+                            <i class="fas fa-tag"></i> BONUS: Usafirishaji bure daima kwa maagizo ya asubuhi (6am-10am)
+                        </p>
+                        <p class="lang-en" style="display: none; margin-top: 10px; color: var(--primary); font-weight: 600;">
+                            <i class="fas fa-tag"></i> BONUS: Always free delivery for morning orders (6am-10am)
+                        </p>
                     </div>
                 </div>
                 
                 <!-- FAQ 2 -->
-                <div class="faq-item">
+                <div class="faq-item" id="delivery-time">
                     <div class="faq-question">
-                        <span class="lang-sw">Chakula kinafika lini?</span>
-                        <span class="lang-en" style="display: none;">When does food arrive?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
+                        <span class="lang-sw">Chakula kinafika lini hasa?</span>
+                        <span class="lang-en" style="display: none;">When exactly does food arrive?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="lang-sw">Chakula hufika ndani ya dakika 30. Kama hakijafika ndani ya dakika 30, chakula chako ni BURE!</p>
-                        <p class="lang-en" style="display: none;">Food arrives within 30 minutes. If it doesn't arrive within 30 minutes, your food is FREE!</p>
+                        <p class="lang-sw">Chakula hufika ndani ya dakika 30 kwa 95% ya maagizo yetu. Kama hakijafika ndani ya dakika 30, chakula chako ni BURE kabisa!</p>
+                        <p class="lang-en" style="display: none;">Food arrives within 30 minutes for 95% of our orders. If it doesn't arrive within 30 minutes, your food is completely FREE!</p>
+                        <div class="step-highlight" style="margin-top: 15px;">
+                            <i class="fas fa-bolt"></i>
+                            <span class="lang-sw">Dakika 30 Guarantee: 95% Hit Rate</span>
+                            <span class="lang-en" style="display: none;">30-Minute Guarantee: 95% Success Rate</span>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- FAQ 3 -->
-                <div class="faq-item">
+                <div class="faq-item" id="payment-methods">
                     <div class="faq-question">
-                        <span class="lang-sw">Nawezaje kulipa?</span>
+                        <span class="lang-sw">Je, nawezaje kulipa?</span>
                         <span class="lang-en" style="display: none;">How can I pay?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="lang-sw">Unaweza kulipa kwa fedha taslimu, M-Pesa, Airtel Money, au Tigo Pesa.</p>
-                        <p class="lang-en" style="display: none;">You can pay with cash, M-Pesa, Airtel Money, or Tigo Pesa.</p>
+                        <p class="lang-sw">Tunakubali njia nyingi za malipo:</p>
+                        <p class="lang-en" style="display: none;">We accept multiple payment methods:</p>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li class="lang-sw"><strong>Fedha Taslimu:</strong> Lipa unapopokea chakula</li>
+                            <li class="lang-en" style="display: none;"><strong>Cash:</strong> Pay when you receive food</li>
+                            <li class="lang-sw"><strong>M-Pesa:</strong> Tuma kwa +255 747 193 972</li>
+                            <li class="lang-en" style="display: none;"><strong>M-Pesa:</strong> Send to +255 747 193 972</li>
+                            <li class="lang-sw"><strong>Airtel Money:</strong> Tuma kwa +255 747 193 972</li>
+                            <li class="lang-en" style="display: none;"><strong>Airtel Money:</strong> Send to +255 747 193 972</li>
+                            <li class="lang-sw"><strong>Tigo Pesa:</strong> Tuma kwa +255 747 193 972</li>
+                            <li class="lang-en" style="display: none;"><strong>Tigo Pesa:</strong> Send to +255 747 193 972</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <!-- FAQ 4 -->
-                <div class="faq-item">
+                <div class="faq-item" id="order-changes">
                     <div class="faq-question">
                         <span class="lang-sw">Nawezaje kubadilisha au kufuta agizo?</span>
                         <span class="lang-en" style="display: none;">How can I change or cancel order?</span>
-                        <i class="fas fa-chevron-down faq-toggle"></i>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="lang-sw">Piga +255 747 193 972 kufuta agizo lako ndani ya dakika 5 za kwanza.</p>
-                        <p class="lang-en" style="display: none;">Call +255 747 193 972 to cancel your order within first 5 minutes.</p>
+                        <p class="lang-sw">Unaweza kubadilisha au kufuta agizo lako kwa kupiga +255 747 193 972 ndani ya dakika 10 za kwanza baada ya kupeekia. Baada ya dakika 10, tayari chakula kinaanza kutayarishwa.</p>
+                        <p class="lang-en" style="display: none;">You can change or cancel your order by calling +255 747 193 972 within the first 10 minutes after ordering. After 10 minutes, food preparation has already started.</p>
+                        <p class="lang-sw" style="margin-top: 10px; color: var(--warning); font-weight: 600;">
+                            <i class="fas fa-exclamation-circle"></i> Maelekezo: Piga moja kwa moja kwa mabadiliko ya haraka
+                        </p>
+                        <p class="lang-en" style="display: none; margin-top: 10px; color: var(--warning); font-weight: 600;">
+                            <i class="fas fa-exclamation-circle"></i> Tip: Call immediately for quick changes
+                        </p>
                     </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item" id="vendor-verification">
+                    <div class="faq-question">
+                        <span class="lang-sw">Wauzaji wenu wanathibitishwaje?</span>
+                        <span class="lang-en" style="display: none;">How are your vendors verified?</span>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lang-sw">Kila muuzaji anapita mchakato mkali wa uthibitishaji wa hatua 6:</p>
+                        <p class="lang-en" style="display: none;">Every vendor passes our rigorous 6-step verification process:</p>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li class="lang-sw">Ukaguzi wa usafi wa maeneo ya upishi</li>
+                            <li class="lang-en" style="display: none;">Hygiene inspection of cooking areas</li>
+                            <li class="lang-sw">Uthibitishaji wa ubora wa viungo</li>
+                            <li class="lang-en" style="display: none;">Ingredient quality verification</li>
+                            <li class="lang-sw">Ukadiriaji wa chini wa nyota 4.0 kutoka kwa wateja 100+</li>
+                            <li class="lang-en" style="display: none;">Minimum 4.0★ rating from 100+ customers</li>
+                            <li class="lang-sw">Uthibitishaji wa uzoefu na ustadi wa upishi</li>
+                            <li class="lang-en" style="display: none;">Experience and cooking expertise verification</li>
+                            <li class="lang-sw">Ukaguzi wa usalama wa chakula</li>
+                            <li class="lang-en" style="display: none;">Food safety inspection</li>
+                            <li class="lang-sw">Uwezo wa kufikisha ndani ya dakika 30</li>
+                            <li class="lang-en" style="display: none;">Ability to deliver within 30 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title lang-sw">Tayari Kuanza Kupeekia?</h2>
+                <h2 class="cta-title lang-en" style="display: none;">Ready to Start Ordering?</h2>
+                <p class="cta-subtitle lang-sw">Jiunge na wateja elfu wanaofurahia huduma yetu ya haraka, salama, na yenye ubora</p>
+                <p class="cta-subtitle lang-en" style="display: none;">Join thousands of customers enjoying our fast, safe, and quality service</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://wa.me/255747193972" class="btn btn-primary btn-lg">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="lang-sw">Peekia Kupitia WhatsApp</span>
+                        <span class="lang-en" style="display: none;">Order via WhatsApp</span>
+                    </a>
+                    <a href="menu.html" class="btn btn-outline btn-lg" style="color: white; border-color: white;">
+                        <i class="fas fa-utensils"></i>
+                        <span class="lang-sw">Angalia Menu</span>
+                        <span class="lang-en" style="display: none;">View Menu</span>
+                    </a>
+                </div>
+                
+                <div class="mt-4" style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="lang-sw">Hakuna programu ya kupakua. Peekia moja kwa moja kupitia WhatsApp!</span>
+                    <span class="lang-en" style="display: none;">No app to download. Order directly via WhatsApp!</span>
                 </div>
             </div>
         </div>
@@ -644,11 +1660,11 @@
                     <h4 class="lang-sw">Usaidizi</h4>
                     <h4 class="lang-en" style="display: none;">Support</h4>
                     <ul class="footer-links">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Refund Policy</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="tracking.html">Order Tracking</a></li>
+                        <li><a href="refund.html">Refund Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
                 
@@ -680,9 +1696,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -691,44 +1707,130 @@
     <!-- WhatsApp Float -->
     <a href="https://wa.me/255747193972" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
-        <span class="float-text lang-sw">Peekia Sasa</span>
-        <span class="float-text lang-en" style="display: none;">Order Now</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
     <script>
-        // FAQ Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
                 
-                question.addEventListener('click', function() {
-                    // Close all other FAQ items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                            otherItem.querySelector('.faq-answer').classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current item
-                    item.classList.toggle('active');
-                    answer.classList.toggle('active');
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.lang-sw').forEach(el => {
+                    el.style.display = lang === 'sw' ? 'block' : 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = lang === 'en' ? 'block' : 'none';
                 });
             });
+        });
+
+        // FAQ Toggle System
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
             
-            // Open FAQ based on URL hash
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                    answer.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                    answer.classList.remove('active');
+                }
+            });
+        });
+
+        // Open specific FAQ based on URL hash
+        document.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash;
             if (hash) {
                 const targetItem = document.querySelector(hash);
-                if (targetItem) {
+                if (targetItem && targetItem.classList.contains('faq-item')) {
                     targetItem.classList.add('active');
                     targetItem.querySelector('.faq-answer').classList.add('active');
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Add smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if(target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.feature-card, .payment-card, .area-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Process step hover effects
+        document.querySelectorAll('.process-step').forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                this.style.zIndex = '2';
+            });
+        });
+
+        // Add click animation to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
         });
     </script>
 </body>
