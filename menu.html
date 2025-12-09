@@ -3,90 +3,790 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | Chakula Haraka - Full Food Menu</title>
-    <meta name="description" content="Complete food menu from Chakula Haraka. Browse all dishes, categories, and prices.">
+    <title>Menu | Chakula Haraka - Authentic Tanzanian Cuisine</title>
+    <meta name="description" content="Explore our complete menu of authentic Tanzanian dishes. Nyama choma, seafood, street food, and more delivered fresh to your door.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     
+    <!-- CSS -->
     <style>
-        /* Menu Specific Styles */
+        /* Reset & Base Styles */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #00A896;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --gray: #6C757D;
+            --success: #28A745;
+            --warning: #FFC107;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #008C7A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .btn-order {
+            width: 100%;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        
+        /* Header & Navigation (Same as index) */
+        .language-tabs {
+            background: var(--dark);
+            padding: 8px 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .main-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--dark);
+        }
+        
+        .tagline {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Menu Header */
         .menu-header {
             background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,168,150,0.1) 100%);
             padding: 120px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,100 C250,0 750,0 1000,100 L1000,0 L0,0 Z" fill="white" opacity="0.2"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            pointer-events: none;
+        }
+        
+        .menu-header .container {
+            position: relative;
+            z-index: 1;
             text-align: center;
         }
         
+        .display-2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .lead {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .menu-search {
+            max-width: 500px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 25px;
+            padding-left: 55px;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            font-size: 16px;
+            transition: var(--transition);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        /* Menu Categories */
         .menu-categories {
             background: var(--light-gray);
-            padding: 40px 0;
+            padding: 25px 0;
             position: sticky;
             top: 60px;
-            z-index: 100;
+            z-index: 900;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .category-filters {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             overflow-x: auto;
-            padding: 10px 0;
+            padding: 10px 5px;
+            scrollbar-width: none;
+        }
+        
+        .category-filters::-webkit-scrollbar {
+            display: none;
         }
         
         .category-filter {
             background: white;
             border: 2px solid var(--light-gray);
-            padding: 10px 25px;
+            padding: 12px 28px;
             border-radius: 50px;
             cursor: pointer;
             white-space: nowrap;
             transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        
+        .category-filter i {
+            font-size: 14px;
         }
         
         .category-filter.active {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .category-filter:hover:not(.active) {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Menu Content */
+        .menu-content {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .category-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 140px;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--light-gray);
+        }
+        
+        .category-title i {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .category-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
         }
         
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
         
         .menu-item {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
         }
         
-        .menu-item-content {
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .item-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .menu-item:hover .item-image img {
+            transform: scale(1.1);
+        }
+        
+        .item-content {
             padding: 25px;
         }
         
         .item-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
+            align-items: flex-start;
             margin-bottom: 10px;
+        }
+        
+        .item-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            flex: 1;
+            margin-right: 15px;
+        }
+        
+        .item-price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        
+        .item-desc {
+            color: var(--gray);
+            margin-bottom: 15px;
+            min-height: 40px;
+            line-height: 1.5;
         }
         
         .item-tags {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin: 15px 0;
             flex-wrap: wrap;
         }
         
         .item-tag {
             background: var(--light-gray);
-            padding: 5px 12px;
+            padding: 6px 12px;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: 12px;
             color: var(--gray);
+            font-weight: 500;
+        }
+        
+        .item-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-gray);
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .item-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--warning);
+            font-weight: 600;
+        }
+        
+        .item-calories {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .item-prep {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: auto;
+        }
+        
+        /* Order Summary Bar */
+        .order-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .order-summary.active {
+            transform: translateY(0);
+        }
+        
+        .order-summary-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .order-items-count {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .order-total {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        /* Quick Order Modal */
+        .quick-order-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            padding: 20px;
+        }
+        
+        .quick-order-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            padding: 25px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .quantity-display {
+            font-size: 24px;
+            font-weight: 600;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .display-2 {
+                font-size: 42px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 40px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-2 {
+                font-size: 36px;
+            }
+            
+            .category-title h2 {
+                font-size: 28px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-filters {
+                padding-bottom: 15px;
+            }
+            
+            .order-summary-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .display-2 {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 16px;
+            }
+            
+            .category-title {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .item-price {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
@@ -144,109 +844,722 @@
     <!-- Menu Header -->
     <section class="menu-header">
         <div class="container">
-            <h1 class="display-2 text-primary lang-sw">Menu Yetu</h1>
-            <h1 class="display-2 text-primary lang-en" style="display: none;">Our Menu</h1>
-            <p class="lead lang-sw">Chagua kutoka kwa vyakula 100+ kutoka Dar es Salaam</p>
-            <p class="lead lang-en" style="display: none;">Choose from 100+ dishes from Dar es Salaam</p>
+            <h1 class="display-2 text-primary lang-sw">Menu Yetu Kamili</h1>
+            <h1 class="display-2 text-primary lang-en" style="display: none;">Our Complete Menu</h1>
+            <p class="lead lang-sw">Chagua kutoka kwa vyakula 100+ vilivyotayarishwa kwa ustadi kutoka mitaani ya Dar es Salaam</p>
+            <p class="lead lang-en" style="display: none;">Choose from 100+ expertly prepared dishes from Dar es Salaam's streets</p>
+            
+            <div class="menu-search">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" id="menuSearch" placeholder="Search for dishes...">
+            </div>
         </div>
     </section>
 
     <!-- Menu Categories -->
     <section class="menu-categories">
         <div class="container">
-            <div class="category-filters">
+            <div class="category-filters" id="categoryFilters">
                 <div class="category-filter active" data-category="all">
+                    <i class="fas fa-utensils"></i>
                     <span class="lang-sw">Vyote</span>
                     <span class="lang-en" style="display: none;">All</span>
                 </div>
                 <div class="category-filter" data-category="nyama-choma">
+                    <i class="fas fa-fire"></i>
                     <span class="lang-sw">Nyama Choma</span>
                     <span class="lang-en" style="display: none;">Grilled Meat</span>
                 </div>
                 <div class="category-filter" data-category="seafood">
+                    <i class="fas fa-fish"></i>
                     <span class="lang-sw">Seafood</span>
                     <span class="lang-en" style="display: none;">Seafood</span>
                 </div>
                 <div class="category-filter" data-category="street-food">
+                    <i class="fas fa-utensil-spoon"></i>
                     <span class="lang-sw">Vyakula vya Mitaani</span>
                     <span class="lang-en" style="display: none;">Street Food</span>
                 </div>
                 <div class="category-filter" data-category="pilau">
+                    <i class="fas fa-bowl-food"></i>
                     <span class="lang-sw">Pilau & Wali</span>
                     <span class="lang-en" style="display: none;">Pilau & Rice</span>
                 </div>
                 <div class="category-filter" data-category="snacks">
+                    <i class="fas fa-cookie-bite"></i>
                     <span class="lang-sw">Vitafunio</span>
                     <span class="lang-en" style="display: none;">Snacks</span>
                 </div>
                 <div class="category-filter" data-category="beverages">
+                    <i class="fas fa-glass-cheers"></i>
                     <span class="lang-sw">Vinywaji</span>
                     <span class="lang-en" style="display: none;">Beverages</span>
                 </div>
+                <div class="category-filter" data-category="vegetarian">
+                    <i class="fas fa-leaf"></i>
+                    <span class="lang-sw">Vyakula vya Mboga</span>
+                    <span class="lang-en" style="display: none;">Vegetarian</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Items -->
-    <section class="menu-items">
+    <!-- Menu Content -->
+    <section class="menu-content">
         <div class="container">
-            <div class="menu-grid">
-                <!-- Add menu items here -->
-                <div class="menu-item">
-                    <div class="dish-image">
-                        <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop" 
-                             alt="Nyama Choma">
-                    </div>
-                    <div class="menu-item-content">
-                        <div class="item-header">
-                            <h3>Nyama Choma Special</h3>
-                            <span class="price">TSh 15,000</span>
-                        </div>
-                        <p class="lang-sw">½ kg nyama ya ng'ombe iliyochomwa kwa ustadi</p>
-                        <p class="lang-en" style="display: none;">½ kg expertly grilled beef</p>
-                        <div class="item-tags">
-                            <span class="item-tag">Beef</span>
-                            <span class="item-tag">Grilled</span>
-                            <span class="item-tag">Spicy</span>
-                        </div>
-                        <a href="https://wa.me/255747193972?text=Nataka%20Nyama%20Choma%20Special" 
-                           class="btn btn-order">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="lang-sw">Peekia</span>
-                            <span class="lang-en" style="display: none;">Order</span>
-                        </a>
-                    </div>
+            <!-- Nyama Choma Section -->
+            <div class="category-section" id="nyama-choma" data-category="nyama-choma">
+                <div class="category-title">
+                    <i class="fas fa-fire"></i>
+                    <h2 class="lang-sw">Nyama Choma</h2>
+                    <h2 class="lang-en" style="display: none;">Grilled Meat</h2>
                 </div>
                 
-                <!-- More menu items would go here -->
+                <div class="menu-grid">
+                    <!-- Item 1 -->
+                    <div class="menu-item" data-categories="nyama-choma" data-tags="beef grilled spicy">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&auto=format&fit=crop" 
+                                 alt="Nyama Choma Special">
+                            <span class="item-badge">BESTSELLER</span>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Nyama Choma Special</h3>
+                                <span class="item-price">TSh 15,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">½ kg nyama ya ng'ombe iliyochomwa kwa ustadi, kachumbari, ugali na sukuma wiki</p>
+                            <p class="item-desc lang-en" style="display: none;">½ kg expertly grilled beef, kachumbari, ugali, and sukuma wiki</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Beef</span>
+                                <span class="item-tag">Grilled</span>
+                                <span class="item-tag">Spicy</span>
+                                <span class="item-tag">Traditional</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.9
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 850 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 20-25 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="nyama-choma-special" data-price="15000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="menu-item" data-categories="nyama-choma" data-tags="chicken grilled">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&auto=format&fit=crop" 
+                                 alt="Kuku Choma">
+                            <span class="item-badge">NEW</span>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Kuku Choma Nzima</h3>
+                                <span class="item-price">TSh 12,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">Kuku mzima uliochomwa kwa mchuzi wa pilipili, tamarind na viungo vya kiasili</p>
+                            <p class="item-desc lang-en" style="display: none;">Whole chicken grilled with chili sauce, tamarind and natural spices</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Chicken</span>
+                                <span class="item-tag">Grilled</span>
+                                <span class="item-tag">Marinated</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 720 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 25-30 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="kuku-choma" data-price="12000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="menu-item" data-categories="nyama-choma" data-tags="goat grilled">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&auto=format&fit=crop" 
+                                 alt="Mbuzi Choma">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Mbuzi Choma</h3>
+                                <span class="item-price">TSh 18,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">Mbuzi mzima uliochomwa polepole kwa viungo vya jadi, na kachumbari maalum</p>
+                            <p class="item-desc lang-en" style="display: none;">Whole goat slowly grilled with traditional spices and special kachumbari</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Goat</span>
+                                <span class="item-tag">Grilled</span>
+                                <span class="item-tag">Traditional</span>
+                                <span class="item-tag">Special</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 650 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 30-35 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="mbuzi-choma" data-price="18000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="menu-item" data-categories="nyama-choma" data-tags="pork grilled">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop" 
+                                 alt="Nguruwe Choma">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Nguruwe Choma</h3>
+                                <span class="item-price">TSh 16,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">Nguruwe uliochomwa kwa pilipili manga, siagi ya karafuu na viungo vya kipekee</p>
+                            <p class="item-desc lang-en" style="display: none;">Pork grilled with black pepper, clove butter and unique spices</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Pork</span>
+                                <span class="item-tag">Grilled</span>
+                                <span class="item-tag">Spicy</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 780 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 25-30 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="nguruwe-choma" data-price="16000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="menu-item" data-categories="nyama-choma" data-tags="beef skewers">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&auto=format&fit=crop" 
+                                 alt="Mishikaki">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Mishikaki ya Ng'ombe</h3>
+                                <span class="item-price">TSh 4,500</span>
+                            </div>
+                            <p class="item-desc lang-sw">Vibanana 3 vya nyama ya ng'ombe vilivyotiwa pilipili, vitunguu na viungo vya kiasili</p>
+                            <p class="item-desc lang-en" style="display: none;">3 beef skewers marinated with chili, garlic and natural spices</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Beef</span>
+                                <span class="item-tag">Skewers</span>
+                                <span class="item-tag">Street Food</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 420 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 15-20 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="mishikaki" data-price="4500">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Seafood Section -->
+            <div class="category-section" id="seafood" data-category="seafood">
+                <div class="category-title">
+                    <i class="fas fa-fish"></i>
+                    <h2 class="lang-sw">Seafood</h2>
+                    <h2 class="lang-en" style="display: none;">Seafood</h2>
+                </div>
+                
+                <div class="menu-grid">
+                    <!-- Item 1 -->
+                    <div class="menu-item" data-categories="seafood" data-tags="fish grilled">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop" 
+                                 alt="Samaki wa Kupaka">
+                            <span class="item-badge">POPULAR</span>
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Samaki wa Kupaka</h3>
+                                <span class="item-price">TSh 22,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">Samaki mzima uliopakwa mchuzi wa nazi na viungo, uliookwa motoni</p>
+                            <p class="item-desc lang-en" style="display: none;">Whole fish coated with coconut curry sauce and grilled</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Fish</span>
+                                <span class="item-tag">Coconut</span>
+                                <span class="item-tag">Grilled</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 580 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 25-30 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="samaki-kupaka" data-price="22000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="menu-item" data-categories="seafood" data-tags="prawns curry">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&auto=format&fit=crop" 
+                                 alt="Kamba za Nazi">
+                        </div>
+                        <div class="item-content">
+                            <div class="item-header">
+                                <h3>Kamba za Nazi</h3>
+                                <span class="item-price">TSh 18,000</span>
+                            </div>
+                            <p class="item-desc lang-sw">Kamba kubwa katika mchuzi mnono wa nazi na pilipili, inatumikia watu 2-3</p>
+                            <p class="item-desc lang-en" style="display: none;">Large prawns in rich coconut curry with chili, serves 2-3</p>
+                            
+                            <div class="item-tags">
+                                <span class="item-tag">Prawns</span>
+                                <span class="item-tag">Coconut</span>
+                                <span class="item-tag">Curry</span>
+                            </div>
+                            
+                            <div class="item-meta">
+                                <span class="item-rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                                <span class="item-calories">
+                                    <i class="fas fa-fire"></i> 520 cal
+                                </span>
+                                <span class="item-prep">
+                                    <i class="fas fa-clock"></i> 20-25 min
+                                </span>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-order btn-add-to-cart" data-item="kamba-nazi" data-price="18000">
+                                <i class="fas fa-plus"></i>
+                                <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                                <span class="lang-en" style="display: none;">Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more sections for other categories -->
         </div>
     </section>
+
+    <!-- Order Summary Bar -->
+    <div class="order-summary" id="orderSummary">
+        <div class="container">
+            <div class="order-summary-content">
+                <div class="order-items-count">
+                    <span class="lang-sw">Vyakula <span id="itemCount">0</span></span>
+                    <span class="lang-en" style="display: none;">Items: <span id="itemCountEn">0</span></span>
+                </div>
+                <div class="order-total">
+                    <span class="lang-sw">Jumla: TSh <span id="orderTotal">0</span></span>
+                    <span class="lang-en" style="display: none;">Total: TSh <span id="orderTotalEn">0</span></span>
+                </div>
+                <a href="https://wa.me/255747193972" class="btn btn-primary btn-lg" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span class="lang-sw">Peekia Sasa</span>
+                    <span class="lang-en" style="display: none;">Checkout Now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Order Modal -->
+    <div class="quick-order-modal" id="quickOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalItemName">Nyama Choma Special</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quantity-selector">
+                    <button class="quantity-btn" id="decreaseQty">-</button>
+                    <span class="quantity-display" id="quantityDisplay">1</span>
+                    <button class="quantity-btn" id="increaseQty">+</button>
+                </div>
+                <div class="modal-total">
+                    <h4 class="lang-sw">Jumla: TSh <span id="modalTotal">15,000</span></h4>
+                    <h4 class="lang-en" style="display: none;">Total: TSh <span id="modalTotalEn">15,000</span></h4>
+                </div>
+                <button class="btn btn-primary btn-lg" id="addToCartModal" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-cart-plus"></i>
+                    <span class="lang-sw">Ongeza kwenye Ruhusa</span>
+                    <span class="lang-en" style="display: none;">Add to Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="main-footer">
-        <!-- Same footer as index.html -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CH</div>
+                        <div>
+                            <span class="brand-name">Chakula Haraka</span>
+                            <span class="tagline">Premium Delivery</span>
+                        </div>
+                    </div>
+                    <p class="lang-sw">Uhusika wa karibu wa vyakula vya mitaani Dar es Salaam. Vyakula safi, haraka, salama.</p>
+                    <p class="lang-en" style="display: none;">Authentic street food experience Dar es Salaam. Fresh food, fast, secure.</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/255747193972"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Viungo Muhimu</h4>
+                    <h4 class="lang-en" style="display: none;">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="vendors.html">Vendors</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Huduma</h4>
+                    <h4 class="lang-en" style="display: none;">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Corporate Catering</a></li>
+                        <li><a href="#">Event Services</a></li>
+                        <li><a href="#">Become a Vendor</a></li>
+                        <li><a href="#">Driver Jobs</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="lang-sw">Mawasiliano</h4>
+                    <h4 class="lang-en" style="display: none;">Contact</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+255747193972">+255 747 193 972</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@chakulaharaka.co.tz">info@chakulaharaka.co.tz</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="lang-sw">Dar es Salaam, Tanzania</span>
+                            <span class="lang-en" style="display: none;">Dar es Salaam, Tanzania</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span class="lang-sw">24/7 Tovuti Inafanya Kazi</span>
+                            <span class="lang-en" style="display: none;">24/7 Website Active</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/255747193972" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
     <script>
-        // Category filtering for menu
-        document.addEventListener('DOMContentLoaded', function() {
-            const filters = document.querySelectorAll('.category-filter');
-            
-            filters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    // Remove active class from all filters
-                    filters.forEach(f => f.classList.remove('active'));
-                    // Add active class to clicked filter
-                    this.classList.add('active');
-                    
-                    // Filter logic would go here
-                    const category = this.getAttribute('data-category');
-                    console.log('Filtering by:', category);
+        // Shopping Cart
+        let cart = [];
+        let cartTotal = 0;
+        let cartItems = 0;
+
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.lang-sw').forEach(el => {
+                    el.style.display = lang === 'sw' ? 'block' : 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = lang === 'en' ? 'block' : 'none';
                 });
             });
         });
+
+        // Category Filtering
+        document.querySelectorAll('.category-filter').forEach(filter => {
+            filter.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active filter
+                document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter items
+                const allItems = document.querySelectorAll('.menu-item');
+                
+                if (category === 'all') {
+                    allItems.forEach(item => {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 10);
+                    });
+                } else {
+                    allItems.forEach(item => {
+                        if (item.dataset.categories.includes(category)) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                }
+                
+                // Scroll to category section
+                if (category !== 'all') {
+                    const section = document.getElementById(category);
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Search Functionality
+        const searchInput = document.getElementById('menuSearch');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allItems = document.querySelectorAll('.menu-item');
+            
+            allItems.forEach(item => {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                const itemDesc = item.querySelector('.item-desc').textContent.toLowerCase();
+                const itemTags = item.dataset.tags.toLowerCase();
+                
+                if (itemName.includes(searchTerm) || itemDesc.includes(searchTerm) || itemTags.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Add to Cart Functionality
+        document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const itemName = this.closest('.menu-item').querySelector('h3').textContent;
+                const itemPrice = parseInt(this.dataset.price);
+                const itemId = this.dataset.item;
+                
+                // Add to cart
+                const existingItem = cart.find(item => item.id === itemId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: itemId,
+                        name: itemName,
+                        price: itemPrice,
+                        quantity: 1
+                    });
+                }
+                
+                // Update cart totals
+                cartTotal += itemPrice;
+                cartItems += 1;
+                
+                // Update UI
+                updateCartUI();
+                showOrderSummary();
+                
+                // Show confirmation
+                showNotification(`${itemName} added to cart!`);
+            });
+        });
+
+        // Update Cart UI
+        function updateCartUI() {
+            document.getElementById('itemCount').textContent = cartItems;
+            document.getElementById('itemCountEn').textContent = cartItems;
+            document.getElementById('orderTotal').textContent = cartTotal.toLocaleString();
+            document.getElementById('orderTotalEn').textContent = cartTotal.toLocaleString();
+            
+            // Update checkout link
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const cartItemsText = cart.map(item => `${item.name} (x${item.quantity})`).join('%0A');
+            const totalText = `Total: TSh ${cartTotal.toLocaleString()}`;
+            checkoutBtn.href = `https://wa.me/255747193972?text=Order:%0A${cartItemsText}%0A%0A${totalText}`;
+        }
+
+        // Show/Hide Order Summary
+        function showOrderSummary() {
+            const orderSummary = document.getElementById('orderSummary');
+            if (cartItems > 0) {
+                orderSummary.classList.add('active');
+            } else {
+                orderSummary.classList.remove('active');
+            }
+        }
+
+        // Notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--success);
+                color: white;
+                padding: 15px 25px;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-lg);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('quickOrderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        // Initialize cart UI
+        updateCartUI();
     </script>
 </body>
 </html>
