@@ -3,27 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Vendors | Chakula Haraka - Trusted Food Vendors</title>
-    <meta name="description" content="Meet our trusted food vendors in Dar es Salaam. All vendors are verified for quality and hygiene standards.">
+    <title>Our Vendors | Chakula Haraka - Premium Verified Food Partners</title>
+    <meta name="description" content="Meet our premium network of verified food vendors in Dar es Salaam. All partners are certified for quality, hygiene, and authentic flavors.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     
+    <!-- CSS -->
     <style>
-        /* Vendors Specific Styles */
-        .vendors-hero {
-            background: linear-gradient(rgba(0, 78, 137, 0.9), rgba(0, 168, 150, 0.9)),
-                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop') center/cover;
-            color: white;
-            padding: 150px 0 80px;
-            text-align: center;
+        /* Reset & Base Styles */
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --secondary: #00A896;
+            --accent: #FFD166;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --light-gray: #F1F3F5;
+            --gray: #6C757D;
+            --success: #28A745;
+            --warning: #FFC107;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #008C7A;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+        
+        /* Header & Navigation */
+        .language-tabs {
+            background: var(--dark);
+            padding: 8px 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .main-header {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 22px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: var(--dark);
+        }
+        
+        .tagline {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+            padding: 8px 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover:after,
+        .nav-menu a.active:after {
+            width: 100%;
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Vendors Hero */
+        .vendors-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(255, 107, 53, 0.9)),
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vendors-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 C250,100 750,100 1000,0 L1000,100 L0,100 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: 100% 150px;
+            background-position: bottom;
+            pointer-events: none;
+        }
+        
+        .display-2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .lead {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .hero-stat-number {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .hero-stat-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+        }
+        
+        /* Vendor Filters */
         .vendor-filters {
             background: var(--light);
             padding: 40px 0;
+            position: sticky;
+            top: 60px;
+            z-index: 900;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .filter-container {
@@ -31,6 +335,7 @@
             gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
         }
         
         .filter-group {
@@ -39,38 +344,91 @@
             gap: 10px;
         }
         
+        .filter-label {
+            font-weight: 600;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+        
         .filter-select {
-            padding: 12px 25px;
+            padding: 14px 25px;
             border: 2px solid var(--light-gray);
-            border-radius: var(--border-radius);
+            border-radius: 50px;
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            font-size: 16px;
             background: white;
-            min-width: 200px;
+            min-width: 220px;
+            cursor: pointer;
+            transition: var(--transition);
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236C757D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            padding-right: 50px;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .filter-select:hover {
+            border-color: var(--gray);
+        }
+        
+        /* Vendors Grid */
+        .vendors-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         .vendors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
         
         .vendor-card {
             background: white;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--light-gray);
         }
         
         .vendor-card:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .vendor-header {
             position: relative;
-            height: 200px;
+            height: 220px;
             overflow: hidden;
         }
         
@@ -78,6 +436,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .vendor-card:hover .vendor-header img {
+            transform: scale(1.05);
+        }
+        
+        .vendor-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+        
+        .vendor-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
         
         .vendor-badges {
@@ -86,24 +466,35 @@
             right: 15px;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 8px;
         }
         
         .vendor-badge {
-            background: var(--primary);
-            color: white;
-            padding: 5px 15px;
+            background: white;
+            color: var(--dark);
+            padding: 6px 15px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .vendor-badge.verified {
             background: var(--success);
+            color: white;
         }
         
         .vendor-badge.featured {
             background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .vendor-badge.premium {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
         
         .vendor-info {
@@ -120,44 +511,74 @@
         .vendor-rating {
             display: flex;
             align-items: center;
-            gap: 5px;
-            background: rgba(255, 193, 7, 0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
+            gap: 8px;
+        }
+        
+        .rating-stars {
             color: var(--warning);
-            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .rating-value {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .rating-count {
+            color: var(--gray);
+            font-size: 14px;
         }
         
         .vendor-location {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 16px;
             margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .vendor-location i {
+            color: var(--primary);
+        }
+        
+        .vendor-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
         
         .vendor-specialties {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin: 15px 0;
+            margin: 20px 0;
         }
         
         .specialty {
-            background: var(--light-gray);
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--gray);
+            background: linear-gradient(135deg, var(--light), var(--light-gray));
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .specialty:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
         
         .vendor-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 25px;
+            padding-top: 25px;
             border-top: 1px solid var(--light-gray);
         }
         
@@ -167,47 +588,354 @@
         
         .stat-value {
             display: block;
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
             color: var(--primary);
+            margin-bottom: 5px;
         }
         
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 13px;
             color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        
+        .vendor-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn-view-menu {
+            flex: 1;
+        }
+        
+        .btn-order-vendor {
+            flex: 1;
+        }
+        
+        /* Verification Badge */
+        .verification-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .verification-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--success), #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        /* Verification Standards */
+        .verification-standards {
+            background: linear-gradient(135deg, var(--light) 0%, #f8f9fa 100%);
+            padding: 80px 0;
+            margin-top: 80px;
+        }
+        
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .standard-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .standard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .standard-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .standard-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .standard-card p {
+            color: var(--gray);
+            line-height: 1.6;
         }
         
         /* Become a Vendor CTA */
         .become-vendor {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--dark) 0%, #2A2A3E 100%);
             color: white;
-            padding: 80px 0;
-            margin-top: 80px;
-            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .become-vendor:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" opacity="0.05"><path d="M0,0 L100,0 L100,100 Q50,90 0,100 Z"/></svg>');
+            background-size: 100% 100px;
+            background-position: bottom;
+            pointer-events: none;
+        }
+        
+        .become-vendor .container {
+            position: relative;
+            z-index: 1;
         }
         
         .become-vendor h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
             margin-bottom: 20px;
+            color: white;
+        }
+        
+        .become-vendor p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto 50px;
         }
         
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 50px 0;
+            margin: 60px 0;
         }
         
         .benefit {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px 30px;
+            border-radius: var(--radius);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .benefit:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 107, 53, 0.3);
         }
         
         .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 25px;
             color: var(--accent);
+        }
+        
+        .benefit h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .benefit p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .display-2 {
+                font-size: 42px;
+            }
+            
+            .vendors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 120px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 40px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .display-2 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .vendors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .vendor-actions {
+                flex-direction: column;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .hero-stat {
+                min-width: 120px;
+            }
+            
+            .hero-stat-number {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .display-2 {
+                font-size: 28px;
+            }
+            
+            .lead {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .vendor-header {
+                height: 180px;
+            }
+            
+            .vendor-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+            
+            .stat-value {
+                font-size: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -267,8 +995,31 @@
         <div class="container">
             <h1 class="display-2 lang-sw">Wauzaji Wetu Waaminifu</h1>
             <h1 class="display-2 lang-en" style="display: none;">Our Trusted Vendors</h1>
-            <p class="lead lang-sw">Wauzaji 150+ waliothibitishwa kwa ubora na usafi wa juu</p>
-            <p class="lead lang-en" style="display: none;">150+ verified vendors with premium quality & hygiene</p>
+            <p class="lead lang-sw">Muungano wa wauzaji 150+ walioidhinishwa kwa ubora wa juu, usafi, na ladha asilia ya Tanzania</p>
+            <p class="lead lang-en" style="display: none;">A network of 150+ verified vendors with premium quality, hygiene, and authentic Tanzanian flavors</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">150+</span>
+                    <span class="hero-stat-label lang-sw">Wauzaji Walioidhinishwa</span>
+                    <span class="hero-stat-label lang-en" style="display: none;">Verified Vendors</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">98%</span>
+                    <span class="hero-stat-label lang-sw">Kiwango cha Kuridhika</span>
+                    <span class="hero-stat-label lang-en" style="display: none;">Satisfaction Rate</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4.8★</span>
+                    <span class="hero-stat-label lang-sw">Ukadiriaji Wastani</span>
+                    <span class="hero-stat-label lang-en" style="display: none;">Average Rating</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">25min</span>
+                    <span class="hero-stat-label lang-sw">Wastani wa Uwasilishaji</span>
+                    <span class="hero-stat-label lang-en" style="display: none;">Avg. Delivery Time</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -277,8 +1028,8 @@
         <div class="container">
             <div class="filter-container">
                 <div class="filter-group">
-                    <label class="lang-sw">Eneo:</label>
-                    <label class="lang-en" style="display: none;">Area:</label>
+                    <span class="filter-label lang-sw">Chuja kwa Eneo:</span>
+                    <span class="filter-label lang-en" style="display: none;">Filter by Area:</span>
                     <select class="filter-select" id="areaFilter">
                         <option value="all">
                             <span class="lang-sw">Maeneo Yote</span>
@@ -290,12 +1041,14 @@
                         <option value="ubungo">Ubungo</option>
                         <option value="kivukoni">Kivukoni</option>
                         <option value="mbezi">Mbezi</option>
+                        <option value="sinza">Sinza</option>
+                        <option value="tabata">Tabata</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label class="lang-sw">Aina ya Chakula:</label>
-                    <label class="lang-en" style="display: none;">Food Type:</label>
+                    <span class="filter-label lang-sw">Aina ya Chakula:</span>
+                    <span class="filter-label lang-en" style="display: none;">Food Type:</span>
                     <select class="filter-select" id="foodTypeFilter">
                         <option value="all">
                             <span class="lang-sw">Aina Zote</span>
@@ -306,22 +1059,31 @@
                         <option value="street-food">Street Food</option>
                         <option value="pilau">Pilau & Rice</option>
                         <option value="snacks">Snacks</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="beverages">Beverages</option>
                     </select>
                 </div>
                 
                 <div class="filter-group">
-                    <label class="lang-sw">Ratings:</label>
-                    <label class="lang-en" style="display: none;">Ratings:</label>
+                    <span class="filter-label lang-sw">Ukadiriaji:</span>
+                    <span class="filter-label lang-en" style="display: none;">Rating:</span>
                     <select class="filter-select" id="ratingFilter">
                         <option value="all">
                             <span class="lang-sw">Ukadiriaji Wote</span>
                             <span class="lang-en" style="display: none;">All Ratings</span>
                         </option>
-                        <option value="4.5">4.5★ & Above</option>
-                        <option value="4.0">4.0★ & Above</option>
-                        <option value="3.5">3.5★ & Above</option>
+                        <option value="4.5">4.5★ & Juu</option>
+                        <option value="4.0">4.0★ & Juu</option>
+                        <option value="3.5">3.5★ & Juu</option>
+                        <option value="verified">✓ Waliothibitishwa Pekee</option>
                     </select>
                 </div>
+                
+                <button class="btn btn-outline" id="resetFilters">
+                    <i class="fas fa-redo"></i>
+                    <span class="lang-sw">Safisha</span>
+                    <span class="lang-en" style="display: none;">Reset</span>
+                </button>
             </div>
         </div>
     </section>
@@ -329,23 +1091,48 @@
     <!-- Vendors Grid -->
     <section class="vendors-section">
         <div class="container">
-            <div class="vendors-grid">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Wauzaji Walioidhinishwa</h2>
+                <h2 class="section-title lang-en" style="display: none;">Verified Vendors</h2>
+                <p class="section-subtitle lang-sw">Wauzaji bora waliopita viwango vyetu vya ubora na usafi</p>
+                <p class="section-subtitle lang-en" style="display: none;">Top vendors meeting our quality and hygiene standards</p>
+            </div>
+            
+            <div class="vendors-grid" id="vendorsGrid">
                 <!-- Vendor 1 -->
-                <div class="vendor-card">
+                <div class="vendor-card" data-area="kariakoo" data-type="nyama-choma" data-rating="4.9" data-verified="true">
                     <div class="vendor-header">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&auto=format&fit=crop" 
                              alt="Baba Lameck Nyama Choma">
+                        <div class="vendor-overlay">
+                            <h3 class="vendor-name">Baba Lameck Nyama Choma</h3>
+                        </div>
+                        <div class="verification-badge">
+                            <div class="verification-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
                         <div class="vendor-badges">
-                            <span class="vendor-badge verified">✓ Verified</span>
-                            <span class="vendor-badge featured">Featured</span>
+                            <span class="vendor-badge verified">
+                                <i class="fas fa-shield-alt"></i> Verified
+                            </span>
+                            <span class="vendor-badge featured">
+                                <i class="fas fa-star"></i> Featured
+                            </span>
                         </div>
                     </div>
                     <div class="vendor-info">
                         <div class="vendor-meta">
-                            <h3>Baba Lameck Nyama Choma</h3>
                             <div class="vendor-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.9</span>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(1,247)</span>
                             </div>
                         </div>
                         
@@ -354,14 +1141,15 @@
                             <span>Kariakoo, Dar es Salaam</span>
                         </div>
                         
-                        <p class="lang-sw">Nyama choma bora ya Dar es Salaam tangu 2010. Ubora wa juu na usafi wa kiwango.</p>
-                        <p class="lang-en" style="display: none;">Best nyama choma in Dar es Salaam since 2010. Premium quality & hygiene.</p>
+                        <p class="vendor-description lang-sw">Nyama choma bora ya Dar es Salaam tangu 2010. Ubora wa juu, usafi wa kiwango cha juu, na ladha ya jadi ya Tanzania.</p>
+                        <p class="vendor-description lang-en" style="display: none;">Best nyama choma in Dar es Salaam since 2010. Premium quality, high-standard hygiene, and authentic Tanzanian flavor.</p>
                         
                         <div class="vendor-specialties">
                             <span class="specialty">Nyama Choma</span>
                             <span class="specialty">Mishikaki</span>
                             <span class="specialty">Ugali</span>
                             <span class="specialty">Kachumbari</span>
+                            <span class="specialty">Pilau</span>
                         </div>
                         
                         <div class="vendor-stats">
@@ -382,30 +1170,56 @@
                             </div>
                         </div>
                         
-                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Baba%20Lameck" 
-                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="lang-sw">Peekia Sasa</span>
-                            <span class="lang-en" style="display: none;">Order Now</span>
-                        </a>
+                        <div class="vendor-actions">
+                            <a href="menu.html?vendor=baba-lameck" class="btn btn-outline btn-view-menu">
+                                <i class="fas fa-utensils"></i>
+                                <span class="lang-sw">Angalia Menu</span>
+                                <span class="lang-en" style="display: none;">View Menu</span>
+                            </a>
+                            <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Baba%20Lameck" 
+                               class="btn btn-primary btn-order-vendor">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="lang-sw">Peekia Sasa</span>
+                                <span class="lang-en" style="display: none;">Order Now</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Vendor 2 -->
-                <div class="vendor-card">
+                <div class="vendor-card" data-area="kivukoni" data-type="seafood" data-rating="4.8" data-verified="true">
                     <div class="vendor-header">
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&auto=format&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&auto=format&fit=crop" 
                              alt="Mama Zainab Seafood">
+                        <div class="vendor-overlay">
+                            <h3 class="vendor-name">Mama Zainab Seafood</h3>
+                        </div>
+                        <div class="verification-badge">
+                            <div class="verification-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
                         <div class="vendor-badges">
-                            <span class="vendor-badge verified">✓ Verified</span>
+                            <span class="vendor-badge verified">
+                                <i class="fas fa-shield-alt"></i> Verified
+                            </span>
+                            <span class="vendor-badge premium">
+                                <i class="fas fa-crown"></i> Premium
+                            </span>
                         </div>
                     </div>
                     <div class="vendor-info">
                         <div class="vendor-meta">
-                            <h3>Mama Zainab Seafood</h3>
                             <div class="vendor-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.8</span>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.8</span>
+                                <span class="rating-count">(890)</span>
                             </div>
                         </div>
                         
@@ -414,19 +1228,20 @@
                             <span>Kivukoni, Dar es Salaam</span>
                         </div>
                         
-                        <p class="lang-sw">Seafood safi kutoka bandari, kutayarishwa kwa usafi wa juu.</p>
-                        <p class="lang-en" style="display: none;">Fresh seafood from the port, prepared with premium hygiene.</p>
+                        <p class="vendor-description lang-sw">Seafood safi kutoka bandari, kutayarishwa kwa usafi wa juu na viungo vya kiasili. Uzoefu wa miaka 15 katika upishi wa bahari.</p>
+                        <p class="vendor-description lang-en" style="display: none;">Fresh seafood from the port, prepared with premium hygiene and natural spices. 15 years of experience in seafood cooking.</p>
                         
                         <div class="vendor-specialties">
                             <span class="specialty">Prawns</span>
                             <span class="specialty">Calamari</span>
-                            <span class="specialty">Fish</span>
+                            <span class="specialty">Fish Curry</span>
                             <span class="specialty">Coconut Rice</span>
+                            <span class="specialty">Grilled Fish</span>
                         </div>
                         
                         <div class="vendor-stats">
                             <div class="stat">
-                                <span class="stat-value">3+</span>
+                                <span class="stat-value">15+</span>
                                 <span class="stat-label lang-sw">Miaka</span>
                                 <span class="stat-label lang-en" style="display: none;">Years</span>
                             </div>
@@ -442,31 +1257,56 @@
                             </div>
                         </div>
                         
-                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Mama%20Zainab" 
-                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="lang-sw">Peekia Sasa</span>
-                            <span class="lang-en" style="display: none;">Order Now</span>
-                        </a>
+                        <div class="vendor-actions">
+                            <a href="menu.html?vendor=mama-zainab" class="btn btn-outline btn-view-menu">
+                                <i class="fas fa-utensils"></i>
+                                <span class="lang-sw">Angalia Menu</span>
+                                <span class="lang-en" style="display: none;">View Menu</span>
+                            </a>
+                            <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Mama%20Zainab" 
+                               class="btn btn-primary btn-order-vendor">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="lang-sw">Peekia Sasa</span>
+                                <span class="lang-en" style="display: none;">Order Now</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Vendor 3 -->
-                <div class="vendor-card">
+                <div class="vendor-card" data-area="ubungo" data-type="street-food" data-rating="4.7" data-verified="true">
                     <div class="vendor-header">
-                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=400&auto=format&fit=crop" 
+                        <img src="https://images.unsplash.com/photo-1563379091339-03246963d9d6?w=600&auto=format&fit=crop" 
                              alt="Street Bites Dar">
+                        <div class="vendor-overlay">
+                            <h3 class="vendor-name">Street Bites Dar</h3>
+                        </div>
+                        <div class="verification-badge">
+                            <div class="verification-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
                         <div class="vendor-badges">
-                            <span class="vendor-badge verified">✓ Verified</span>
-                            <span class="vendor-badge featured">Featured</span>
+                            <span class="vendor-badge verified">
+                                <i class="fas fa-shield-alt"></i> Verified
+                            </span>
+                            <span class="vendor-badge featured">
+                                <i class="fas fa-star"></i> Featured
+                            </span>
                         </div>
                     </div>
                     <div class="vendor-info">
                         <div class="vendor-meta">
-                            <h3>Street Bites Dar</h3>
                             <div class="vendor-rating">
-                                <i class="fas fa-star"></i>
-                                <span>4.7</span>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="rating-value">4.7</span>
+                                <span class="rating-count">(1,543)</span>
                             </div>
                         </div>
                         
@@ -475,19 +1315,20 @@
                             <span>Ubungo, Dar es Salaam</span>
                         </div>
                         
-                        <p class="lang-sw">Vyakula vya mitaani kwa ladha ya asili na bei nafuu.</p>
-                        <p class="lang-en" style="display: none;">Authentic street food flavors at affordable prices.</p>
+                        <p class="vendor-description lang-sw">Vyakula vya mitaani kwa ladha ya asili na bei nafuu. Uzoefu wa miaka 8 katika kutoa ladha bora za mtaani.</p>
+                        <p class="vendor-description lang-en" style="display: none;">Authentic street food flavors at affordable prices. 8 years experience in delivering the best street flavors.</p>
                         
                         <div class="vendor-specialties">
                             <span class="specialty">Chips Mayai</span>
                             <span class="specialty">Mishikaki</span>
                             <span class="specialty">Maandazi</span>
-                            <span class="specialty">Vitafunio</span>
+                            <span class="specialty">Viazi Karai</span>
+                            <span class="specialty">Chapati</span>
                         </div>
                         
                         <div class="vendor-stats">
                             <div class="stat">
-                                <span class="stat-value">2+</span>
+                                <span class="stat-value">8+</span>
                                 <span class="stat-label lang-sw">Miaka</span>
                                 <span class="stat-label lang-en" style="display: none;">Years</span>
                             </div>
@@ -497,61 +1338,210 @@
                                 <span class="stat-label lang-en" style="display: none;">Orders</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-value">15min</span>
+                                <span class="stat-value">18min</span>
                                 <span class="stat-label lang-sw">Wastani</span>
                                 <span class="stat-label lang-en" style="display: none;">Average</span>
                             </div>
                         </div>
                         
-                        <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Street%20Bites" 
-                           class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                            <i class="fab fa-whatsapp"></i>
-                            <span class="lang-sw">Peekia Sasa</span>
-                            <span class="lang-en" style="display: none;">Order Now</span>
-                        </a>
+                        <div class="vendor-actions">
+                            <a href="menu.html?vendor=street-bites" class="btn btn-outline btn-view-menu">
+                                <i class="fas fa-utensils"></i>
+                                <span class="lang-sw">Angalia Menu</span>
+                                <span class="lang-en" style="display: none;">View Menu</span>
+                            </a>
+                            <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Street%20Bites%20Dar" 
+                               class="btn btn-primary btn-order-vendor">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="lang-sw">Peekia Sasa</span>
+                                <span class="lang-en" style="display: none;">Order Now</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Add more vendor cards here -->
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline btn-lg">
-                    <span class="lang-sw">Angalia Wauzaji Wote</span>
-                    <span class="lang-en" style="display: none;">View All Vendors</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
+                <!-- Vendor 4 -->
+                <div class="vendor-card" data-area="masaki" data-type="pilau" data-rating="4.9" data-verified="true">
+                    <div class="vendor-header">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70ca003675ed?w=600&auto=format&fit=crop" 
+                             alt="Royal Pilau Kitchen">
+                        <div class="vendor-overlay">
+                            <h3 class="vendor-name">Royal Pilau Kitchen</h3>
+                        </div>
+                        <div class="verification-badge">
+                            <div class="verification-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                        <div class="vendor-badges">
+                            <span class="vendor-badge verified">
+                                <i class="fas fa-shield-alt"></i> Verified
+                            </span>
+                            <span class="vendor-badge premium">
+                                <i class="fas fa-crown"></i> Premium
+                            </span>
+                        </div>
+                    </div>
+                    <div class="vendor-info">
+                        <div class="vendor-meta">
+                            <div class="vendor-rating">
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="rating-value">4.9</span>
+                                <span class="rating-count">(2,150)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vendor-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Masaki, Dar es Salaam</span>
+                        </div>
+                        
+                        <p class="vendor-description lang-sw">Pilau ya kifahari ya Zanzibar. Viungo vya asili kutoka Unguja, mapishi ya jadi ya pwani ya Tanzania.</p>
+                        <p class="vendor-description lang-en" style="display: none;">Exquisite Zanzibar pilau. Natural spices from Unguja, traditional coastal Tanzanian recipes.</p>
+                        
+                        <div class="vendor-specialties">
+                            <span class="specialty">Pilau</span>
+                            <span class="specialty">Biriani</span>
+                            <span class="specialty">Coconut Rice</span>
+                            <span class="specialty">Kachumbari</span>
+                            <span class="specialty">Beef Stew</span>
+                        </div>
+                        
+                        <div class="vendor-stats">
+                            <div class="stat">
+                                <span class="stat-value">12+</span>
+                                <span class="stat-label lang-sw">Miaka</span>
+                                <span class="stat-label lang-en" style="display: none;">Years</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">2.1K+</span>
+                                <span class="stat-label lang-sw">Maagizo</span>
+                                <span class="stat-label lang-en" style="display: none;">Orders</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">22min</span>
+                                <span class="stat-label lang-sw">Wastani</span>
+                                <span class="stat-label lang-en" style="display: none;">Average</span>
+                            </div>
+                        </div>
+                        
+                        <div class="vendor-actions">
+                            <a href="menu.html?vendor=royal-pilau" class="btn btn-outline btn-view-menu">
+                                <i class="fas fa-utensils"></i>
+                                <span class="lang-sw">Angalia Menu</span>
+                                <span class="lang-en" style="display: none;">View Menu</span>
+                            </a>
+                            <a href="https://wa.me/255747193972?text=Nataka%20kupeekia%20kutoka%20kwa%20Royal%20Pilau%20Kitchen" 
+                               class="btn btn-primary btn-order-vendor">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="lang-sw">Peekia Sasa</span>
+                                <span class="lang-en" style="display: none;">Order Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Become a Vendor Section -->
+    <!-- Verification Standards -->
+    <section class="verification-standards">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title lang-sw">Viwango Vya Uthibitishaji</h2>
+                <h2 class="section-title lang-en" style="display: none;">Verification Standards</h2>
+                <p class="section-subtitle lang-sw">Kila muuzaji anapita ukaguzi mkali wa 6 hatua kabla ya kuwa na cheti cha Uthibitishaji</p>
+                <p class="section-subtitle lang-en" style="display: none;">Every vendor passes our rigorous 6-step verification process before receiving our Trusted Vendor certification</p>
+            </div>
+            
+            <div class="standards-grid">
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="lang-sw">Ukaguzi wa Usafi</h3>
+                    <h3 class="lang-en" style="display: none;">Hygiene Inspection</h3>
+                    <p class="lang-sw">Ukaguzi wa kiwango cha juu wa usafi wa maeneo ya upishi, vifaa, na wafanyikazi</p>
+                    <p class="lang-en" style="display: none;">High-standard hygiene inspection of cooking areas, equipment, and staff</p>
+                </div>
+                
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="lang-sw">Ubora wa Viungo</h3>
+                    <h3 class="lang-en" style="display: none;">Ingredient Quality</h3>
+                    <p class="lang-sw">Uthibitishaji wa ubora wa viungo na chakula, kuanzia chanzo hadi uwasilishaji</p>
+                    <p class="lang-en" style="display: none;">Verification of ingredient and food quality from source to delivery</p>
+                </div>
+                
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="lang-sw">Uzoefu na Sifa</h3>
+                    <h3 class="lang-en" style="display: none;">Experience & Expertise</h3>
+                    <p class="lang-sw">Uthibitishaji wa uzoefu, mapishi ya jadi, na ustadi wa kupika</p>
+                    <p class="lang-en" style="display: none;">Verification of experience, traditional recipes, and cooking expertise</p>
+                </div>
+                
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="lang-sw">Ukadiriaji wa Wateja</h3>
+                    <h3 class="lang-en" style="display: none;">Customer Reviews</h3>
+                    <p class="lang-sw">Kiwango cha chini cha ukadiriaji wa 4.0★ kutoka kwa wateja 100+</p>
+                    <p class="lang-en" style="display: none;">Minimum rating of 4.0★ from 100+ customers</p>
+                </div>
+                
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="lang-sw">Uwezo wa Muda</h3>
+                    <h3 class="lang-en" style="display: none;">Timeliness</h3>
+                    <p class="lang-sw">Uwezo wa kutimiza maagizo ndani ya dakika 30 kwa wastani wa 95% ya wakati</p>
+                    <p class="lang-en" style="display: none;">Ability to fulfill orders within 30 minutes, 95% average success rate</p>
+                </div>
+                
+                <div class="standard-card">
+                    <div class="standard-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="lang-sw">Uokoaji wa Mazingira</h3>
+                    <h3 class="lang-en" style="display: none;">Environmental Safety</h3>
+                    <p class="lang-sw">Uthibitishaji wa mienendo endelevu na usalama wa mazingira katika shughuli zote</p>
+                    <p class="lang-en" style="display: none;">Verification of sustainable practices and environmental safety in all operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Become a Vendor CTA -->
     <section class="become-vendor">
         <div class="container">
-            <h2 class="display-2 lang-sw">Jiunge kama Mwuzaji</h2>
-            <h2 class="display-2 lang-en" style="display: none;">Become a Vendor</h2>
-            <p class="lead lang-sw">Ungana na wauzaji 150+ ambao tayari wanafaidika na wateja elfu</p>
-            <p class="lang-en lead" style="display: none;">Join 150+ vendors already benefiting from thousands of customers</p>
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Taka Kuwa Muuzaji Wetu?</h2>
+                <p class="lang-sw">Jiunge na jukwaa la wauzaji wanaoaminika zaidi Dar es Salaam</p>
+                <p class="lang-en" style="display: none;">Join Dar es Salaam's most trusted vendor platform</p>
+            </div>
             
             <div class="benefits-grid">
                 <div class="benefit">
                     <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="lang-sw">Wateja Wengi</h3>
-                    <h3 class="lang-en" style="display: none;">More Customers</h3>
-                    <p class="lang-sw">Fikia wateja elfu kwa Dar es Salaam</p>
-                    <p class="lang-en" style="display: none;">Reach thousands of customers across Dar es Salaam</p>
-                </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="lang-sw">Ukuaji wa Mapato</h3>
-                    <h3 class="lang-en" style="display: none;">Revenue Growth</h3>
-                    <p class="lang-sw">Onyesha maagizo 200% zaidi</p>
-                    <p class="lang-en" style="display: none;">Show 200% more orders</p>
+                    <h3 class="lang-sw">Ukuaji wa Biashara</h3>
+                    <h3 class="lang-en" style="display: none;">Business Growth</h3>
+                    <p class="lang-sw">Fikia wateja 10,000+ kwa mwezi, ongeza mapato yako hadi 5x</p>
+                    <p class="lang-en" style="display: none;">Reach 10,000+ monthly customers, increase revenue up to 5x</p>
                 </div>
                 
                 <div class="benefit">
@@ -560,16 +1550,33 @@
                     </div>
                     <h3 class="lang-sw">Usafirishaji wa Bure</h3>
                     <h3 class="lang-en" style="display: none;">Free Delivery</h3>
-                    <p class="lang-sw">Tunachukua usafirishaji wako wote</p>
-                    <p class="lang-en" style="display: none;">We handle all your deliveries</p>
+                    <p class="lang-sw">Weka bei zako, sisi hushughulikia usafirishaji na malipo</p>
+                    <p class="lang-en" style="display: none;">Set your prices, we handle delivery and payments</p>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="lang-sw">Uthibitishaji wa Kuaminika</h3>
+                    <h3 class="lang-en" style="display: none;">Trust Verification</h3>
+                    <p class="lang-sw">Cheti chetu cha uthibitishaji huongeza imani ya wateja</p>
+                    <p class="lang-en" style="display: none;">Our verification certificate boosts customer trust</p>
                 </div>
             </div>
             
-            <a href="contact.html?vendor=apply" class="btn btn-secondary btn-lg">
-                <i class="fas fa-user-plus"></i>
-                <span class="lang-sw">Omba Sasa</span>
-                <span class="lang-en" style="display: none;">Apply Now</span>
-            </a>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="lang-sw">Jiunge Sasa</span>
+                    <span class="lang-en" style="display: none;">Join Now</span>
+                </a>
+                <a href="tel:+255747193972" class="btn btn-outline btn-lg" style="color: white; border-color: white;">
+                    <i class="fas fa-phone"></i>
+                    <span class="lang-sw">Wasiliana Nasi</span>
+                    <span class="lang-en" style="display: none;">Contact Us</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -611,14 +1618,14 @@
                 </div>
                 
                 <div class="footer-section">
-                    <h4 class="lang-sw">Wauzaji</h4>
-                    <h4 class="lang-en" style="display: none;">For Vendors</h4>
+                    <h4 class="lang-sw">Huduma</h4>
+                    <h4 class="lang-en" style="display: none;">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#">Join as Vendor</a></li>
-                        <li><a href="#">Vendor Benefits</a></li>
-                        <li><a href="#">Requirements</a></li>
-                        <li><a href="#">Vendor Dashboard</a></li>
-                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Corporate Catering</a></li>
+                        <li><a href="#">Event Services</a></li>
+                        <li><a href="become-vendor.html">Become a Vendor</a></li>
+                        <li><a href="driver-jobs.html">Driver Jobs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 
@@ -636,7 +1643,8 @@
                         </li>
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Dar es Salaam, Tanzania</span>
+                            <span class="lang-sw">Dar es Salaam, Tanzania</span>
+                            <span class="lang-en" style="display: none;">Dar es Salaam, Tanzania</span>
                         </li>
                         <li>
                             <i class="fas fa-clock"></i>
@@ -650,9 +1658,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 Chakula Haraka. <span class="lang-sw">Haki zote zimehifadhiwa.</span><span class="lang-en" style="display: none;">All rights reserved.</span></p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -661,38 +1669,168 @@
     <!-- WhatsApp Float -->
     <a href="https://wa.me/255747193972" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
-        <span class="float-text lang-sw">Peekia Sasa</span>
-        <span class="float-text lang-en" style="display: none;">Order Now</span>
     </a>
 
-    <script src="js/main.js"></script>
+    <!-- JavaScript -->
     <script>
-        // Vendor Filtering
-        document.addEventListener('DOMContentLoaded', function() {
-            const areaFilter = document.getElementById('areaFilter');
-            const foodTypeFilter = document.getElementById('foodTypeFilter');
-            const ratingFilter = document.getElementById('ratingFilter');
-            
-            function filterVendors() {
-                const area = areaFilter.value;
-                const foodType = foodTypeFilter.value;
-                const rating = ratingFilter.value;
+        // Language Switcher
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
                 
-                console.log('Filtering by:', { area, foodType, rating });
-                // In a real implementation, you would filter vendor cards here
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.querySelectorAll('.lang-sw').forEach(el => {
+                    el.style.display = lang === 'sw' ? 'block' : 'none';
+                });
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.style.display = lang === 'en' ? 'block' : 'none';
+                });
+            });
+        });
+
+        // Vendor Filtering System
+        const areaFilter = document.getElementById('areaFilter');
+        const foodTypeFilter = document.getElementById('foodTypeFilter');
+        const ratingFilter = document.getElementById('ratingFilter');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const vendorCards = document.querySelectorAll('.vendor-card');
+
+        function filterVendors() {
+            const areaValue = areaFilter.value;
+            const foodTypeValue = foodTypeFilter.value;
+            const ratingValue = ratingFilter.value;
+            const showOnlyVerified = ratingValue === 'verified';
+            
+            let visibleCount = 0;
+            
+            vendorCards.forEach(card => {
+                const area = card.getAttribute('data-area');
+                const type = card.getAttribute('data-type');
+                const rating = parseFloat(card.getAttribute('data-rating'));
+                const verified = card.getAttribute('data-verified') === 'true';
+                
+                let showCard = true;
+                
+                // Area filter
+                if (areaValue !== 'all' && areaValue !== area) {
+                    showCard = false;
+                }
+                
+                // Food type filter
+                if (foodTypeValue !== 'all' && foodTypeValue !== type) {
+                    showCard = false;
+                }
+                
+                // Rating filter
+                if (ratingValue !== 'all' && ratingValue !== 'verified') {
+                    const minRating = parseFloat(ratingValue);
+                    if (rating < minRating) {
+                        showCard = false;
+                    }
+                }
+                
+                // Verified only filter
+                if (showOnlyVerified && !verified) {
+                    showCard = false;
+                }
+                
+                if (showCard) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Show/hide no results message
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                if (!noResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.id = 'noResults';
+                    noResultsDiv.style.cssText = `
+                        text-align: center;
+                        padding: 60px 20px;
+                        grid-column: 1 / -1;
+                    `;
+                    noResultsDiv.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 48px; color: var(--gray); margin-bottom: 20px;"></i>
+                        <h3 class="lang-sw">Hakuna wauzaji wanaolingana na filta yako</h3>
+                        <h3 class="lang-en" style="display: none;">No vendors match your filters</h3>
+                        <p class="lang-sw" style="color: var(--gray); margin-top: 10px;">Jaribu kubadilisha filta au angalia wauzaji wote</p>
+                        <p class="lang-en" style="display: none; color: var(--gray); margin-top: 10px;">Try changing your filters or view all vendors</p>
+                    `;
+                    document.getElementById('vendorsGrid').appendChild(noResultsDiv);
+                }
+            } else if (noResults) {
+                noResults.remove();
             }
+        }
+
+        // Event listeners for filters
+        areaFilter.addEventListener('change', filterVendors);
+        foodTypeFilter.addEventListener('change', filterVendors);
+        ratingFilter.addEventListener('change', filterVendors);
+
+        // Reset filters
+        resetFiltersBtn.addEventListener('click', () => {
+            areaFilter.value = 'all';
+            foodTypeFilter.value = 'all';
+            ratingFilter.value = 'all';
+            filterVendors();
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Add vendor card hover effects
+        vendorCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
             
-            areaFilter.addEventListener('change', filterVendors);
-            foodTypeFilter.addEventListener('change', filterVendors);
-            ratingFilter.addEventListener('change', filterVendors);
-            
-            // Initialize filters based on URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const areaParam = urlParams.get('area');
-            const typeParam = urlParams.get('type');
-            
-            if (areaParam) areaFilter.value = areaParam;
-            if (typeParam) foodTypeFilter.value = typeParam;
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // Initialize filters
+        filterVendors();
+
+        // Add vendor card click animation
+        document.querySelectorAll('.vendor-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.closest('.btn')) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
         });
     </script>
 </body>
